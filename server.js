@@ -5,8 +5,10 @@ var port = 5005;
 
 var server = http.createServer(function (req, res) {
 	
-	res.statusCode = 200;
-	res.writeHead({'Content-Type': 'text/plain' });
+	res.writeHead(200, {
+		'Content-Type': 'text/plain',
+		'Cache-Control': 'no-cache' 
+	});
 	
 	var params = req.url.substring(1).split('/');
 
