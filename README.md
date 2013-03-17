@@ -38,7 +38,26 @@ The actions supported as of today:
 
 * play
 * pause
-* volume (_parameter is absolute or relative volume. Prefix +/- indicates relative volume_)
-* seek (_parameter is queue index_)
+* volume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
+* seek (parameter is queue index)
 * next
 * previous
+* state (will return a json-representation of the current state of player)
+
+State
+-----
+
+Example of a state json:
+
+	{
+		"currentTrack": {
+			"artist":"The Low Anthem",
+			"title":"Charlie Darwin",
+			"album":"Rough Trade - Counter Culture 2008",
+			"duration":270
+		},
+		"relTime":29,
+		"stateTime":1363559099394,
+		"volume":11,
+		"currentState":"PAUSED_PLAYBACK"
+	}
