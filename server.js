@@ -40,25 +40,25 @@ function handleAction(options) {
 
 	switch (options.action.toLowerCase()) {
 		case "play":
-			player.play();
+			player.coordinator.play();
 			break;
 		case "pause":
-			player.pause();
+			player.coordinator.pause();
 			break;
 		case "volume":
 			player.setVolume(options.value);
 			break;
 		case "state":
-			return player.state;
+			return player.coordinator.state;
 			break;
 		case "seek":
-			player.seek(options.value);
+			player.coordinator.seek(options.value);
 			break;
 		case "next":
-			player.nextTrack();
+			player.coordinator.nextTrack();
 			break;
 		case "previous":
-			player.previousTrack();
+			player.coordinator.previousTrack();
 			break;
 
 	}
