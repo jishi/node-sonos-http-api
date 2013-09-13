@@ -73,7 +73,7 @@ A preset is a predefined grouping of players with predefined volumes, that will 
 Example preset:
 
 	{ 
-	  players [
+	  "players": [
 	    { "roomName": "room1", "volume": 15}, 
 	    {"roomName": "room2", "volume": 25}
 	  ]
