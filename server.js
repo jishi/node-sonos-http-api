@@ -12,13 +12,31 @@ var server = http.createServer(function (req, res) {
 	
 	var params = req.url.substring(1).split('/');
 
-	if (params.length < 2) return;
+	if (params.length < 2 && params[0] !== "zones") {
+		return;
+	} else if (params.length == 2 && params[0] == "preset") {
+		// Handle presets
+		var opt = {
+			action: params[0],
+			value: params[1]
+		};
+	} else if (params.length > 1) {
+	
 
-	var opt = {
-		room: params[0],
-		action: params[1],
-		value: params[2]
-	};
+		var opt = {
+			room: params[0],
+			action: params[1],
+			value: params[2]
+		};
+
+	} else {
+		// guessing zones
+		var opt = {
+			action: params[0]
+		}
+	}
+
+	console.log("received command", opt);
 
 	var response = handleAction(opt);
 	
@@ -32,6 +50,17 @@ var server = http.createServer(function (req, res) {
 });
 
 function handleAction(options) {
+
+	if (options.action === "zones") {
+		return discovery.getZones();
+	}
+
+	if (options.action == "preset") {
+		// Apply preset
+		var preset = JSON.parse(decodeURIComponent(options.value));
+		discovery.applyPreset(preset);
+	}
+
 	var roomName = decodeURIComponent(options.room);
 	var player = discovery.getPlayer(roomName);
 	if (!player) return;
@@ -60,7 +89,8 @@ function handleAction(options) {
 		case "previous":
 			player.coordinator.previousTrack();
 			break;
-
+		case "setavtransport":
+			player.setAVTransportURI(options.value);
 	}
 
 }

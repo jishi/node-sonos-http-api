@@ -18,6 +18,8 @@ start the server by running
 
 Now you can control your system by invoking the following commands:
 
+`http://localhost:5005/zones`
+`http://localhost:5005/preset/[JSON preset]`
 `http://localhost:5005/{room name}/{action}[/{parameter}]`
 
 Example:
@@ -61,3 +63,20 @@ Example of a state json:
 		"volume":11,
 		"currentState":"PAUSED_PLAYBACK"
 	}
+
+
+Preset
+------
+
+A preset is a predefined grouping of players with predefined volumes, that will start playing whatever is in the coordinators queue.
+
+Example preset:
+
+	{ 
+	  players [
+	    { "roomName": "room1", "volume": 15}, 
+	    {"roomName": "room2", "volume": 25}
+	  ]
+	}
+
+The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future.
