@@ -1,0 +1,3 @@
+{
+	"all": {"players": [{ "roomName": "Bathroom", "volume": 10 },{ "roomName": "Kitchen", "volume": 10 },{ "roomName": "Office", "volume": 10 },{ "roomName": "Bedroom", "volume": 10 },{ "roomName": "TV Room", "volume": 15 }]}
+}

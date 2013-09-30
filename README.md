@@ -20,6 +20,7 @@ Now you can control your system by invoking the following commands:
 
 `http://localhost:5005/zones`
 `http://localhost:5005/preset/[JSON preset]`
+`http://localhost:5005/preset/[predefined preset name]`
 `http://localhost:5005/{room name}/{action}[/{parameter}]`
 
 Example:
@@ -80,3 +81,11 @@ Example preset:
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future.
+
+preset.json
+-----------
+
+You can create a file with pre made presets, called presets.json. I've included a sample file based on my own setup. In the example, there is one preset called `all`, which you can apply by invoking:
+
+`http://localhost:5005/preset/all`
+

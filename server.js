@@ -1,7 +1,18 @@
 var http = require('http');	
 var SonosDiscovery = require('sonos-discovery');
+var fs = require('fs');
 var discovery = new SonosDiscovery();
 var port = 5005;
+var presets = {};
+
+fs.exists('./presets.json', function (exists) {
+	if (exists) {
+		presets = require('./presets.json');
+		console.log('loaded presets', presets);
+	} else {
+		console.log('no preset file, ignoring...');
+	}
+});
 
 var server = http.createServer(function (req, res) {
 	
@@ -57,8 +68,16 @@ function handleAction(options) {
 
 	if (options.action == "preset") {
 		// Apply preset
-		var preset = JSON.parse(decodeURIComponent(options.value));
-		discovery.applyPreset(preset);
+		var value = decodeURIComponent(options.value);		
+		if (value.startsWith('{'))
+			var preset = JSON.parse(value);
+		else 
+			var preset = presets[value];
+
+		console.log(preset)
+
+		if (preset)
+			discovery.applyPreset(preset);
 	}
 
 	var roomName = decodeURIComponent(options.room);
