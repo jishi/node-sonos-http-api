@@ -24,6 +24,7 @@ var server = http.createServer(function (req, res) {
 	var params = req.url.substring(1).split('/');
 
 	if (params.length < 2 && params[0] !== "zones") {
+		res.end();
 		return;
 	} else if (params.length == 2 && params[0] == "preset") {
 		// Handle presets
