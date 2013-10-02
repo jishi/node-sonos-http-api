@@ -15,12 +15,11 @@ fs.exists('./presets.json', function (exists) {
 });
 
 var server = http.createServer(function (req, res) {
-	
 	res.writeHead(200, {
 		'Content-Type': 'text/plain',
 		'Cache-Control': 'no-cache' 
 	});
-	
+
 	var params = req.url.substring(1).split('/');
 
 	if (params.length < 2 && params[0] !== "zones") {
@@ -48,8 +47,6 @@ var server = http.createServer(function (req, res) {
 		}
 	}
 
-	console.log("received command", opt);
-
 	var response = handleAction(opt);
 	
 	if (response) {
@@ -74,8 +71,6 @@ function handleAction(options) {
 			var preset = JSON.parse(value);
 		else 
 			var preset = presets[value];
-
-		console.log(preset)
 
 		if (preset)
 			discovery.applyPreset(preset);
