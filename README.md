@@ -37,6 +37,10 @@ Example:
 `http://localhost:5005/living room/pause`
 (will pause the living room)
 
+`http://localhost:5005/living room/favorite/mysuperplaylist`
+(will replace queue with the favorite called "mysuperplaylist")
+
+
 The actions supported as of today:
 
 * play
@@ -46,6 +50,7 @@ The actions supported as of today:
 * next
 * previous
 * state (will return a json-representation of the current state of player)
+* favorite
 
 State
 -----
@@ -88,4 +93,13 @@ preset.json
 You can create a file with pre made presets, called presets.json. I've included a sample file based on my own setup. In the example, there is one preset called `all`, which you can apply by invoking:
 
 `http://localhost:5005/preset/all`
+
+Favorites
+---------
+
+It now has support for starting favorites. Simply invoke:
+
+`http://localhost:5005/living room/favorite/[favorite name]`
+
+and it will replace the queue with that favorite. Bear in mind that favorites may share name, which might give unpredictable behavior at the moment.
 
