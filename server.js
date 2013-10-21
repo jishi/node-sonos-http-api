@@ -14,6 +14,6 @@ fs.exists('./presets.json', function (exists) {
 	} else {
 		console.log('no preset file, ignoring...');
 	}
+	new SonosHttpAPI(discovery, port, presets);
 });
 
-new SonosHttpAPI(discovery, port, presets);
