@@ -79,15 +79,15 @@ Preset
 
 A preset is a predefined grouping of players with predefined volumes, that will start playing whatever is in the coordinators queue.
 
-Example preset:
+Example preset (state and uri are optional):
 
 	{ 
 	  "players": [
 	    { "roomName": "room1", "volume": 15}, 
 	    {"roomName": "room2", "volume": 25}
 	  ],
-	  "state": "stopped" // optional
-	  "uri": "x-rincon-stream:RINCON_0000000000001400" // optional, this would be line in, could be a radio or whatever
+	  "state": "stopped",
+	  "uri": "x-rincon-stream:RINCON_0000000000001400"
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future.
