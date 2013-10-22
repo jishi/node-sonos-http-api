@@ -19,6 +19,8 @@ start the server by running
 Now you can control your system by invoking the following commands:
 
 `http://localhost:5005/zones`
+`http://localhost:5005/lockvolumes`
+`http://localhost:5005/unlockvolumes`
 `http://localhost:5005/preset/[JSON preset]`
 `http://localhost:5005/preset/[predefined preset name]`
 `http://localhost:5005/{room name}/{action}[/{parameter}]`
@@ -51,6 +53,7 @@ The actions supported as of today:
 * previous
 * state (will return a json-representation of the current state of player)
 * favorite
+* lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 
 State
 -----
@@ -82,7 +85,9 @@ Example preset:
 	  "players": [
 	    { "roomName": "room1", "volume": 15}, 
 	    {"roomName": "room2", "volume": 25}
-	  ]
+	  ],
+	  "state": "stopped" // optional
+	  "uri": "x-rincon-stream:RINCON_0000000000001400" // optional, this would be line in, could be a radio or whatever
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future.
