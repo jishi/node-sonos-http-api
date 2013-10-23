@@ -1,8 +1,12 @@
 {
-  "all": {"players": [{ "roomName": "Bathroom", "volume": 10 },{ "roomName": "Kitchen", "volume": 10 },{ "roomName": "Office", "volume": 10 },{ "roomName": "Bedroom", "volume": 10 },{ "roomName": "TV Room", "volume": 15 }]},
-  "tv": {
-    "players": [{ "roomName": "TV Room", "volume": 50 }],
-    "state": "stopped",
-    "uri": "x-rincon-stream:RINCON_0000000000001400"
+	"all": {"players": [{ "roomName": "Bathroom", "volume": 10 },{ "roomName": "Kitchen", "volume": 10 },{ "roomName": "Office", "volume": 10 },{ "roomName": "Bedroom", "volume": 10 },{ "roomName": "TV Room", "volume": 15 }]},
+	"tv": {
+		"players": [{ "roomName": "TV Room", "volume": 50 }],
+		"state": "stopped",
+		"uri": "x-rincon-stream:RINCON_0000000000001400"
+	},
+  "Feb 13": {
+    "players": [{ "roomName": "Bathroom", "volume": 10 },{ "roomName": "Kitchen", "volume": 10 },{ "roomName": "Office", "volume": 10 },{ "roomName": "Bedroom", "volume": 10 },{ "roomName": "TV Room", "volume": 15 }],
+    "favorite": "Feb 13"
   }
 }
