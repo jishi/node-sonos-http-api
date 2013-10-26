@@ -42,18 +42,26 @@ Example:
 `http://localhost:5005/living room/favorite/mysuperplaylist`
 (will replace queue with the favorite called "mysuperplaylist")
 
+`http://localhost:5005/living room/repeat/on`
+(will turn on repeat mode for group)
+
 
 The actions supported as of today:
 
 * play
 * pause
 * volume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
+* groupVolume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
+* mute / unmute
+* groupMute / groupUnmute
 * seek (parameter is queue index)
 * next
 * previous
 * state (will return a json-representation of the current state of player)
 * favorite
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
+* repeat (on/off)
+* shuffle (on/off)
 
 State
 -----
