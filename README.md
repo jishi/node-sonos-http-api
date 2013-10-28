@@ -62,6 +62,8 @@ The actions supported as of today:
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
 * shuffle (on/off)
+* pauseall
+* resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc.)
 
 State
 -----
