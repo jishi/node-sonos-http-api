@@ -21,8 +21,10 @@ Now you can control your system by invoking the following commands:
 `http://localhost:5005/zones`
 `http://localhost:5005/lockvolumes`
 `http://localhost:5005/unlockvolumes`
-`http://localhost:5005/preset/[JSON preset]`
-`http://localhost:5005/preset/[predefined preset name]`
+`http://localhost:5005/pauseall[/{timeout in minutes}]`
+`http://localhost:5005/resumeall[/{timeout in minutes}]`
+`http://localhost:5005/preset/{JSON preset}`
+`http://localhost:5005/preset/{predefined preset name}`
 `http://localhost:5005/{room name}/{action}[/{parameter}]`
 
 Example:
@@ -62,8 +64,8 @@ The actions supported as of today:
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
 * shuffle (on/off)
-* pauseall
-* resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc.)
+* pauseall (with optional timeout in minutes)
+* resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 
 State
 -----
