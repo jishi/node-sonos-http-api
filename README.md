@@ -57,6 +57,7 @@ The actions supported as of today:
 * mute / unmute
 * groupMute / groupUnmute
 * seek (parameter is queue index)
+* trackseek (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)
 * next
 * previous
 * state (will return a json-representation of the current state of player)
