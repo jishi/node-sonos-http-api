@@ -26,6 +26,7 @@ Now you can control your system by invoking the following commands:
 `http://localhost:5005/preset/{JSON preset}`
 `http://localhost:5005/preset/{predefined preset name}`
 `http://localhost:5005/{room name}/{action}[/{parameter}]`
+`http://localhost:5005/reindex`
 
 Example:
 

@@ -1,6 +1,6 @@
 {
   "name": "sonos-http-api",
-  "version": "0.4.4",
+  "version": "0.10.0",
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "author": "Jimmy Shimizu <jimmy@shimizu.se>",
   "repository": {
