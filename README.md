@@ -53,6 +53,7 @@ The actions supported as of today:
 
 * play
 * pause
+* playpause (toggles playing state)
 * volume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
 * groupVolume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
 * mute / unmute
