@@ -8,7 +8,9 @@
     "url": "https://github.com/jishi/node-sonos-http-api.git"
   },
   "dependencies": {
-    "sonos-discovery": "git+https://github.com/jishi/node-sonos-discovery.git#master"
+    "sonos-discovery": "git+https://github.com/jishi/node-sonos-discovery.git#master",
+    "paperboy": "*",
+    "request": "*"
   },
   "engine": "node 0.8.x",
   "main": "lib/sonos-http-api.js"
