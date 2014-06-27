@@ -7,7 +7,6 @@ var path = require('path');
 
 var config = require('./config.json');
 var port = config.my_port;
-var ip = config.my_ip_address;
 
 var webroot = path.join(path.dirname(__filename), 'sonos');
 var presets = {};
@@ -19,6 +18,6 @@ fs.exists('./presets.json', function (exists) {
 	} else {
 		console.log('no preset file, ignoring...');
 	}
-	new SonosHttpAPI(discovery, port, presets, ip, webroot);
+	new SonosHttpAPI(discovery, port, presets, webroot);
 });
 

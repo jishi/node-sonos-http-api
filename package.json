@@ -9,8 +9,7 @@
   },
   "dependencies": {
     "sonos-discovery": "git+https://github.com/jishi/node-sonos-discovery.git#master",
-    "paperboy": "*",
-    "request": "*"
+    "paperboy": "*"
   },
   "engine": "node 0.8.x",
   "main": "lib/sonos-http-api.js"
