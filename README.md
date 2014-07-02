@@ -69,6 +69,7 @@ The actions supported as of today:
 * shuffle (on/off)
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
+* say
 
 State
 -----
@@ -117,6 +118,18 @@ You can create a file with pre made presets, called presets.json. I've included 
 
 `http://localhost:5005/preset/all`
 
+settings.json
+-------------
+
+If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder. The defaults are:
+
+{
+  port: 5005,
+  cacheDir: './cache'
+}
+
+Override as it suits you.
+
 Favorites
 ---------
 
@@ -126,3 +139,15 @@ It now has support for starting favorites. Simply invoke:
 
 and it will replace the queue with that favorite. Bear in mind that favorites may share name, which might give unpredictable behavior at the moment.
 
+
+Say (TTS support)
+-----------------
+
+Experimental support for TTS. Action is:
+
+/[Room name]/say/[phrase][/[language_code]]
+
+Example:
+
+/Office/say/Hello, dinner is ready
+/Office/say/Hej, maten är klar/sv
