@@ -5,10 +5,23 @@ var fs = require('fs');
 var discovery = new SonosDiscovery();
 var path = require('path');
 
-var config = require('./config.json');
-var port = config.my_port;
+var settings = {
+  port: 5005,
+  cacheDir: './cache'
+}
 
-var webroot = path.join(path.dirname(__filename), 'sonos');
+try {
+  var userSettings = require(path.resolve(__dirname, 'settings.json'));
+} catch (e) {
+  console.log('no settings file found, will only use default settings');
+}
+
+if (userSettings) {
+  for (var i in userSettings) {
+    settings[i] = userSettings[i];
+  }
+}
+
 var presets = {};
 
 fs.exists('./presets.json', function (exists) {
@@ -18,6 +31,6 @@ fs.exists('./presets.json', function (exists) {
 	} else {
 		console.log('no preset file, ignoring...');
 	}
-	new SonosHttpAPI(discovery, port, presets, webroot);
+	new SonosHttpAPI(discovery, settings, presets);
 });
 
