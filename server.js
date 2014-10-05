@@ -2,13 +2,14 @@ var http = require('http');
 var SonosDiscovery = require('sonos-discovery');
 var SonosHttpAPI = require('./lib/sonos-http-api.js');
 var fs = require('fs');
-var discovery = new SonosDiscovery();
 var path = require('path');
 
 var settings = {
   port: 5005,
   cacheDir: './cache'
 }
+
+var discovery = new SonosDiscovery(settings);
 
 try {
   var userSettings = require(path.resolve(__dirname, 'settings.json'));
