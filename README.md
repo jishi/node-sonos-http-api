@@ -64,9 +64,11 @@ The actions supported as of today:
 * previous
 * state (will return a json-representation of the current state of player)
 * favorite
+* playlist
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
 * shuffle (on/off)
+* crossfade (on/off)
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
@@ -138,6 +140,15 @@ It now has support for starting favorites. Simply invoke:
 `http://localhost:5005/living room/favorite/[favorite name]`
 
 and it will replace the queue with that favorite. Bear in mind that favorites may share name, which might give unpredictable behavior at the moment.
+
+Playlist
+---------
+
+Playing a Sonos playlist is now supported. Invoke the following: 
+
+`http://localhost:5005/living room/playlist/[playlist name]`
+
+and it will replace the queue with the playlist and starts playing.
 
 
 Say (TTS support)
