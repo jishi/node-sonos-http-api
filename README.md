@@ -76,18 +76,36 @@ State
 
 Example of a state json:
 
-	{
-		"currentTrack": {
-			"artist":"The Low Anthem",
-			"title":"Charlie Darwin",
-			"album":"Rough Trade - Counter Culture 2008",
-			"duration":270
-		},
-		"relTime":29,
-		"stateTime":1363559099394,
-		"volume":11,
-		"currentState":"PAUSED_PLAYBACK"
-	}
+  {
+    "currentTrack":{
+      "artist":"College",
+      "title":"Teenage Color - Anoraak Remix",
+      "album":"Nightdrive With You",
+      "albumArtURI":"/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a3DjBDQs8ebkxMBo2V8V3SH%3fsid%3d9%26flags%3d32",
+      "duration":347,
+      "uri":"x-sonos-spotify:spotify%3atrack%3a3DjBDQs8ebkxMBo2V8V3SH?sid=9&flags=32"
+    },
+    "nextTrack":{
+      "artist":"Blacknuss",
+      "title":"Thinking of You",
+      "album":"3",
+      "albumArtURI":"/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a4U93TIa0X6jGQrTBGTkChH%3fsid%3d9%26flags%3d32",
+      "duration":235,
+      "uri":"x-sonos-spotify:spotify%3atrack%3a4U93TIa0X6jGQrTBGTkChH?sid=9&flags=32"
+    },
+    "volume":18,
+    "mute":false,
+    "trackNo":161,
+    "elapsedTime":200,
+    "elapsedTimeFormatted":"03:20",
+    "zoneState":"PAUSED_PLAYBACK",
+    "playerState":"PLAYING",
+    "zonePlayMode":{
+      "shuffle":true,
+      "repeat":false,
+      "crossfade":false
+    }
+  }
 
 
 Preset
