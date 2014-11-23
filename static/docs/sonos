@@ -3,7 +3,7 @@
   "swaggerVersion": 1.2,
   "basePath": "http://localhost:5005",
   "description": "Sonos api",
-  "resourcePath": "/sonos",
+  "resourcePath": "/",
   "produces": [
     "application/json"
   ],
@@ -12,7 +12,7 @@
   ],
   "apis": [
     {
-      "path": "/sonos/zones",
+      "path": "/zones",
       "operations": [
         {
           "method": "GET",
@@ -26,7 +26,32 @@
       ]
     },
     {
-      "path": "/sonos/lockvolumes",
+      "path": "/favorites",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "getFavorites",
+          "summary": "get favorites in system",
+          "type": "array",
+          "items": {
+            "$ref": "Favorite"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/reindex",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "reindex",
+          "summary": "reindex your music library",
+          "type": "void"
+        }
+      ]
+    },
+    {
+      "path": "/lockvolumes",
       "notes": "experimental",
       "operations": [
         {
@@ -38,7 +63,7 @@
       ]
     },
     {
-      "path": "/sonos/unlockvolumes",
+      "path": "/unlockvolumes",
       "notes": "experimental",
       "operations": [
         {
@@ -50,7 +75,7 @@
       ]
     },
     {
-      "path": "/sonos/pauseall/{durationInMinutes}",
+      "path": "/pauseall/{durationInMinutes}",
       "operations": [
         {
           "method": "GET",
@@ -60,8 +85,8 @@
           "parameters": [
             {
               "paramType": "path",
-              "name": "room",
-              "required": true,
+              "name": "durationInMinutes",
+              "required": false,
               "type": "integer",
               "format": "int32"
             }
@@ -70,7 +95,7 @@
       ]
     },
     {
-      "path": "/sonos/resumeall/{durationInMinutes}",
+      "path": "/resumeall/{durationInMinutes}",
       "operations": [
         {
           "method": "GET",
@@ -80,8 +105,8 @@
           "parameters": [
             {
               "paramType": "path",
-              "name": "room",
-              "required": true,
+              "name": "durationInMinute",
+              "required": false,
               "type": "integer",
               "format": "int32"
             }
@@ -90,7 +115,7 @@
       ]
     },
     {
-      "path": "/sonos/preset/{jsonPreset}",
+      "path": "/preset/{jsonPreset}",
       "operations": [
         {
           "method": "GET",
@@ -101,7 +126,7 @@
       ]
     },
     {
-      "path": "/sonos/{room}/{action}",
+      "path": "/{room}/{action}",
       "operations": [
         {
           "method": "GET",
@@ -121,8 +146,10 @@
               "required": true,
               "type": "string",
               "enum": [
+                "play",
+                "pause",
                 "next",
-                "pause"
+                "previous"
               ]
             }
           ]
@@ -130,7 +157,7 @@
       ]
     },
     {
-      "path": "/sonos/{room}/{action}/{parameter}",
+      "path": "/{room}/{action}/{parameter}",
       "operations": [
         {
           "method": "GET",
@@ -267,7 +294,7 @@
     "PlayMode": {
       "id": "PlayMode",
       "properties": {
-        "suffle": {
+        "shuffle": {
           "type": "boolean"
         },
         "repeat": {
