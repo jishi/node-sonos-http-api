@@ -3,6 +3,8 @@ SONOS HTTP API
 
 A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
 
+There is a simple sandbox at /docs (incomplete atm)
+
 USAGE
 -----
 
