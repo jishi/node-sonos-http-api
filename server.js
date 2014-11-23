@@ -10,7 +10,6 @@ var settings = {
   cacheDir: './cache'
 }
 
-var presets = {};
 var discovery = new SonosDiscovery(settings);
 var api;
 
@@ -26,14 +25,7 @@ if (userSettings) {
   }
 }
 
-fs.exists('./presets.json', function (exists) {
-	if (exists) {
-		presets = require('./presets.json');
-		console.log('loaded presets', presets);
-	} else {
-		console.log('no preset file, ignoring...');
-	}
-	api = new SonosHttpAPI(discovery, settings, presets);
-	requireFu(__dirname + '/lib/actions')(api);
-});
+
+api = new SonosHttpAPI(discovery, settings);
+requireFu(__dirname + '/lib/actions')(api);
 
