@@ -3,6 +3,8 @@ SONOS HTTP API
 
 A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
 
+There is a simple sandbox at /docs (incomplete atm)
+
 USAGE
 -----
 
@@ -125,11 +127,13 @@ Example preset (state and uri are optional):
 	  "state": "stopped",
 	  "favorite": "my favorite name",
 	  "uri": "x-rincon-stream:RINCON_0000000000001400",
-	  "playMode": "SHUFFLE"
+	  "playMode": "SHUFFLE",
+	  "pauseOthers": true
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmodes are the ones defined in UPnP, which are: NORMAL, REPEAT_ALL, SHUFFLE_NOREPEAT, SHUFFLE
 Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
+pauseOthers will pause all zones before applying the preset, effectively muting your system.
 
 preset.json
 -----------
@@ -162,7 +166,7 @@ and it will replace the queue with that favorite. Bear in mind that favorites ma
 Playlist
 ---------
 
-Playing a Sonos playlist is now supported. Invoke the following: 
+Playing a Sonos playlist is now supported. Invoke the following:
 
 `http://localhost:5005/living room/playlist/[playlist name]`
 
@@ -180,3 +184,5 @@ Example:
 
 /Office/say/Hello, dinner is ready
 /Office/say/Hej, maten är klar/sv
+
+I have tried to fix regrouping after TTS is finished, but it behaves wonky if it was the coordinator of a zone. Will try and fix it later.

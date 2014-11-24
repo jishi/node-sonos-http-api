@@ -2,3 +2,4 @@ node_modules
 presets.json
 cache
 settings.json
+static/tts

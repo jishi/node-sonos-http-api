@@ -1,0 +1,17 @@
+{
+  "apiVersion": "0.13.0",
+  "swaggerVersion": 1.2,
+  "apis": [
+    {
+      "path": "http://localhost:5005/docs/sonos",
+      "description": "Sonos api"
+    }
+  ],
+  "info": {
+    "title": "Sonos API Explorer",
+    "description": "An interactive explorer for the Sonos music system from <a href=\"https://github.com/jishi\">@jishi</a>",
+    "termsOfServiceUrl": "https://github.com/jishi/node-sonos-http-api",
+    "license": "MIT License",
+    "licenseUrl": "https://github.com/jishi/node-sonos-http-api/blob/master/LICENSE.md"
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "apiVersion": 1,
+  "swaggerVersion": 1.2,
+  "basePath": "http://localhost:5005",
+  "description": "Sonos api",
+  "resourcePath": "/",
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "apis": [
+    {
+      "path": "/zones",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "getZones",
+          "summary": "get zones in system",
+          "type": "array",
+          "items": {
+            "$ref": "Zone"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/favorites",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "getFavorites",
+          "summary": "get favorites in system",
+          "type": "array",
+          "items": {
+            "$ref": "Favorite"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/reindex",
+      "operations": [
+        {
+          "method": "GET",
+          "nickname": "reindex",
+          "summary": "reindex your music library",
+          "type": "void"
+        }
+      ]
+    },
+    {
+      "path": "/lockvolumes",
+      "notes": "experimental",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "experimental",
+          "type": "void",
+          "nickname": "lockVolumes"
+        }
+      ]
+    },
+    {
+      "path": "/unlockvolumes",
+      "notes": "experimental",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "experimental",
+          "type": "void",
+          "nickname": "unlockVolumes"
+        }
+      ]
+    },
+    {
+      "path": "/pauseall/{durationInMinutes}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "pauses all controllers",
+          "type": "void",
+          "nickname": "pauseAll",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "durationInMinutes",
+              "required": false,
+              "type": "integer",
+              "format": "int32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/resumeall/{durationInMinutes}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "resumes all controllers",
+          "type": "void",
+          "nickname": "resumeAll",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "durationInMinute",
+              "required": false,
+              "type": "integer",
+              "format": "int32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/preset/{jsonPreset}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "executes a preset list",
+          "type": "void",
+          "nickname": "executePreset"
+        }
+      ]
+    },
+    {
+      "path": "/{room}/{action}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "executes an action on a room",
+          "type": "void",
+          "nickname": "roomAction",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "room",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "paramType": "path",
+              "name": "action",
+              "required": true,
+              "type": "string",
+              "enum": [
+                "play",
+                "pause",
+                "next",
+                "previous"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/{room}/{action}/{parameter}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "executes an action on a room with parameters",
+          "type": "void",
+          "nickname": "roomActionWithParameter",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "room",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "paramType": "path",
+              "name": "action",
+              "required": true,
+              "type": "string",
+              "enum": [
+                "volume",
+                "favorite",
+                "repeat"
+              ]
+            },
+            {
+              "paramType": "path",
+              "description": "volume => abs or incremental, favorite => name, repeat => on/off",
+              "name": "parameter",
+              "required": true,
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Zone": {
+      "id": "Zone",
+      "description": "A single sonos zone",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "a unique identifier for the zone"
+        },
+        "coordinator": {
+          "$ref": "Coordinator"
+        }
+      }
+    },
+    "Coordinator": {
+      "id": "Coordinator",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "unique identifier for a coordinator"
+        },
+        "state": {
+          "$ref": "State"
+        },
+        "playMode": {
+          "$ref": "PlayMode"
+        },
+        "roomName": {
+          "type": "string"
+        },
+        "coordinator": {
+          "type": "string"
+        },
+        "groupState": {
+          "type": "GroupState"
+        }
+      }
+    },
+    "Track": {
+      "id": "Track",
+      "properties": {
+        "artist": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "album": {
+          "type": "string"
+        },
+        "albumArtURI": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "State": {
+      "id": "State",
+      "properties": {
+        "currentTrack": {
+          "$ref": "Track"
+        },
+        "nextTrack": {
+          "$ref": "Track"
+        },
+        "volume": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "mute": {
+          "type": "boolean"
+        },
+        "trackNo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "elapsedTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "elapsedTimeFormatted": {
+          "type": "string"
+        },
+        "zoneState": {
+          "type": "string"
+        },
+        "playerState": {
+          "type": "string"
+        }
+      }
+    },
+    "PlayMode": {
+      "id": "PlayMode",
+      "properties": {
+        "shuffle": {
+          "type": "boolean"
+        },
+        "repeat": {
+          "type": "boolean"
+        },
+        "crossfade": {
+          "type": "string"
+        }
+      }
+    },
+    "GroupState": {
+      "id": "GroupState",
+      "properties": {
+        "volume": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "mute": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
