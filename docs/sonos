@@ -60,7 +60,7 @@
           "parameters": [
             {
               "paramType": "path",
-              "name": "room",
+              "name": "durationInMinutes",
               "required": true,
               "type": "integer",
               "format": "int32"
@@ -80,7 +80,7 @@
           "parameters": [
             {
               "paramType": "path",
-              "name": "room",
+              "name": "durationInMinutes",
               "required": true,
               "type": "integer",
               "format": "int32"
