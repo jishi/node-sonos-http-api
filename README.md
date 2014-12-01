@@ -3,6 +3,8 @@ SONOS HTTP API
 
 A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
 
+There is a simple sandbox at /docs (incomplete atm)
+
 USAGE
 -----
 
@@ -64,11 +66,14 @@ The actions supported as of today:
 * previous
 * state (will return a json-representation of the current state of player)
 * favorite
+* playlist
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
 * shuffle (on/off)
+* crossfade (on/off)
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
+* say
 
 State
 -----
@@ -76,16 +81,34 @@ State
 Example of a state json:
 
 	{
-		"currentTrack": {
-			"artist":"The Low Anthem",
-			"title":"Charlie Darwin",
-			"album":"Rough Trade - Counter Culture 2008",
-			"duration":270
-		},
-		"relTime":29,
-		"stateTime":1363559099394,
-		"volume":11,
-		"currentState":"PAUSED_PLAYBACK"
+	  "currentTrack":{
+	    "artist":"College",
+	    "title":"Teenage Color - Anoraak Remix",
+	    "album":"Nightdrive With You",
+	    "albumArtURI":"/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a3DjBDQs8ebkxMBo2V8V3SH%3fsid%3d9%26flags%3d32",
+	    "duration":347,
+	    "uri":"x-sonos-spotify:spotify%3atrack%3a3DjBDQs8ebkxMBo2V8V3SH?sid=9&flags=32"
+	  },
+	  "nextTrack":{
+	    "artist":"Blacknuss",
+	    "title":"Thinking of You",
+	    "album":"3",
+	    "albumArtURI":"/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a4U93TIa0X6jGQrTBGTkChH%3fsid%3d9%26flags%3d32",
+	    "duration":235,
+	    "uri":"x-sonos-spotify:spotify%3atrack%3a4U93TIa0X6jGQrTBGTkChH?sid=9&flags=32"
+	  },
+	  "volume":18,
+	  "mute":false,
+	  "trackNo":161,
+	  "elapsedTime":200,
+	  "elapsedTimeFormatted":"03:20",
+	  "zoneState":"PAUSED_PLAYBACK",
+	  "playerState":"PLAYING",
+	  "zonePlayMode":{
+	    "shuffle":true,
+	    "repeat":false,
+	    "crossfade":false
+	  }
 	}
 
 
@@ -104,11 +127,13 @@ Example preset (state and uri are optional):
 	  "state": "stopped",
 	  "favorite": "my favorite name",
 	  "uri": "x-rincon-stream:RINCON_0000000000001400",
-	  "playMode": "SHUFFLE"
+	  "playMode": "SHUFFLE",
+	  "pauseOthers": true
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmodes are the ones defined in UPnP, which are: NORMAL, REPEAT_ALL, SHUFFLE_NOREPEAT, SHUFFLE
 Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
+pauseOthers will pause all zones before applying the preset, effectively muting your system.
 
 preset.json
 -----------
@@ -116,6 +141,18 @@ preset.json
 You can create a file with pre made presets, called presets.json. I've included a sample file based on my own setup. In the example, there is one preset called `all`, which you can apply by invoking:
 
 `http://localhost:5005/preset/all`
+
+settings.json
+-------------
+
+If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder. The defaults are:
+
+{
+  port: 5005,
+  cacheDir: './cache'
+}
+
+Override as it suits you.
 
 Favorites
 ---------
@@ -126,3 +163,26 @@ It now has support for starting favorites. Simply invoke:
 
 and it will replace the queue with that favorite. Bear in mind that favorites may share name, which might give unpredictable behavior at the moment.
 
+Playlist
+---------
+
+Playing a Sonos playlist is now supported. Invoke the following:
+
+`http://localhost:5005/living room/playlist/[playlist name]`
+
+and it will replace the queue with the playlist and starts playing.
+
+
+Say (TTS support)
+-----------------
+
+Experimental support for TTS. Action is:
+
+/[Room name]/say/[phrase][/[language_code]]
+
+Example:
+
+/Office/say/Hello, dinner is ready
+/Office/say/Hej, maten är klar/sv
+
+I have tried to fix regrouping after TTS is finished, but it behaves wonky if it was the coordinator of a zone. Will try and fix it later.
