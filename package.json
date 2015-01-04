@@ -1,6 +1,6 @@
 {
   "name": "sonos-http-api",
-  "version": "0.13.2",
+  "version": "0.14.0",
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "author": "Jimmy Shimizu <jimmy@shimizu.se>",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/jishi/node-sonos-http-api.git"
   },
   "dependencies": {
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/tarball/0.13.0",
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/0.14.0.tar.gz",
     "node-static": "0.7.x",
     "require-fu": "1.0.x"
   },
