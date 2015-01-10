@@ -184,10 +184,13 @@ Say (TTS support)
 Experimental support for TTS. Action is:
 
 /[Room name]/say/[phrase][/[language_code]]
+/sayall/[phrase][/[language_code]]
 
 Example:
 
 /Office/say/Hello, dinner is ready
 /Office/say/Hej, maten är klar/sv
+/sayall/Hello, dinner is ready
 
-I have tried to fix regrouping after TTS is finished, but it behaves wonky if it was the coordinator of a zone. Will try and fix it later.
+Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+
