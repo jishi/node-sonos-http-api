@@ -152,10 +152,10 @@ settings.json
 
 If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder. The defaults are:
 
-{
-  port: 5005,
-  cacheDir: './cache'
-}
+	{
+	  port: 5005,
+	  cacheDir: './cache'
+	}
 
 Override as it suits you.
 
@@ -183,14 +183,14 @@ Say (TTS support)
 
 Experimental support for TTS. Action is:
 
-/[Room name]/say/[phrase][/[language_code]]
-/sayall/[phrase][/[language_code]]
+`/[Room name]/say/[phrase][/[language_code]]`
+`/sayall/[phrase][/[language_code]]`
 
 Example:
 
-/Office/say/Hello, dinner is ready
-/Office/say/Hej, maten är klar/sv
-/sayall/Hello, dinner is ready
+`/Office/say/Hello, dinner is ready`
+`/Office/say/Hej, maten är klar/sv`
+`/sayall/Hello, dinner is ready`
 
 Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
