@@ -24,16 +24,16 @@ start the server by running
 
 Now you can control your system by invoking the following commands:
 
-`http://localhost:5005/zones`
-`http://localhost:5005/lockvolumes`
-`http://localhost:5005/unlockvolumes`
-`http://localhost:5005/pauseall[/{timeout in minutes}]`
-`http://localhost:5005/resumeall[/{timeout in minutes}]`
-`http://localhost:5005/preset/{JSON preset}`
-`http://localhost:5005/preset/{predefined preset name}`
-`http://localhost:5005/{room name}/{action}[/{parameter}]`
-`http://localhost:5005/reindex`
-`http://localhost:5005/sleep/{timeout in seconds or timestamp HH:MM:SS or off}`
+	http://localhost:5005/zones
+	http://localhost:5005/lockvolumes
+	http://localhost:5005/unlockvolumes
+	http://localhost:5005/pauseall[/{timeout in minutes}]
+	http://localhost:5005/resumeall[/{timeout in minutes}]
+	http://localhost:5005/preset/{JSON preset}
+	http://localhost:5005/preset/{predefined preset name}
+	http://localhost:5005/{room name}/{action}[/{parameter}]
+	http://localhost:5005/reindex
+	http://localhost:5005/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
 
 Example:
 
@@ -183,14 +183,14 @@ Say (TTS support)
 
 Experimental support for TTS. Action is:
 
-`/[Room name]/say/[phrase][/[language_code]]`
-`/sayall/[phrase][/[language_code]]`
+	/[Room name]/say/[phrase][/[language_code]]
+	/sayall/[phrase][/[language_code]]
 
 Example:
 
-`/Office/say/Hello, dinner is ready`
-`/Office/say/Hej, maten är klar/sv`
-`/sayall/Hello, dinner is ready`
+	/Office/say/Hello, dinner is ready
+	/Office/say/Hej, maten är klar/sv
+	/sayall/Hello, dinner is ready
 
 Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
