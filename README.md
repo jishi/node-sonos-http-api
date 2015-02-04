@@ -79,6 +79,7 @@ The actions supported as of today:
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
+* clearqueue
 
 If your want to extend or override actions, just write your own and specify the directory where to find them in settings.json.
 
