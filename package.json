@@ -13,6 +13,6 @@
     "require-fu": "1.0.x",
     "async": "0.2.x"
   },
-  "engine": "node 0.8.x",
+  "engine": "node 0.10.x",
   "main": "lib/sonos-http-api.js"
 }
