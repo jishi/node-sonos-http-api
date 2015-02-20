@@ -81,7 +81,6 @@ The actions supported as of today:
 * say
 * clearqueue
 
-If your want to extend or override actions, just write your own and specify the directory where to find them in settings.json.
 
 State
 -----
@@ -153,14 +152,13 @@ You can create a file with pre made presets, called presets.json. I've included 
 settings.json
 -------------
 
-If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder. Additionally you can specify your own actions directory and they will be loaded automatically.
+If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder.
 
 The defaults are:
 
 	{
 	  port: 5005,
-	  cacheDir: './cache',
-	  actionsDir: undefined
+	  cacheDir: './cache'
 	}
 
 Override as it suits you.
