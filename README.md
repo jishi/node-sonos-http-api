@@ -20,7 +20,7 @@ This will download the necessary dependencies if possible (you will need git for
 
 start the server by running
 
-`node server.js`
+`npm start`
 
 Now you can control your system by invoking the following commands:
 
