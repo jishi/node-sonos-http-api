@@ -198,3 +198,37 @@ Example:
 
 Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
+Webhook
+-------
+
+NOTE! This is experimental and might change in the future! Please leave your feedback as github issues if you feel like it doesn't suit your need, since I don't know what kind of restrictions you will be facing.
+
+Since 0.17.x there is now support for a web hook. If you add a setting in settings.json like this:
+
+```
+{
+  "webhook": "http://localhost:5006/"
+}
+```
+
+Every state change and tpolopogy change will be posted (method POST) to that URL, as JSON. The following data structure will be sent:
+
+```
+{
+  "type": "transport-state",
+  "data": { (snapshot of player) }
+}
+```
+
+or
+
+```
+{
+  "type": "topology-change",
+  "data": { (snapshot of zones) }
+}
+```
+
+"data" property will be equal to the same data as you would get from /RoomName/state or /zones. There is an example endpoint in the root if this project called test_endpoint.js which you may fire up to get an understanding of what is posted, just invoke it with "node test_endpoint.js" in a terminal, and then start the http-api in another terminal.
+
+
