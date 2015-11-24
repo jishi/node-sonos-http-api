@@ -198,6 +198,17 @@ Example:
 
 Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
+Docker
+-------
+
+A docker file is included, make sure that if you use this that you start up your container with "--net=host" example:
+
+```
+docker run --net=host -d <your container/image name>
+```
+
+More information for docker https://docs.docker.com
+
 Webhook
 -------
 
@@ -211,7 +222,7 @@ Since 0.17.x there is now support for a web hook. If you add a setting in settin
 }
 ```
 
-Every state change and tpolopogy change will be posted (method POST) to that URL, as JSON. The following data structure will be sent:
+Every state change and topology change will be posted (method POST) to that URL, as JSON. The following data structure will be sent:
 
 ```
 {
