@@ -136,11 +136,12 @@ Example preset (state and uri are optional):
 	  "uri": "x-rincon-stream:RINCON_0000000000001400",
 	  "playMode": "SHUFFLE",
 	  "pauseOthers": true
+	  "sleep": "01:00:00"
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmodes are the ones defined in UPnP, which are: NORMAL, REPEAT_ALL, SHUFFLE_NOREPEAT, SHUFFLE
 Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
-pauseOthers will pause all zones before applying the preset, effectively muting your system.
+pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and supports the 'HH:MM:SS' format.
 
 preset.json
 -----------
