@@ -3,7 +3,6 @@ cd /sonos
 
 # try to remove the repo if it already exists
 rm -rf node-sonos-http-api; true
-ln -s /usr/bin/nodejs /usr/bin/node
 
 git clone https://github.com/jishi/node-sonos-http-api
 
