@@ -89,5 +89,5 @@ var requestListener = function (req, res) {
 var server = (settings.https ? https.createServer(options, requestListener) : http.createServer(requestListener));
 
 server.listen(settings.port, function () {
-  console.log('http server listening on port', settings.port);
+  console.log('http' + (settings.https ? 's' : '') + ' server listening on port', settings.port);
 });
