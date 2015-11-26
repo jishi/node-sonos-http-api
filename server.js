@@ -14,7 +14,7 @@ var settings = {
   port: 5005,
   cacheDir: './cache',
   webroot: webroot,
-  ssl: false,
+  https: false,
   auth: false,
   name: 'user',
   pass: 'pass'
@@ -43,8 +43,8 @@ if (userSettings) {
 
 var options = {}
 
-if (settings.ssl) {
-  console.log('using SSL');
+if (settings.https) {
+  console.log('using https');
   options = {
     key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
     cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem'))
@@ -86,7 +86,7 @@ var requestListener = function (req, res) {
   }).resume();
 }
 
-var server = (settings.ssl ? https.createServer(options, requestListener) : http.createServer(requestListener));
+var server = (settings.https ? https.createServer(options, requestListener) : http.createServer(requestListener));
 
 server.listen(settings.port, function () {
   console.log('http server listening on port', settings.port);
