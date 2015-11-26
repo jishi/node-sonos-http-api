@@ -44,15 +44,10 @@ if (userSettings) {
 var options = {}
 
 if (settings.https) {
-  console.log('using https');
   options = {
     key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
     cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem'))
   };
-}
-
-if (settings.auth) {
-  console.log('requires authorization');
 }
 
 var fileServer = new nodeStatic.Server(webroot);
@@ -89,5 +84,7 @@ var requestListener = function (req, res) {
 var server = (settings.https ? https.createServer(options, requestListener) : http.createServer(requestListener));
 
 server.listen(settings.port, function () {
-  console.log('http' + (settings.https ? 's' : '') + ' server listening on port', settings.port);
+  console.log((settings.https ? 'https' : 'http'),
+    'server listening on port', settings.port,
+    (settings.auth ? 'with authorization required' : ''));
 });
