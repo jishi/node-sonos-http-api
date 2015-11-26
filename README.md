@@ -204,9 +204,10 @@ Docker
 A docker file is included, make sure that if you use this that you start up your container with "--net=host" example:
 
 ```
-docker run --net=host -d <your container/image name>
+docker run --net=host --restart=always -d <your container/image name>
 ```
 
+The restart always is to keep it running after a reboot and to keep it alive it if crashes.
 More information for docker https://docs.docker.com
 
 Webhook
