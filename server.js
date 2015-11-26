@@ -1,17 +1,23 @@
 'use strict';
 
 var http = require('http');
+var https = require('https');
 var SonosDiscovery = require('sonos-discovery');
 var SonosHttpAPI = require('./lib/sonos-http-api.js');
 var nodeStatic = require('node-static');
 var fs = require('fs');
 var path = require('path');
 var webroot = path.resolve(__dirname, 'static');
+var auth = require('basic-auth');
 
 var settings = {
   port: 5005,
   cacheDir: './cache',
-  webroot: webroot
+  webroot: webroot,
+  https: false,
+  auth: false,
+  name: 'user',
+  pass: 'pass'
 };
 
 // Create webroot + tts if not exist
@@ -35,11 +41,37 @@ if (userSettings) {
   }
 }
 
+var options = {}
+
+if (settings.https) {
+  console.log('using https');
+  options = {
+    key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
+    cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem'))
+  };
+}
+
+if (settings.auth) {
+  console.log('requires authorization');
+}
+
 var fileServer = new nodeStatic.Server(webroot);
 var discovery = new SonosDiscovery(settings);
 var api = new SonosHttpAPI(discovery, settings);
 
-var server = http.createServer(function (req, res) {
+var requestListener = function (req, res) {
+	
+  if (settings.auth) {	
+    var credentials = auth(req)
+ 
+    if (!credentials || credentials.name !== settings.name || credentials.pass !== settings.pass) {
+      res.statusCode = 401
+      res.setHeader('WWW-Authenticate', 'Basic realm="example"')
+      res.end('Access denied')
+      return
+    }
+  }
+
   req.addListener('end', function () {
     fileServer.serve(req, res, function (err) {
       // If error, route it.
@@ -52,7 +84,9 @@ var server = http.createServer(function (req, res) {
       }
     });
   }).resume();
-});
+}
+
+var server = (settings.https ? https.createServer(options, requestListener) : http.createServer(requestListener));
 
 server.listen(settings.port, function () {
   console.log('http server listening on port', settings.port);
