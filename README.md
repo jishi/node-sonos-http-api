@@ -79,6 +79,7 @@ The actions supported as of today:
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
+* queue
 * clearqueue
 
 
@@ -117,6 +118,46 @@ Example of a state json:
 	    "crossfade":false
 	  }
 	}
+
+Queue
+-----
+Obtain the current queue list from a specified player. The request will accept:
+ - No parameters
+ 
+	`http://localhost:5005/living room/queue`
+ - Just a start index for the queue
+ 
+	`http://localhost:5005/living room/queue/[start-index]`
+ - A start index and a count of items to return
+ 
+	`http://localhost:5005/living room/queue/[start-index]/[count]`
+
+
+
+Example queue response: 
+```
+{
+  "startIndex": "0",
+  "numberReturned": 2,
+  "totalMatches": 33,
+  "items": [
+    {
+      "uri": "x-sonos-spotify:spotify%3atrack%3a0AvV49z4EPz5ocYN7eKGAK?sid=9&flags=8224&sn=3",
+      "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a0AvV49z4EPz5ocYN7eKGAK%3fsid%3d9%26flags%3d8224%26sn%3d3",
+      "title": "No Diggity",
+      "artist": "Blackstreet",
+      "album": "Another Level"
+    },
+    {
+      "uri": "x-sonos-spotify:spotify%3atrack%3a5OQGeJ1ceykovrykZsGhqL?sid=9&flags=8224&sn=3",
+      "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a5OQGeJ1ceykovrykZsGhqL%3fsid%3d9%26flags%3d8224%26sn%3d3",
+      "title": "Breathless",
+      "artist": "The Corrs",
+      "album": "In Blue"
+    }
+  ]
+}
+```
 
 
 Preset
