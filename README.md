@@ -14,7 +14,7 @@ USAGE
 
 Start by fixing your dependencies. Invoke the following command:
 
-`npm install`
+`npm install --production`
 
 This will download the necessary dependencies if possible (you will need git for this)
 
