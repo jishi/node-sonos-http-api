@@ -15,7 +15,7 @@
     "node-static": "0.7.x",
     "request-promise": "^1.0.2",
     "require-fu": "1.0.x",
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/0.16.0.tar.gz"
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/0.16.1.tar.gz"
   },
   "engine": "node 4.x.x",
   "main": "lib/sonos-http-api.js"
