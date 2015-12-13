@@ -7,9 +7,12 @@ FROM node:4-slim
 
 MAINTAINER Erik-jan Riemers
 
-RUN apt-get update
-RUN apt-get -y install npm git git-core
+RUN apt-get update && \
+    apt-get -y install npm git git-core
 
-ADD dockerstart.sh /tmp/
-RUN chmod +x /tmp/dockerstart.sh
-CMD ./tmp/dockerstart.sh
+RUN mkdir /sonos
+ADD . /sonos/
+RUN cd /sonos && npm install
+
+WORKDIR /sonos/
+CMD npm start
