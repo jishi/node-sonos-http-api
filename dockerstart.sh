@@ -10,4 +10,4 @@ cd node-sonos-http-api
 
 npm install
 
-node .
+npm start
