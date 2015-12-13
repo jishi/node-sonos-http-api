@@ -3,7 +3,7 @@
 ###############################################
 
 # Using latest debian image as base (ubuntu is a fat cow)
-FROM node:slim
+FROM node:4-slim
 
 MAINTAINER Erik-jan Riemers
 
