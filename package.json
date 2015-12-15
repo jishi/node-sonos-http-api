@@ -16,7 +16,7 @@
     "request-promise": "^1.0.2",
     "require-fu": "1.0.x",
     "basic-auth": "1.0.x",
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/0.15.6.tar.gz"
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/0.16.1.tar.gz"
   },
   "engine": "node 4.x.x",
   "main": "lib/sonos-http-api.js"
