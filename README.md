@@ -123,18 +123,18 @@ Queue
 -----
 Obtain the current queue list from a specified player. The request will accept:
  - No parameters
- 
+
 	`http://localhost:5005/living room/queue`
  - Just a start index for the queue
- 
+
 	`http://localhost:5005/living room/queue/[start-index]`
  - A start index and a count of items to return
- 
+
 	`http://localhost:5005/living room/queue/[start-index]/[count]`
 
 
 
-Example queue response: 
+Example queue response:
 ```
 {
   "startIndex": "0",
@@ -239,6 +239,19 @@ Example:
 	/sayall/Hello, dinner is ready
 
 Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+
+Spotify (Experimental)
+----------------------
+
+The following endpoints are available:
+
+```
+/RoomName/spotify/now/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+/RoomName/spotify/next/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+/RoomName/spotify/queue/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+```
+
+It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
 
 Docker
 -------
