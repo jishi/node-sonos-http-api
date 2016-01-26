@@ -16,7 +16,7 @@ var spec =
     "http"
   ],
   "paths": {
-    "/sonos/lockvolumes": {
+    "/lockvolumes": {
       "get": {
         "tags": [
           "sonos"
@@ -30,7 +30,7 @@ var spec =
         }
       }
     },
-    "/sonos/pauseall/{delayInMinutes}": {
+    "/pauseall/{delayInMinutes}": {
       "get": {
         "tags": [
           "sonos"
@@ -54,7 +54,7 @@ var spec =
         }
       }
     },
-    "/sonos/preset/{jsonPreset}": {
+    "/preset/{jsonPreset}": {
       "get": {
         "tags": [
           "sonos"
@@ -77,7 +77,7 @@ var spec =
         }
       }
     },
-    "/sonos/resumeall/{delayInMinutes}": {
+    "/resumeall/{delayInMinutes}": {
       "get": {
         "tags": [
           "sonos"
@@ -100,7 +100,7 @@ var spec =
         }
       }
     },
-    "/sonos/unlockvolumes": {
+    "/unlockvolumes": {
       "get": {
         "tags": [
           "sonos"
@@ -114,7 +114,7 @@ var spec =
         }
       }
     },
-    "/sonos/zones": {
+    "/zones": {
       "get": {
         "tags": [
           "sonos"
@@ -134,7 +134,7 @@ var spec =
         }
       }
     },
-    "/sonos/{room}/{action}": {
+    "/{room}/{action}": {
       "get": {
         "tags": [
           "sonos"
@@ -162,7 +162,7 @@ var spec =
         }
       }
     },
-    "/sonos/{room}/{action}/{parameter}": {
+    "/{room}/{action}/{parameter}": {
       "get": {
         "tags": [
           "sonos"
