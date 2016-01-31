@@ -227,7 +227,19 @@ and it will replace the queue with the playlist and starts playing.
 Say (TTS support)
 -----------------
 
-Experimental support for TTS. Action is:
+Experimental support for TTS. This REQUIRES a registered API key from voiceRSS! See http://www.voicerss.org/ for info.
+
+You need to add this to a file called settings.json (create if it doesn't exist), like this:
+
+```
+{
+  "voicerss": "f5e77e1d42063175b9219866129189a3"
+}
+```
+
+Replace the code above (it is just made up) with the api-key you've got after registering.
+
+Action is:
 
 	/[Room name]/say/[phrase][/[language_code]]
 	/sayall/[phrase][/[language_code]]
@@ -235,10 +247,39 @@ Experimental support for TTS. Action is:
 Example:
 
 	/Office/say/Hello, dinner is ready
-	/Office/say/Hej, maten är klar/sv
+	/Office/say/Hej, maten är klar/sv-se
 	/sayall/Hello, dinner is ready
 
-Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+Sayall will group all players, set 40% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+
+The supported language codes are:
+
+|ca-es|Catalan|
+|zh-cn|Chinese (China)|
+|zh-hk|Chinese (Hong Kong)|
+|zh-tw|Chinese (Taiwan)|
+|da-dk|Danish|
+|nl-nl|Dutch|
+|en-au|English (Australia)|
+|en-ca|English (Canada)|
+|en-gb|English (Great Britain)|
+|en-in|English (India)|
+|en-us|English (United States)|
+|fi-fi|Finnish|
+|fr-ca|French (Canada)|
+|fr-fr|French (France)|
+|de-de|German|
+|it-it|Italian|
+|ja-jp|Japanese|
+|ko-kr|Korean|
+|nb-no|Norwegian|
+|pl-pl|Polish|
+|pt-br|Portuguese (Brazil)|
+|pt-pt|Portuguese (Portugal)|
+|ru-ru|Russian|
+|es-mx|Spanish (Mexico)|
+|es-es|Spanish (Spain)|
+|sv-se|Swedish (Sweden)|
 
 Spotify (Experimental)
 ----------------------
