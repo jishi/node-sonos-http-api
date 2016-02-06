@@ -49,8 +49,8 @@ var requestHandler = function (req, res) {
         var credentials = auth(req);
 
         if (!credentials || credentials.name !== settings.auth.username || credentials.pass !== settings.auth.password) {
-          res.statusCode = 401
-          res.setHeader('WWW-Authenticate', 'Basic realm="Access Denied"')
+          res.statusCode = 401;
+          res.setHeader('WWW-Authenticate', 'Basic realm="Access Denied"');
           res.end('Access denied');
           return;
         }
@@ -68,14 +68,23 @@ var requestHandler = function (req, res) {
   }).resume();
 };
 
+var server;
+
 if (settings.https) {
-  var options = {
-    key: fs.readFileSync(settings.https.key),
-    cert: fs.readFileSync(settings.https.cert)
+  var options = {};
+  if (settings.https.pfx)
+    options.pfx = fs.readFileSync(settings.https.pfx);
+  else if (settings.https.key && settings.https.cert) {
+    options.key = fs.readFileSync(settings.https.key);
+    options.cert = fs.readFileSync(settings.https.cert);
+  } else {
+    console.error("Insufficient configuration for https");
+    return;
   }
-  var server = https.createServer(options, requestHandler);
+
+  server = https.createServer(options, requestHandler);
 } else { // http
-  var server = http.createServer(requestHandler);
+  server = http.createServer(requestHandler);
 }
 
 server.listen(settings.port, function () {

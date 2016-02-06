@@ -200,7 +200,7 @@ Available options are:
 
 * port: change the listening port
 * cacheDir: dir for tts files
-* https: use https which requires a key and certificate
+* https: use https which requires a key and certificate or pfx file
 * auth: require basic auth credentials which requires a username and password
 
 Example:
@@ -211,6 +211,9 @@ Example:
 	  "https": {
 	    "key": "/path/to/key.pem",
 	    "cert" : "/path/to/cert.pem"
+	    
+	    ... for pfx
+	    "pfx": "/path/to/pfx.pfx"
 	  },
 	  "auth": {
 	    "username": "admin",

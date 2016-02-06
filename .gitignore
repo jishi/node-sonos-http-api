@@ -10,3 +10,4 @@ obj/
 *.sln
 *.pem
 *.crt
+*.pfx
