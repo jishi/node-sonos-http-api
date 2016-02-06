@@ -1,6 +1,8 @@
 'use strict';
 
 var http = require('http');
+var https = require('https');
+var auth = require('basic-auth');
 var SonosDiscovery = require('sonos-discovery');
 var SonosHttpAPI = require('./lib/sonos-http-api.js');
 var nodeStatic = require('node-static');
@@ -39,9 +41,21 @@ var fileServer = new nodeStatic.Server(webroot);
 var discovery = new SonosDiscovery(settings);
 var api = new SonosHttpAPI(discovery, settings);
 
-var server = http.createServer(function (req, res) {
+var requestHandler = function (req, res) {
   req.addListener('end', function () {
     fileServer.serve(req, res, function (err) {
+
+      if (settings.auth) {
+        var credentials = auth(req);
+
+        if (!credentials || credentials.name !== settings.auth.username || credentials.pass !== settings.auth.password) {
+          res.statusCode = 401
+          res.setHeader('WWW-Authenticate', 'Basic realm="Access Denied"')
+          res.end('Access denied');
+          return;
+        }
+      }
+
       // If error, route it.
       if (!err) {
         return;
@@ -52,7 +66,17 @@ var server = http.createServer(function (req, res) {
       }
     });
   }).resume();
-});
+};
+
+if (settings.https) {
+  var options = {
+    key: fs.readFileSync(settings.https.key),
+    cert: fs.readFileSync(settings.https.cert)
+  }
+  var server = https.createServer(options, requestHandler);
+} else { // http
+  var server = http.createServer(requestHandler);
+}
 
 server.listen(settings.port, function () {
   console.log('http server listening on port', settings.port);

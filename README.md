@@ -194,16 +194,33 @@ You can create a file with pre made presets, called presets.json. I've included 
 settings.json
 -------------
 
-If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder.
+If you want to change default settings, you can create a settings.json file and put in the root folder.
 
-The defaults are:
+Available options are:
+
+* port: change the listening port
+* cacheDir: dir for tts files
+* https: use https which requires a key and certificate
+* auth: require basic auth credentials which requires a username and password
+
+Example:
 
 	{
-	  port: 5005,
-	  cacheDir: './cache'
+	  "port": 5005,
+	  "cacheDir": "./cache",
+	  "https": {
+	    "key": "/path/to/key.pem",
+	    "cert" : "/path/to/cert.pem"
+	  },
+	  "auth": {
+	    "username": "admin",
+	    "password": "password"
+	  }
 	}
 
 Override as it suits you.
+
+
 
 Favorites
 ---------
