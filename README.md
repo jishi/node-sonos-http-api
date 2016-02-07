@@ -207,6 +207,7 @@ Example:
 
 	{
 	  "port": 5005,
+	  "securePort": 5006,
 	  "cacheDir": "./cache",
 	  "https": {
 	    "key": "/path/to/key.pem",
@@ -335,7 +336,7 @@ Since 0.17.x there is now support for a web hook. If you add a setting in settin
 
 ```
 {
-  "webhook": "http://localhost:5006/"
+  "webhook": "http://localhost:5007/"
 }
 ```
 

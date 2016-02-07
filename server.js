@@ -12,6 +12,7 @@ var webroot = path.resolve(__dirname, 'static');
 
 var settings = {
   port: 5005,
+  securePort: 5006,
   cacheDir: './cache',
   webroot: webroot
 };
@@ -82,10 +83,13 @@ if (settings.https) {
     return;
   }
 
-  server = https.createServer(options, requestHandler);
-} else { // http
-  server = http.createServer(requestHandler);
+  var secureServer = https.createServer(options, requestHandler);
+  secureServer.listen(settings.securePort, function () {
+    console.log('https server listening on port', settings.securePort);
+  });
 }
+
+server = http.createServer(requestHandler);
 
 server.listen(settings.port, function () {
   console.log('http server listening on port', settings.port);

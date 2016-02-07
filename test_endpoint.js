@@ -11,5 +11,5 @@ let server = http.createServer((req, res) => {
   req.on('end', () => res.end());
 });
 
-server.listen(5006);
-console.log('Listening on http://localhost:5006/');
+server.listen(5007);
+console.log('Listening on http://localhost:5007/');

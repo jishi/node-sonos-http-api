@@ -11,3 +11,4 @@ obj/
 *.pem
 *.crt
 *.pfx
+*.key
