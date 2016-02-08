@@ -1,15 +1,8 @@
-###############################################
-# Debian with sonos http api
-###############################################
+FROM mhart/alpine-node:5.5
 
-# Using latest debian image as base (ubuntu is a fat cow)
-FROM node:4-slim
-
-MAINTAINER Erik-jan Riemers
-
-RUN apt-get update
-RUN apt-get -y install npm git git-core
-
-ADD dockerstart.sh /tmp/
-RUN chmod +x /tmp/dockerstart.sh
-CMD ./tmp/dockerstart.sh
+ADD package.json /opt/app/
+WORKDIR /opt/app
+RUN npm install --production
+CMD ["npm", "start"]
+EXPOSE 3500/tcp 5005/tcp
+ADD . /opt/app
