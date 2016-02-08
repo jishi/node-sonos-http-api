@@ -14,13 +14,13 @@ USAGE
 
 Start by fixing your dependencies. Invoke the following command:
 
-`npm install`
+`npm install --production`
 
 This will download the necessary dependencies if possible (you will need git for this)
 
 start the server by running
 
-`node server.js`
+`npm start`
 
 Now you can control your system by invoking the following commands:
 
@@ -79,6 +79,7 @@ The actions supported as of today:
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
+* queue
 * clearqueue
 
 
@@ -118,6 +119,46 @@ Example of a state json:
 	  }
 	}
 
+Queue
+-----
+Obtain the current queue list from a specified player. The request will accept:
+ - No parameters
+
+	`http://localhost:5005/living room/queue`
+ - Just a start index for the queue
+
+	`http://localhost:5005/living room/queue/[start-index]`
+ - A start index and a count of items to return
+
+	`http://localhost:5005/living room/queue/[start-index]/[count]`
+
+
+
+Example queue response:
+```
+{
+  "startIndex": "0",
+  "numberReturned": 2,
+  "totalMatches": 33,
+  "items": [
+    {
+      "uri": "x-sonos-spotify:spotify%3atrack%3a0AvV49z4EPz5ocYN7eKGAK?sid=9&flags=8224&sn=3",
+      "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a0AvV49z4EPz5ocYN7eKGAK%3fsid%3d9%26flags%3d8224%26sn%3d3",
+      "title": "No Diggity",
+      "artist": "Blackstreet",
+      "album": "Another Level"
+    },
+    {
+      "uri": "x-sonos-spotify:spotify%3atrack%3a5OQGeJ1ceykovrykZsGhqL?sid=9&flags=8224&sn=3",
+      "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a5OQGeJ1ceykovrykZsGhqL%3fsid%3d9%26flags%3d8224%26sn%3d3",
+      "title": "Breathless",
+      "artist": "The Corrs",
+      "album": "In Blue"
+    }
+  ]
+}
+```
+
 
 Preset
 ------
@@ -136,11 +177,12 @@ Example preset (state and uri are optional):
 	  "uri": "x-rincon-stream:RINCON_0000000000001400",
 	  "playMode": "SHUFFLE",
 	  "pauseOthers": true
+	  "sleep": "01:00:00"
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmodes are the ones defined in UPnP, which are: NORMAL, REPEAT_ALL, SHUFFLE_NOREPEAT, SHUFFLE
 Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
-pauseOthers will pause all zones before applying the preset, effectively muting your system.
+pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and supports the 'HH:MM:SS' format.
 
 preset.json
 -----------
@@ -152,16 +194,37 @@ You can create a file with pre made presets, called presets.json. I've included 
 settings.json
 -------------
 
-If you want to change port or the cache dir for tts files, you can create a settings.json file and put in the root folder.
+If you want to change default settings, you can create a settings.json file and put in the root folder.
 
-The defaults are:
+Available options are:
+
+* port: change the listening port
+* cacheDir: dir for tts files
+* https: use https which requires a key and certificate or pfx file
+* auth: require basic auth credentials which requires a username and password
+
+Example:
 
 	{
-	  port: 5005,
-	  cacheDir: './cache'
+	  "port": 5005,
+	  "securePort": 5006,
+	  "cacheDir": "./cache",
+	  "https": {
+	    "key": "/path/to/key.pem",
+	    "cert" : "/path/to/cert.pem"
+	    
+	    ... for pfx
+	    "pfx": "/path/to/pfx.pfx"
+	  },
+	  "auth": {
+	    "username": "admin",
+	    "password": "password"
+	  }
 	}
 
 Override as it suits you.
+
+
 
 Favorites
 ---------
@@ -185,7 +248,19 @@ and it will replace the queue with the playlist and starts playing.
 Say (TTS support)
 -----------------
 
-Experimental support for TTS. Action is:
+Experimental support for TTS. This REQUIRES a registered API key from voiceRSS! See http://www.voicerss.org/ for info.
+
+You need to add this to a file called settings.json (create if it doesn't exist), like this:
+
+```
+{
+  "voicerss": "f5e77e1d42063175b9219866129189a3"
+}
+```
+
+Replace the code above (it is just made up) with the api-key you've got after registering.
+
+Action is:
 
 	/[Room name]/say/[phrase][/[language_code]]
 	/sayall/[phrase][/[language_code]]
@@ -193,8 +268,96 @@ Experimental support for TTS. Action is:
 Example:
 
 	/Office/say/Hello, dinner is ready
-	/Office/say/Hej, maten är klar/sv
+	/Office/say/Hej, maten är klar/sv-se
 	/sayall/Hello, dinner is ready
 
-Sayall will group all players, set 20% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+Sayall will group all players, set 40% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+
+The supported language codes are:
+
+|ca-es|Catalan|
+|zh-cn|Chinese (China)|
+|zh-hk|Chinese (Hong Kong)|
+|zh-tw|Chinese (Taiwan)|
+|da-dk|Danish|
+|nl-nl|Dutch|
+|en-au|English (Australia)|
+|en-ca|English (Canada)|
+|en-gb|English (Great Britain)|
+|en-in|English (India)|
+|en-us|English (United States)|
+|fi-fi|Finnish|
+|fr-ca|French (Canada)|
+|fr-fr|French (France)|
+|de-de|German|
+|it-it|Italian|
+|ja-jp|Japanese|
+|ko-kr|Korean|
+|nb-no|Norwegian|
+|pl-pl|Polish|
+|pt-br|Portuguese (Brazil)|
+|pt-pt|Portuguese (Portugal)|
+|ru-ru|Russian|
+|es-mx|Spanish (Mexico)|
+|es-es|Spanish (Spain)|
+|sv-se|Swedish (Sweden)|
+
+Spotify (Experimental)
+----------------------
+
+The following endpoints are available:
+
+```
+/RoomName/spotify/now/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+/RoomName/spotify/next/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+/RoomName/spotify/queue/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+```
+
+It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
+
+Docker
+-------
+
+A docker file is included, make sure that if you use this that you start up your container with "--net=host" example:
+
+```
+docker run --net=host --restart=always -d <your container/image name>
+```
+
+The restart always is to keep it running after a reboot and to keep it alive it if crashes.
+More information for docker https://docs.docker.com
+
+Webhook
+-------
+
+NOTE! This is experimental and might change in the future! Please leave your feedback as github issues if you feel like it doesn't suit your need, since I don't know what kind of restrictions you will be facing.
+
+Since 0.17.x there is now support for a web hook. If you add a setting in settings.json like this:
+
+```
+{
+  "webhook": "http://localhost:5007/"
+}
+```
+
+Every state change and topology change will be posted (method POST) to that URL, as JSON. The following data structure will be sent:
+
+```
+{
+  "type": "transport-state",
+  "data": { (snapshot of player) }
+}
+```
+
+or
+
+```
+{
+  "type": "topology-change",
+  "data": { (snapshot of zones) }
+}
+```
+
+"data" property will be equal to the same data as you would get from /RoomName/state or /zones. There is an example endpoint in the root if this project called test_endpoint.js which you may fire up to get an understanding of what is posted, just invoke it with "node test_endpoint.js" in a terminal, and then start the http-api in another terminal.
+
 
