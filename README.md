@@ -5,6 +5,8 @@ Feel free to use it as you please. Consider donating if you want to support furt
 SONOS HTTP API
 ==============
 
+**This application requires node 4.0.0 or higher!**
+
 A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
 
 There is a simple sandbox at /docs (incomplete atm)
