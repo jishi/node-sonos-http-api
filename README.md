@@ -186,10 +186,54 @@ The first player listed in the example, "room1", will become the coordinator. It
 Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
 pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and supports the 'HH:MM:SS' format.
 
-preset.json
+presets.json
 -----------
 
-You can create a file with pre made presets, called presets.json. I've included a sample file based on my own setup. In the example, there is one preset called `all`, which you can apply by invoking:
+You can create a file with pre made presets, called presets.json. Example content:
+
+```json
+{
+  "all": {
+    "playMode": "SHUFFLE",
+    "players": [
+      {
+        "roomName": "Bathroom",
+        "volume": 10
+      },
+      {
+        "roomName": "Kitchen",
+        "volume": 10
+      },
+      {
+        "roomName": "Office",
+        "volume": 10
+      },
+      {
+        "roomName": "Bedroom",
+        "volume": 10
+      },
+      {
+        "roomName": "TV Room",
+        "volume": 15
+      }
+    ],
+    "pauseOthers": true
+  },
+  "tv": {
+    "players": [
+      {
+        "roomName": "TV Room",
+        "volume": 20
+      }
+    ],
+    "pauseOthers": true,
+    "uri": "x-rincon-stream:RINCON_000XXXXXXXXXX01400"
+  }
+}
+```
+
+
+In the example, there is one preset called `all`, which you can apply by invoking:
 
 `http://localhost:5005/preset/all`
 
@@ -206,8 +250,9 @@ Available options are:
 * auth: require basic auth credentials which requires a username and password
 
 Example:
-
+```json
 	{
+	  "voicerss": "Your api key for TTS with voicerss",
 	  "port": 5005,
 	  "securePort": 5006,
 	  "cacheDir": "./cache",
@@ -215,7 +260,7 @@ Example:
 	    "key": "/path/to/key.pem",
 	    "cert" : "/path/to/cert.pem"
 	    
-	    ... for pfx
+	    //... for pfx (alternative configuration)
 	    "pfx": "/path/to/pfx.pfx"
 	  },
 	  "auth": {
@@ -223,6 +268,7 @@ Example:
 	    "password": "password"
 	  }
 	}
+```
 
 Override as it suits you.
 
