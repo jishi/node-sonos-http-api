@@ -46,6 +46,12 @@ var requestHandler = function (req, res) {
   req.addListener('end', function () {
     fileServer.serve(req, res, function (err) {
 
+      // If error, route it.
+      // This bypasses authentication on static files!
+      if (!err) {
+        return;
+      }
+
       if (settings.auth) {
         var credentials = auth(req);
 
@@ -55,11 +61,6 @@ var requestHandler = function (req, res) {
           res.end('Access denied');
           return;
         }
-      }
-
-      // If error, route it.
-      if (!err) {
-        return;
       }
 
       if (req.method === 'GET') {
