@@ -259,7 +259,7 @@ Example:
 	  "https": {
 	    "key": "/path/to/key.pem",
 	    "cert" : "/path/to/cert.pem"
-	    
+
 	    //... for pfx (alternative configuration)
 	    "pfx": "/path/to/pfx.pfx"
 	  },
@@ -350,16 +350,24 @@ The supported language codes are:
 |es-es|Spanish (Spain)|
 |sv-se|Swedish (Sweden)|
 
-Spotify (Experimental)
+Spotify and Apple Music (Experimental)
 ----------------------
 
 The following endpoints are available:
 
 ```
+# Spotify
 /RoomName/spotify/now/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
 /RoomName/spotify/next/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
 /RoomName/spotify/queue/spotify:track:4LI1ykYGFCcXPWkrpcU7hn
+
+# Apple Music
+/RoomName/applemusic/{now,next,queue}/song:{songID}
+/RoomName/applemusic/{now,next,queue}/album:{albumID}
 ```
+
+You can find Apple Music song and album IDs via the [iTunes Search
+API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
 It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
 
