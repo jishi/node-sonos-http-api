@@ -63,6 +63,18 @@ var requestHandler = function (req, res) {
         }
       }
 
+      // Enable CORS requests
+      res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      if (req.headers['access-control-request-headers']) {
+        res.setHeader('Access-Control-Allow-Headers', req.headers['access-control-request-headers']);
+      }
+
+      if (req.method === 'OPTIONS') {
+        res.end();
+        return;
+      }
+
       if (req.method === 'GET') {
         api.requestHandler(req, res);
       }
