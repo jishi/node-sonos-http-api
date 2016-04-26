@@ -33,9 +33,10 @@ Now you can control your system by invoking the following commands:
 	http://localhost:5005/resumeall[/{timeout in minutes}]
 	http://localhost:5005/preset/{JSON preset}
 	http://localhost:5005/preset/{predefined preset name}
-	http://localhost:5005/{room name}/{action}[/{parameter}]
 	http://localhost:5005/reindex
-	http://localhost:5005/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
+	http://localhost:5005/{room name}/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
+	http://localhost:5005/{room name}/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
+	http://localhost:5005/{room name}/{action}[/{parameter}]
 
 Example:
 
@@ -73,6 +74,7 @@ The actions supported as of today:
 * previous
 * state (will return a json-representation of the current state of player)
 * favorite
+* favorites (with optional "detailed" parameter)
 * playlist
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
