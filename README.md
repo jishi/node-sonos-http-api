@@ -306,6 +306,13 @@ You need to add this to a file called settings.json (create if it doesn't exist)
 }
 ```
 
+
+Or start the server with `VOICERSS_API_KEY` env variable:
+
+```shell
+VOICERSS_API_KEY=f5e77e1d42063175b9219866129189a3 npm start
+```
+
 Replace the code above (it is just made up) with the api-key you've got after registering.
 
 Action is:
