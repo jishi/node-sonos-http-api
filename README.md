@@ -5,6 +5,8 @@ Feel free to use it as you please. Consider donating if you want to support furt
 SONOS HTTP API
 ==============
 
+** This branch is in early BETA! Some stuff will not work **
+
 **This application requires node 4.0.0 or higher!**
 
 A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
@@ -179,13 +181,15 @@ Example preset (state and uri are optional):
 	  "state": "stopped",
 	  "favorite": "my favorite name",
 	  "uri": "x-rincon-stream:RINCON_0000000000001400",
-	  "playMode": "SHUFFLE",
+	  "playMode": {
+	    "shuffle": true
+	  },
 	  "pauseOthers": true
 	  "sleep": "01:00:00"
 	}
 
-The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmodes are the ones defined in UPnP, which are: NORMAL, REPEAT_ALL, SHUFFLE_NOREPEAT, SHUFFLE
-Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
+The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmode defines the three options "shuffle", "repeat", "crossfade" similar to the state
+Favorite will have precedence over a uri.
 pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and supports the 'HH:MM:SS' format.
 
 presets.json
@@ -196,7 +200,9 @@ You can create a file with pre made presets, called presets.json. Example conten
 ```json
 {
   "all": {
-    "playMode": "SHUFFLE",
+    "playMode": {
+      "shuffle": true
+    },
     "players": [
       {
         "roomName": "Bathroom",
