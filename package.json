@@ -1,6 +1,6 @@
 {
   "name": "sonos-http-api",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.3",
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "scripts": {
     "start": "node server.js"

@@ -104,6 +104,10 @@ if (settings.https) {
 
 server = http.createServer(requestHandler);
 
+process.on('unhandledRejection', (err) => {
+  console.error(err, err.stack);
+});
+
 server.listen(settings.port, function () {
   console.log('http server listening on port', settings.port);
 });
