@@ -87,8 +87,8 @@ function appleMusic(player, values) {
               }  
             }
           
-            // If there are more track differences that artist differences, and there are not many artists, then load all of the artist's tracks into the queue, ELSE play just the first track now (iTunes returns the most popular track first) 
-            if ((trackCount > artistCount) && (trackCount/artistCount > 2)) {
+            // If there are at least twice as many track differences that artist differences, then load all of the artist's tracks into the queue, ELSE play just the first track now (iTunes returns the most popular track first) 
+            if (trackCount/artistCount > 2) {
               var first = true;
               player.coordinator.removeAllTracksFromQueue(function() {
                 trkNum = 0;
