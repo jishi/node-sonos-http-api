@@ -382,7 +382,7 @@ location in the queue and begin playing it.
 The radio action will play the Apple Music "Radio" station for the specified artist name, song title or 
 combination of artist name + song title.
 
-The name and radio searches can use '+' or ' ' between the wrds in the names and titles.
+The name and radio searches can use '+' or ' ' between the words in the names and titles.
 
 It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
 
