@@ -372,7 +372,7 @@ For Apple music there are a number of options:
 
 You can find Apple Music song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
-and have it play in the queue. 
+and have them play in the queue. 
 
 You can pass an artist name, song title, or combination artist name + song title and it will retrieve 
 the closest match. An artist search will replace the queue with up to 50 of the artist's most popular 
