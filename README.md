@@ -370,7 +370,7 @@ The following endpoints are available:
 
 For Apple music there are a number of options:
 
-You can find an Apple Music song and album IDs via the [iTunes Search
+You can find Apple Music song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
 and have it play in the queue. 
 
