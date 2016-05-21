@@ -364,10 +364,25 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
+/RoomName/applemusic/queue/name:{artist name,song title,artist name+song title}
+/RoomName/applemusic/radio/radio:{artist name,song title,artist name+song title}
 ```
 
-You can find Apple Music song and album IDs via the [iTunes Search
-API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
+For Apple music there are a number of options:
+
+You can find an Apple Music song and album IDs via the [iTunes Search
+API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
+and have it play in the queue. 
+
+You can pass an artist name, song title, or combination artist name + song title and it will retrieve 
+the closest match. An artist search will replace the queue with up to 50 of the artist's most popular 
+songs. The song or combination search will add the closest and most popular match to the current 
+location in the queue and begin playing it.
+
+The radio action will play the Apple Music "Radio" station for the specified artist name, song title or 
+combination of artist name + song title.
+
+The name and radio searches can use '+' or ' ' between the wrds in the names and titles.
 
 It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
 
