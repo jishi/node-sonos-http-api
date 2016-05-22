@@ -9,7 +9,9 @@ SONOS HTTP API
 
 **This application requires node 4.0.0 or higher!**
 
-A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
+**This does NOT work on Node 6+ at the moment**
+
+A simple http based API for controlling your Sonos system.
 
 There is a simple sandbox at /docs (incomplete atm)
 
@@ -20,7 +22,7 @@ Start by fixing your dependencies. Invoke the following command:
 
 `npm install --production`
 
-This will download the necessary dependencies if possible (you will need git for this)
+This will download the necessary dependencies if possible.
 
 start the server by running
 
