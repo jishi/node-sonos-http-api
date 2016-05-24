@@ -14,7 +14,8 @@ var settings = {
   port: 5005,
   securePort: 5006,
   cacheDir: './cache',
-  webroot: webroot
+  webroot: webroot,
+  announceVolume: 40
 };
 
 // Create webroot + tts if not exist

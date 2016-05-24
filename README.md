@@ -258,6 +258,7 @@ Available options are:
 * cacheDir: dir for tts files
 * https: use https which requires a key and certificate or pfx file
 * auth: require basic auth credentials which requires a username and password
+* announceVolume: the percentual volume use when invoking say/sayall without any volume parameter
 
 Example:
 ```json
@@ -276,7 +277,8 @@ Example:
 	  "auth": {
 	    "username": "admin",
 	    "password": "password"
-	  }
+	  },
+	  "announceVolume": 40
 	}
 ```
 
@@ -320,14 +322,18 @@ Replace the code above (it is just made up) with the api-key you've got after re
 
 Action is:
 
-	/[Room name]/say/[phrase][/[language_code]]
-	/sayall/[phrase][/[language_code]]
+	/[Room name]/say/[phrase][/[language_code]][/[announce volume]]
+	/sayall/[phrase][/[language_code]][/[announce volume]]
 
 Example:
 
 	/Office/say/Hello, dinner is ready
 	/Office/say/Hej, maten är klar/sv-se
 	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+	/Office/say/Hej, maten är klar/sv-se/90
+
+language code needs to be before volume if specified.
 
 Sayall will group all players, set 40% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
