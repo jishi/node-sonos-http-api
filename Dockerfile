@@ -1,8 +1,13 @@
-FROM mhart/alpine-node:5.5
+FROM mhart/alpine-node:5.11
 
-ADD package.json /opt/app/
+# install dependencies
+COPY package.json /opt/app/
 WORKDIR /opt/app
 RUN npm install --production
-CMD ["npm", "start"]
+
 EXPOSE 3500/tcp 5005/tcp
-ADD . /opt/app
+
+# copy source code
+COPY . /opt/app
+
+CMD ["npm", "start"]
