@@ -72,8 +72,8 @@ The actions supported as of today:
 * groupVolume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
 * mute / unmute
 * groupMute / groupUnmute
-* seek (parameter is queue index)
-* trackseek (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)
+* trackseek (parameter is queue index)
+* timeseek (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)
 * next
 * previous
 * state (will return a json-representation of the current state of player)
@@ -87,6 +87,7 @@ The actions supported as of today:
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
+* sayall
 * queue
 * clearqueue
 
@@ -197,7 +198,9 @@ pauseOthers will pause all zones before applying the preset, effectively muting 
 presets.json
 -----------
 
-You can create a file with pre made presets, called presets.json. Example content:
+You can create a file with pre made presets, called presets.json. It will be loaded upon start, any changes requires a restart of the server.
+
+Example content:
 
 ```json
 {
@@ -335,7 +338,7 @@ Example:
 
 language code needs to be before volume if specified.
 
-Sayall will group all players, set 40% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+Sayall will group all players, set 40% volume (by default) and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
 The supported language codes are:
 
@@ -389,6 +392,8 @@ It only handles a single spotify account currently. It will probably use the fir
 
 Docker
 -------
+
+** Docker is now an unsupported feature, no support is given **
 
 A docker file is included, make sure that if you use this that you start up your container with "--net=host" example:
 
