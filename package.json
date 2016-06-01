@@ -13,11 +13,15 @@
   "dependencies": {
     "async": "~1.5.0",
     "basic-auth": "~1.0.3",
+    "fuse.js": "^2.2.0",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.0.0-beta.14.tar.gz"
   },
-  "engines" : { "node" : ">=4.0.0", "npm" : "^2.0.0" },
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": "^2.0.0"
+  },
   "main": "lib/sonos-http-api.js",
   "license": "MIT"
 }
