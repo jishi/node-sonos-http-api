@@ -369,7 +369,7 @@ The supported language codes are:
 |es-es|Spanish (Spain)|
 |sv-se|Swedish (Sweden)|
 
-Spotify and Apple Music (Experimental)
+Spotify, Apple Music, and SiriusXM (Experimental)
 ----------------------
 
 The following endpoints are available:
@@ -383,12 +383,23 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
+/RoomName/applemusic/queue/name:{artist name, song title, artist name & song title}
+/RoomName/applemusic/radio/radio:{artist name, song title, artist name & song title}
+
+# SiriusXM
+/RoomName/siriusXM/{channel number,station name}
 ```
 
 You can find Apple Music song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
-It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
+You can specify an artist name, song title, or combination of the two, iTunes search will be searched automatically, and the results will be played. With the radio action you can specify the same and an Apple Music Radio station for the artist or track will be played.
+
+It only handles a single spotify account currently. It will probably use the first account added on your system. 
+
+You can specify a SiriusXM channel number or station name and the station will be played.
+
+Experiment with these and leave feedback!
 
 Docker
 -------
