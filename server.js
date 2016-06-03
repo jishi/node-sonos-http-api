@@ -74,9 +74,10 @@ var server;
 
 if (settings.https) {
   var options = {};
-  if (settings.https.pfx)
+  if (settings.https.pfx) {
     options.pfx = fs.readFileSync(settings.https.pfx);
-  else if (settings.https.key && settings.https.cert) {
+    options.passphrase = settings.https.passphrase;
+  } else if (settings.https.key && settings.https.cert) {
     options.key = fs.readFileSync(settings.https.key);
     options.cert = fs.readFileSync(settings.https.cert);
   } else {
