@@ -261,7 +261,8 @@ Example:
 	    "cert" : "/path/to/cert.pem"
 
 	    //... for pfx (alternative configuration)
-	    "pfx": "/path/to/pfx.pfx"
+	    "pfx": "/path/to/pfx.pfx”,
+         “passphrase”: “passphrase”
 	  },
 	  "auth": {
 	    "username": "admin",
