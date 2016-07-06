@@ -438,7 +438,7 @@ Deezer seems to need a user name for the token specification but also seems to w
       ...
       },
       "deezer":  {
-        "username": "your Deezer user name, usually an email address",
+        "username": "your Deezer user name, usually an email address"
       }
 ```
 
