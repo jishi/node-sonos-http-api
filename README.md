@@ -411,7 +411,9 @@ The following endpoint is available:
 Currently supporting Apple Music and Spotify.
 
 Album   - Plays the specified album
+
 Song    - Plays a specified song or up to 50 popular songs by the specified artist
+
 Station - Plays Pandora-like radio station for the specified artist or song(Apple only)
 
 Search term - The name of the album, track (song title or artist name + song title), or radio station. The search is a fuzzy search so spelling does not have to be perfectly accurate. Examples: (note: words/names can be separated by ' ' or '+' and should be encoded)
