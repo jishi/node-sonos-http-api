@@ -408,27 +408,29 @@ The following endpoint is available:
 ```
 /RoomName/musicsearch/{apple,spotify}/{album,song,station}/{search term}
 ```
-Currently supporting Apple Music and Spotify.
+Currently supporting Apple Music and Spotify. It only handles a single account for each service currently. It will probably use the first account added on your system. 
 
-Album   - Plays the specified album
+```
+album   - Plays the specified album
+song    - Plays a specified song or up to 50 popular songs by the specified artist
+station - Plays Pandora-like radio station for the specified artist or song(Apple only)
+```
 
-Song    - Plays a specified song or up to 50 popular songs by the specified artist
+Search term - The name of the artist, album, track, (song title or artist name + song title), or radio station. The search is a fuzzy search so spelling does not have to be perfectly accurate. Examples: (note: words/names can be separated by ' ' or '+' and should be encoded)
 
-Station - Plays Pandora-like radio station for the specified artist or song(Apple only)
-
-Search term - The name of the album, track (song title or artist name + song title), or radio station. The search is a fuzzy search so spelling does not have to be perfectly accurate. Examples: (note: words/names can be separated by ' ' or '+' and should be encoded)
-
+```
   .../song/meghan trainor all about that base
   .../song/meghan trainor
   .../song/all about the bass
+```
 
 Results for some service searches may not have the expected results depending on how general the search terms are. Optional track: and artist: specifiers can be included for songs for more clarity. Examples:
 
+```
   .../song/artist:meghan trainor track:all about that bass
   .../song/artist:meghan trainor
   .../song/track:all about that bass
-
-It only handles a single account currently. It will probably use the first account added on your system. 
+```
 
 
 Experiment with these and leave feedback!
