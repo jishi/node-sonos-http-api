@@ -406,9 +406,9 @@ Music Search and Play (Experimental)
 The following endpoint is available:
 
 ```
-/RoomName/musicsearch/{apple,spotify}/{album,song,station}/{search term}
+/RoomName/musicsearch/{apple,spotify,deezer}/{album,song,station}/{search term}
 ```
-Currently supporting Apple Music and Spotify. It only handles a single account for each service currently. It will probably use the first account added on your system. 
+Currently supporting Apple Music, Spotify, and Deezer. It only handles a single account for each service currently. It will probably use the first account added on your system. 
 
 ```
 album   - Plays the specified album
@@ -431,6 +431,17 @@ Results for some service searches may not have the expected results depending on
   .../song/artist:meghan trainor
   .../song/track:all about that bass
 ```
+
+Deezer seems to need a user name for the token specification but also seems to work without it.  Add the below to your settings.json file if you are having problems getting anything to play.
+
+```
+      ...
+      },
+      "deezer":  {
+        "username": "your Deezer user name, usually an email address",
+      }
+```
+
 
 
 Experiment with these and leave feedback!
