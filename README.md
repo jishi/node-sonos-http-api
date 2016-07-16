@@ -445,6 +445,7 @@ Examples:
 /Playroom/musicsearch/apple/station/red+hot+chili+peppers+dark+necessities  (Only Apple Music supports song titles)
 
 /Kitchen/musicsearch/library/load  (Loads or reloads the music library from Sonos)
+```
 
 
 Experiment with these and leave feedback!
