@@ -402,9 +402,8 @@ You can specify a SiriusXM channel number or station name and the station will b
 
 
 Music Search and Play (Experimental)
-Supporting Apple Music, Spotify, Deezer and your local Library 
 ----------------------
-Perform a search for a song, artist, album or station and begin playing.  
+Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer and your local Music Library. 
 
 The following endpoint is available:
 
@@ -417,7 +416,7 @@ Type options for apple, spotify, and deezer: album, song, station
 Station plays a Pandora like artist radio station for a specified artist name. Apple Music also supports song titles.
 
 Type options for library: album, song, load 
-Load performs an initial load or relaod of the local Sonos music library
+Load performs an initial load or relaod of the local Sonos music library. The music library will also get loaded the first time that the library service is used if the load command has not been issued before.
 
 Search terms for song for all services: artist name, song title, artist name + song title
 Search terms for album for all services: artist name, album title, artist name + album title
