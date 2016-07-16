@@ -437,11 +437,14 @@ Examples:
 /Playroom/musicsearch/library/song/red+hot+chili+peppers+dark+necessities
 
 /Den/musicsearch/spotify/album/abbey+road
-/Playroom/musicsearch/album/album/red+hot+chili+peppers+the+getaway
+/Playroom/musicsearch/library/album/red+hot+chili+peppers+the+getaway
+/Kitchen/musicsearch/spotify/album/dark+necessities
 
 /Den/musicsearch/spotify/station/red+hot+chili+peppers
 /Kitchen/musicsearch/apple/station/dark+necessities  (Only Apple Music supports song titles)
 /Playroom/musicsearch/apple/station/red+hot+chili+peppers+dark+necessities  (Only Apple Music supports song titles)
+
+/Kitchen/musicsearch/library/load  (Loads or reloads the music library from Sonos)
 
 
 Experiment with these and leave feedback!
