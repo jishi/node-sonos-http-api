@@ -400,6 +400,46 @@ It only handles a single spotify account currently. It will probably use the fir
 
 You can specify a SiriusXM channel number or station name and the station will be played.
 
+
+Music Search and Play supporting Apple Music, Spotify, Deezer and your local Library (Experimental)
+----------------------
+Perform a search for a song, artist, album or station and begin playing.  
+
+The following endpoint is available:
+
+```
+/RoomName/musicsearch/{service}/{type}/{search term}
+
+Service options: apple, spotify, deezer, library
+
+Type options for apple, spotify, and deezer: album, song, station 
+Station plays a Pandora like artist radio station for a specified artist name. Apple Music also supports song titles.
+
+Type options for library: album, song, load 
+Load performs an initial load or relaod of the local Sonos music library
+
+Search terms for song for all services: artist name, song title, artist name + song title
+Search terms for album for all services: artist name, album title, artist name + album title
+Search terms for station for apple: artist name, song title, artist name + song title
+Search terms for station for spotify and deezer: artist name
+Search terms for station for library: not supported
+
+Specifying just an artist name will load the queue with up to 50 of the artist's most popular songs
+Specifying a song title or artist + song title will insert the closest match to the song into the queue and start playing it
+
+Examples:
+/Den/musicsearch/spotify/song/red+hot+chili+peppers
+/Kitchen/musicsearch/apple/song/dark+necessities
+/Playroom/musicsearch/library/song/red+hot+chili+peppers+dark+necessities
+
+/Den/musicsearch/spotify/album/abbey+road
+/Playroom/musicsearch/album/album/red+hot+chili+peppers+the+getaway
+
+/Den/musicsearch/spotify/station/red+hot+chili+peppers
+/Kitchen/musicsearch/apple/station/dark+necessities  (Only Apple Music supports song titles)
+/Playroom/musicsearch/apple/station/red+hot+chili+peppers+dark+necessities  (Only Apple Music supports song titles)
+
+
 Experiment with these and leave feedback!
 
 Docker
