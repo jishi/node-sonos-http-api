@@ -1,6 +1,6 @@
 {
   "name": "sonos-http-api",
-  "version": "1.0.0-beta.17",
+  "version": “1.6-beta.6”,
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "scripts": {
     "start": "node server.js"
@@ -11,9 +11,9 @@
     "url": "https://github.com/jplourde5/node-sonos-http-api.git"
   },
   "dependencies": {
-    "anesidora": "^1.1.1",
     "basic-auth": "~1.0.3",
     "fuse.js": "^2.2.0",
+    "anesidora": "git://github.com/dlom/anesidora.git",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.0.0-beta.17.tar.gz"
