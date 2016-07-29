@@ -384,8 +384,6 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
-/RoomName/applemusic/queue/name:{artist name, song title, artist name & song title}
-/RoomName/applemusic/radio/radio:{artist name, song title, artist name & song title}
 
 # SiriusXM
 /RoomName/siriusXM/{channel number,station name}
@@ -393,8 +391,6 @@ The following endpoints are available:
 
 You can find Apple Music song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
-
-You can specify an artist name, song title, or combination of the two, iTunes search will be searched automatically, and the results will be played. With the radio action you can specify the same and an Apple Music Radio station for the artist or track will be played.
 
 It only handles a single spotify account currently. It will probably use the first account added on your system. 
 
@@ -423,6 +419,7 @@ used if the load command has not been issued before.
 
 Search terms for song for all services: artist name, song title, artist name + song title
 Search terms for album for all services: artist name, album title, artist name + album title
+
 Search terms for station for apple: artist name, song title, artist name + song title
 Search terms for station for spotify and deezer: artist name
 Search terms for station for library: not supported
