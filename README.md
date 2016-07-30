@@ -399,16 +399,16 @@ You can specify a SiriusXM channel number or station name and the station will b
 
 Music Search and Play (Experimental)
 ----------------------
-Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer and your local Music Library. 
+Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer, Deezer Elite, and your local Music Library. 
 
 The following endpoint is available:
 
 ```
 /RoomName/musicsearch/{service}/{type}/{search term}
 
-Service options: apple, spotify, deezer, library
+Service options: apple, spotify, deezer, deezere, library
 
-Type options for apple, spotify, and deezer: album, song, station 
+Type options for apple, spotify, deezer, and deezere: album, song, station 
 Station plays a Pandora like artist radio station for a specified artist name. 
 Apple Music also supports song titles and artist name + song title.
 
