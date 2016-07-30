@@ -406,9 +406,9 @@ The following endpoint is available:
 ```
 /RoomName/musicsearch/{service}/{type}/{search term}
 
-Service options: apple, spotify, deezer, deezere, library
+Service options: apple, spotify, deezer, elite, library
 
-Type options for apple, spotify, deezer, and deezere: album, song, station 
+Type options for apple, spotify, deezer, and elite: album, song, station 
 Station plays a Pandora like artist radio station for a specified artist name. 
 Apple Music also supports song titles and artist name + song title.
 
