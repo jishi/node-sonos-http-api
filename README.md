@@ -397,7 +397,7 @@ It only handles a single spotify account currently. It will probably use the fir
 You can specify a SiriusXM channel number or station name and the station will be played.
 
 
-Music Search and Play (Experimental)
+Music Search and Play
 ----------------------
 Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer, Deezer Elite, and your local Music Library. 
 
