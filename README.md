@@ -38,8 +38,8 @@ Now you can control your system by invoking the following commands:
 	http://localhost:5005/preset/{JSON preset}
 	http://localhost:5005/preset/{predefined preset name}
 	http://localhost:5005/reindex
-	http://localhost:5005/{room name}/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
-	http://localhost:5005/{room name}/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
+	http://localhost:5005/{room name}/sleep/{timeout in seconds or "off"}
+	http://localhost:5005/{room name}/sleep/{timeout in seconds or "off"}
 	http://localhost:5005/{room name}/{action}[/{parameter}]
 
 Example:
@@ -188,7 +188,7 @@ Example preset (state and uri are optional):
 	    "shuffle": true
 	  },
 	  "pauseOthers": true
-	  "sleep": "01:00:00"
+	  "sleep": 600
 	}
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmode defines the three options "shuffle", "repeat", "crossfade" similar to the state
