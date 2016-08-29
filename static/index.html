@@ -10,7 +10,7 @@
       a:hover { text-decoration: underline; }
       .logo { display: block; margin: auto }
       .content { margin: 20px 25%; }
-      .docs { background-color: #f4f4f4; border-radius: 4px; padding: 10px;}
+      .docs { background-color: #f4f4f4; border-radius: 4px; padding: 10px; margin-bottom: 20px;}
       .docs p { padding: 0; margin: 0; line-height: 28px; font-size: 14px; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
       .docs .method { background-color: #dbdbdb; padding: 4px; border-radius: 2px; margin-right: 4px;}
       .docs h2 { margin-bottom: 8px;}
@@ -27,7 +27,9 @@
         <h2>Info</h2>
         <p><span class="method">GET</span> <a href="/zones">/zones</a></p>
         <p><span class="method">GET</span> <a href="/favorites">/favorites</a></p>
+      </div>
 
+      <div class="docs">
         <h2>Global Control</h2>
         <p><span class="method">PUT</span> /lockvolumes</p>
         <p><span class="method">PUT</span> /unlockvolumes</p>
@@ -37,7 +39,9 @@
         <p><span class="method">PUT</span> /sleep/{timeout in seconds or timestamp HH:MM:SS or off}</p>
         <p><span class="method">PUT</span> /preset/{JSON preset}</p>
         <p><span class="method">PUT</span> /preset/{predefined preset name}</p>
+      </div>
 
+      <div class="docs">
         <h2>Zone Control</h2>
         <p><span class="method">PUT</span> /{zone name}/{action}[/{parameter}]</p>
 
