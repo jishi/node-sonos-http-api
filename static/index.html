@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sonos API</title>
+    <style media="screen">
+      body { color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; margin-top: 25px;}
+      h1 { text-align: center; }
+      a { color: #333333; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .logo { display: block; margin: auto }
+      .content { margin: 20px 25%; }
+      .docs { background-color: #f4f4f4; border-radius: 4px; padding: 10px; margin-bottom: 20px;}
+      .docs p { padding: 0; margin: 0; line-height: 28px; font-size: 14px; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+      .docs .method { background-color: #dbdbdb; padding: 4px; border-radius: 2px; margin-right: 4px;}
+      .docs h2 { margin-bottom: 8px;}
+      .docs h2:first-child { margin-top: 0;}
+      .footer { text-align: center; font-size: 12px; margin: 10px 0 50px 0;}
+    </style>
+  </head>
+  <body>
+    <img class="logo" src="/sonos-icon.png" alt="Sonos" width="256px" />
+    <div class="content">
+      <h1>Sonos API</h1>
+
+      <div class="docs">
+        <h2>Info</h2>
+        <p><span class="method">GET</span> <a href="/zones">/zones</a></p>
+        <p><span class="method">GET</span> <a href="/favorites">/favorites</a></p>
+      </div>
+
+      <div class="docs">
+        <h2>Global Control</h2>
+        <p><span class="method">PUT</span> /lockvolumes</p>
+        <p><span class="method">PUT</span> /unlockvolumes</p>
+        <p><span class="method">PUT</span> /pauseall</p>
+        <p><span class="method">PUT</span> /resumeall</p>
+        <p><span class="method">PUT</span> /reindex</p>
+        <p><span class="method">PUT</span> /sleep/{timeout in seconds or timestamp HH:MM:SS or off}</p>
+        <p><span class="method">PUT</span> /preset/{JSON preset}</p>
+        <p><span class="method">PUT</span> /preset/{predefined preset name}</p>
+      </div>
+
+      <div class="docs">
+        <h2>Zone Control</h2>
+        <p><span class="method">PUT</span> /{zone name}/{action}[/{parameter}]</p>
+
+        <h3>Actions</h3>
+        <ul>
+          <li><strong>play</strong></li>
+          <li><strong>pause</strong></li>
+          <li><strong>playpause</strong> (toggles playing state)</li>
+          <li><strong>volume</strong> (parameter is absolute or relative volume. Prefix +/- indicates relative volume)</li>
+          <li><strong>groupVolume</strong> (parameter is absolute or relative volume. Prefix +/- indicates relative volume)</li>
+          <li><strong>mute</strong> / <strong>unmute</strong></li>
+          <li><strong>groupMute</strong> / <strong>groupUnmute</strong></li>
+          <li><strong>seek</strong> (parameter is queue index)</li>
+          <li><strong>trackseek</strong> (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)</li>
+          <li><strong>next</strong></li>
+          <li><strong>previous</strong></li>
+          <li><strong>state</strong> (will return a json-representation of the current state of player)</li>
+          <li><strong>favorite</strong></li>
+          <li><strong>playlist</strong></li>
+          <li><strong>lockvolumes</strong> / <strong>unlockvolumes</strong> (experimental, will enforce the volume that was selected when locking!)</li>
+          <li><strong>repeat</strong> (on/off)</li>
+          <li><strong>shuffle</strong> (on/off)</li>
+          <li><strong>crossfade</strong> (on/off)</li>
+          <li><strong>pauseall</strong> (with optional timeout in minutes)</li>
+          <li><strong>resumeall</strong> (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)</li>
+          <li><strong>say</strong></li>
+          <li><strong>queue</strong></li>
+          <li><strong>clearqueue</strong></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p><a href="/docs">Full documentation</a></p>
+        <p>Learn more at <a href="https://github.com/jishi/node-sonos-http-api">https://github.com/jishi/node-sonos-http-api</a></p>
+      </div>
+    </div>
+
+  </body>
+</html>
