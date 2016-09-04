@@ -1,5 +1,4 @@
 'use strict';
-
 var http = require('http');
 var https = require('https');
 var auth = require('basic-auth');
@@ -14,7 +13,8 @@ var settings = {
   port: 5005,
   securePort: 5006,
   cacheDir: './cache',
-  webroot: webroot
+  webroot: webroot,
+  announceVolume: 40
 };
 
 // Create webroot + tts if not exist
@@ -63,6 +63,18 @@ var requestHandler = function (req, res) {
         }
       }
 
+      // Enable CORS requests
+      res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      if (req.headers['access-control-request-headers']) {
+        res.setHeader('Access-Control-Allow-Headers', req.headers['access-control-request-headers']);
+      }
+
+      if (req.method === 'OPTIONS') {
+        res.end();
+        return;
+      }
+
       if (req.method === 'GET') {
         api.requestHandler(req, res);
       }
@@ -92,6 +104,10 @@ if (settings.https) {
 }
 
 server = http.createServer(requestHandler);
+
+process.on('unhandledRejection', (err) => {
+  console.error(err, err.stack);
+});
 
 server.listen(settings.port, function () {
   console.log('http server listening on port', settings.port);

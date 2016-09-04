@@ -5,9 +5,13 @@ Feel free to use it as you please. Consider donating if you want to support furt
 SONOS HTTP API
 ==============
 
+** Beta is no more, master is up to date with the beta now! **
+
 **This application requires node 4.0.0 or higher!**
 
-A simple http based API for controlling your Sonos system. I try to follow compatibility versioning between this and sonos-discovery, which means that 0.3.x requires 0.3.x of sonos-discovery.
+**This does NOT work on Node 6+ at the moment**
+
+A simple http based API for controlling your Sonos system.
 
 There is a simple sandbox at /docs (incomplete atm)
 
@@ -18,7 +22,7 @@ Start by fixing your dependencies. Invoke the following command:
 
 `npm install --production`
 
-This will download the necessary dependencies if possible (you will need git for this)
+This will download the necessary dependencies if possible.
 
 start the server by running
 
@@ -33,9 +37,10 @@ Now you can control your system by invoking the following commands:
 	http://localhost:5005/resumeall[/{timeout in minutes}]
 	http://localhost:5005/preset/{JSON preset}
 	http://localhost:5005/preset/{predefined preset name}
-	http://localhost:5005/{room name}/{action}[/{parameter}]
 	http://localhost:5005/reindex
-	http://localhost:5005/sleep/{timeout in seconds or timestamp HH:MM:SS or off}
+	http://localhost:5005/{room name}/sleep/{timeout in seconds or "off"}
+	http://localhost:5005/{room name}/sleep/{timeout in seconds or "off"}
+	http://localhost:5005/{room name}/{action}[/{parameter}]
 
 Example:
 
@@ -67,12 +72,13 @@ The actions supported as of today:
 * groupVolume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
 * mute / unmute
 * groupMute / groupUnmute
-* seek (parameter is queue index)
-* trackseek (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)
+* trackseek (parameter is queue index)
+* timeseek (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)
 * next
 * previous
 * state (will return a json-representation of the current state of player)
 * favorite
+* favorites (with optional "detailed" parameter)
 * playlist
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
@@ -81,8 +87,10 @@ The actions supported as of today:
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
+* sayall
 * queue
 * clearqueue
+* sleep (values in seconds)
 
 
 State
@@ -177,24 +185,30 @@ Example preset (state and uri are optional):
 	  "state": "stopped",
 	  "favorite": "my favorite name",
 	  "uri": "x-rincon-stream:RINCON_0000000000001400",
-	  "playMode": "SHUFFLE",
+	  "playMode": {
+	    "shuffle": true
+	  },
 	  "pauseOthers": true
-	  "sleep": "01:00:00"
+	  "sleep": 600
 	}
 
-The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmodes are the ones defined in UPnP, which are: NORMAL, REPEAT_ALL, SHUFFLE_NOREPEAT, SHUFFLE
-Favorite will have precedence over a uri. Playmode requires 0.4.2 of sonos-discovery to work.
+The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmode defines the three options "shuffle", "repeat", "crossfade" similar to the state
+Favorite will have precedence over a uri.
 pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and supports the 'HH:MM:SS' format.
 
 presets.json
 -----------
 
-You can create a file with pre made presets, called presets.json. Example content:
+You can create a file with pre made presets, called presets.json. It will be loaded upon start, any changes requires a restart of the server.
+
+Example content:
 
 ```json
 {
   "all": {
-    "playMode": "SHUFFLE",
+    "playMode": {
+      "shuffle": true
+    },
     "players": [
       {
         "roomName": "Bathroom",
@@ -248,6 +262,7 @@ Available options are:
 * cacheDir: dir for tts files
 * https: use https which requires a key and certificate or pfx file
 * auth: require basic auth credentials which requires a username and password
+* announceVolume: the percentual volume use when invoking say/sayall without any volume parameter
 
 Example:
 ```json
@@ -261,13 +276,14 @@ Example:
 	    "cert" : "/path/to/cert.pem"
 
 	    //... for pfx (alternative configuration)
-	    "pfx": "/path/to/pfx.pfx”,
-         “passphrase”: “passphrase”
+	    "pfx": "/path/to/pfx.pfx",
+	    "passphrase": "your-passphrase-if-applicable"
 	  },
 	  "auth": {
 	    "username": "admin",
 	    "password": "password"
-	  }
+	  },
+	  "announceVolume": 40
 	}
 ```
 
@@ -311,16 +327,20 @@ Replace the code above (it is just made up) with the api-key you've got after re
 
 Action is:
 
-	/[Room name]/say/[phrase][/[language_code]]
-	/sayall/[phrase][/[language_code]]
+	/[Room name]/say/[phrase][/[language_code]][/[announce volume]]
+	/sayall/[phrase][/[language_code]][/[announce volume]]
 
 Example:
 
 	/Office/say/Hello, dinner is ready
 	/Office/say/Hej, maten är klar/sv-se
 	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+	/Office/say/Hej, maten är klar/sv-se/90
 
-Sayall will group all players, set 40% volume and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
+language code needs to be before volume if specified.
+
+Sayall will group all players, set 40% volume (by default) and then try and restore everything as the way it where. Please try it out, it will probably contain glitches but please report detailed descriptions on what the problem is (starting state, error that occurs, and the final state of your system).
 
 The supported language codes are:
 
@@ -351,7 +371,7 @@ The supported language codes are:
 |es-es|Spanish (Spain)|
 |sv-se|Swedish (Sweden)|
 
-Spotify and Apple Music (Experimental)
+Spotify, Apple Music, and SiriusXM (Experimental)
 ----------------------
 
 The following endpoints are available:
@@ -365,19 +385,73 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
-/RoomName/applemusic/queue/name:{artist name, song title, artist name & song title}
-/RoomName/applemusic/radio/radio:{artist name, song title, artist name & song title}
+
+# SiriusXM
+/RoomName/siriusXM/{channel number,station name}
 ```
 
 You can find Apple Music song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
-You can specify an artist name, song title, or combination of the two, iTunes search will be searched automatically, and the results will be played. With the radio action you can specify the same and an Apple Music Radio station for the artist or track will be played.
+It only handles a single spotify account currently. It will probably use the first account added on your system. 
 
-It only handles a single spotify account currently. It will probably use the first account added on your system. Experiment with it and leave feedback!
+You can specify a SiriusXM channel number or station name and the station will be played.
+
+
+Music Search and Play
+----------------------
+Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer, Deezer Elite, and your local Music Library. 
+
+The following endpoint is available:
+
+```
+/RoomName/musicsearch/{service}/{type}/{search term}
+
+Service options: apple, spotify, deezer, elite, library
+
+Type options for apple, spotify, deezer, and elite: album, song, station 
+Station plays a Pandora like artist radio station for a specified artist name. 
+Apple Music also supports song titles and artist name + song title.
+
+Type options for library: album, song, load 
+Load performs an initial load or relaod of the local Sonos music library. 
+The music library will also get loaded the first time that the library service is 
+used if the load command has not been issued before.
+
+Search terms for song for all services: artist name, song title, artist name + song title
+Search terms for album for all services: artist name, album title, artist name + album title
+
+Search terms for station for apple: artist name, song title, artist name + song title
+Search terms for station for spotify and deezer: artist name
+Search terms for station for library: not supported
+
+Specifying just an artist name will load the queue with up to 50 of the artist's most popular songs
+Specifying a song title or artist + song title will insert the closest match to the song into 
+the queue and start playing it
+
+Examples:
+/Den/musicsearch/spotify/song/red+hot+chili+peppers
+/Kitchen/musicsearch/apple/song/dark+necessities
+/Playroom/musicsearch/library/song/red+hot+chili+peppers+dark+necessities
+
+/Den/musicsearch/spotify/album/abbey+road
+/Playroom/musicsearch/library/album/red+hot+chili+peppers+the+getaway
+/Kitchen/musicsearch/spotify/album/dark+necessities
+
+/Den/musicsearch/spotify/station/red+hot+chili+peppers
+/Kitchen/musicsearch/apple/station/dark+necessities  (Only Apple Music supports song titles)
+/Playroom/musicsearch/apple/station/red+hot+chili+peppers+dark+necessities  (Only Apple Music supports song titles)
+
+/Kitchen/musicsearch/library/load  (Loads or reloads the music library from Sonos)
+```
+
+
+Experiment with these and leave feedback!
 
 Docker
 -------
+
+** Docker is now an unsupported feature, no support is given **
 
 A docker file is included, make sure that if you use this that you start up your container with "--net=host" example:
 

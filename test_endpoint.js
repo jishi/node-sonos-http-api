@@ -7,8 +7,18 @@ let server = http.createServer((req, res) => {
   }
 
   console.log('');
-  req.on('data', (data) => console.log(data.toString()));
-  req.on('end', () => res.end());
+
+  const buffer = [];
+
+  req.on('data', (data) => buffer.push(data.toString()));
+  req.on('end', () => {
+    res.end();
+
+    const json = JSON.parse(buffer.join(''));
+    console.dir(json, {depth: 10});
+    console.log('');
+
+  });
 });
 
 server.listen(5007);
