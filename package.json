@@ -8,7 +8,7 @@
   "author": "Jimmy Shimizu <jimmy@shimizu.se>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jplourde5/node-sonos-http-api.git"
+    "url": "https://github.com/jishi/node-sonos-http-api.git"
   },
   "dependencies": {
     "basic-auth": "~1.0.3",
