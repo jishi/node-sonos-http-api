@@ -90,6 +90,7 @@ The actions supported as of today:
 * sayall
 * queue
 * clearqueue
+* sleep (values in seconds)
 
 
 State
