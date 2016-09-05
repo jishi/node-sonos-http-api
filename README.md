@@ -194,7 +194,7 @@ Example preset (state and uri are optional):
 
 The first player listed in the example, "room1", will become the coordinator. It will loose it's queue when ungrouped but eventually that will be fixed in the future. Playmode defines the three options "shuffle", "repeat", "crossfade" similar to the state
 Favorite will have precedence over a uri.
-pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and supports the 'HH:MM:SS' format.
+pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and is defined in total seconds (600 = 10 minutes).
 
 presets.json
 -----------
