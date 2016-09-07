@@ -283,7 +283,11 @@ Example:
 	    "username": "admin",
 	    "password": "password"
 	  },
-	  "announceVolume": 40
+	  "announceVolume": 40,
+          "pandora": {
+            "username": "your-pandora-account-email-address",
+            "password": "your-pandora-password"
+          }
 	}
 ```
 
@@ -418,12 +422,11 @@ The following endpoints are available:
 
 Your Pandora credentials need to be added to the settings.json file
    ```
-      ,
-      "pandora": {
-        "username": "YOUR PANDORA ACCOUNT EMAIL ADDRESS",
-        "password": "YOUR PANDORA PASSWORD"
-      }
-```
+          ,
+          "pandora": {
+            "username": "your-pandora-account-email-address",
+            "password": "your-pandora-password"
+          }```
 
 
 Music Search and Play
