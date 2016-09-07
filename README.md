@@ -426,8 +426,9 @@ Your Pandora credentials need to be added to the settings.json file
           "pandora": {
             "username": "your-pandora-account-email-address",
             "password": "your-pandora-password"
-          }```
-
+          }
+  ```
+ 
 
 Music Search and Play
 ----------------------
