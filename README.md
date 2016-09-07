@@ -283,7 +283,11 @@ Example:
 	    "username": "admin",
 	    "password": "password"
 	  },
-	  "announceVolume": 40
+	  "announceVolume": 40,
+	  "pandora": {
+	    "username": "your-pandora-account-email-address",
+	    "password": "your-pandora-password"
+	  }
 	}
 ```
 
@@ -371,8 +375,10 @@ The supported language codes are:
 |es-es|Spanish (Spain)|
 |sv-se|Swedish (Sweden)|
 
-Spotify, Apple Music, and SiriusXM (Experimental)
+Spotify and Apple Music (Experimental)
 ----------------------
+
+Allows you to perform your own external searches for Apple Music or Spotify songs or albums and play a specified song or track ID. The Music Search funtionality outlined further below performs a search of its own and plays the specified music. 
 
 The following endpoints are available:
 
@@ -385,9 +391,6 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
-
-# SiriusXM
-/RoomName/siriusXM/{channel number,station name}
 ```
 
 You can find Apple Music song and album IDs via the [iTunes Search
@@ -395,8 +398,37 @@ API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web
 
 It only handles a single spotify account currently. It will probably use the first account added on your system. 
 
+
+SiriusXM
+----------------------
 You can specify a SiriusXM channel number or station name and the station will be played.
 
+```
+/RoomName/siriusXM/{channel number,station name}
+```
+
+
+Pandora
+----------------------
+Perform a search for one of your Pandora stations and begin playing. Give the currently playing song a thumbs up or thumbs down. Requires a valid Pandora account and credentials. 
+
+The following endpoints are available:
+
+```
+/RoomName/pandora/play/{station name}     Plays the closest match to the specified station name in your list of Pandora stations
+/RoomName/pandora/thumbsup                Gives the current playing Pandora song a thumbs up
+/RoomName/pandora/thumbsdown              Gives the current playing Pandora song a thumbs down 
+```
+
+Your Pandora credentials need to be added to the settings.json file
+   ```
+          ,
+          "pandora": {
+            "username": "your-pandora-account-email-address",
+            "password": "your-pandora-password"
+          }
+  ```
+ 
 
 Music Search and Play
 ----------------------
