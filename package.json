@@ -13,6 +13,7 @@
   "dependencies": {
     "basic-auth": "~1.0.3",
     "fuse.js": "^2.2.0",
+    "mcrypt": "^0.1.7",
     "anesidora": "https://github.com/dlom/anesidora",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
