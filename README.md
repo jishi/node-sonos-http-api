@@ -284,10 +284,10 @@ Example:
 	    "password": "password"
 	  },
 	  "announceVolume": 40,
-          "pandora": {
-            "username": "your-pandora-account-email-address",
-            "password": "your-pandora-password"
-          }
+	  "pandora": {
+	    "username": "your-pandora-account-email-address",
+	    "password": "your-pandora-password"
+	  }
 	}
 ```
 
