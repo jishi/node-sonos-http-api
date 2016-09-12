@@ -13,7 +13,7 @@
   "dependencies": {
     "basic-auth": "~1.0.3",
     "fuse.js": "^2.2.0",
-    "anesidora": "https://github.com/dlom/anesidora/tarball/master",
+    "anesidora": "^1.2.0",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.0.0-beta.22.tar.gz"
