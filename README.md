@@ -525,6 +525,30 @@ or
 }
 ```
 
+```
+{
+  "type": "volume-change",
+  "data": {
+    "uuid": "RINCON_000000000000001400",
+    "previousVolume": 14,
+    "newVolume": 16,
+    "roomName": "Office"
+  }
+}
+```
+
+```
+{
+  "type": "mute-change",
+  "data": {
+    "uuid": "RINCON_000000000000001400",
+    "previousMute": true,
+    "previousMute": false,
+    "roomName": "Office"
+  }
+}
+```
+
 "data" property will be equal to the same data as you would get from /RoomName/state or /zones. There is an example endpoint in the root if this project called test_endpoint.js which you may fire up to get an understanding of what is posted, just invoke it with "node test_endpoint.js" in a terminal, and then start the http-api in another terminal.
 
 
