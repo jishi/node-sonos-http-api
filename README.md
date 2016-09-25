@@ -196,7 +196,7 @@ The first player listed in the example, "room1", will become the coordinator. It
 Favorite will have precedence over a uri.
 pauseOthers will pause all zones before applying the preset, effectively muting your system.  sleep is an optional value that enables the sleep timer and is defined in total seconds (600 = 10 minutes).
 
-presets.json
+presets.json (deprecated, use preset files instead)
 -----------
 
 You can create a file with pre made presets, called presets.json. It will be loaded upon start, any changes requires a restart of the server.
@@ -250,6 +250,50 @@ Example content:
 In the example, there is one preset called `all`, which you can apply by invoking:
 
 `http://localhost:5005/preset/all`
+
+
+presets folder
+--------------
+
+You can create a preset files in the presets folder with pre made presets, called presets.json. It will be loaded upon start, any changes requires a restart of the server.
+
+Example content:
+
+```json
+{
+  "players": [
+    {
+      "roomName": "Bathroom",
+      "volume": 10
+    },
+    {
+      "roomName": "Kitchen",
+      "volume": 10
+    },
+    {
+      "roomName": "Office",
+      "volume": 10
+    },
+    {
+      "roomName": "Bedroom",
+      "volume": 10
+    },
+    {
+      "roomName": "TV Room",
+      "volume": 15
+    }
+  ],
+  "playMode": {
+    "shuffle": true,
+    "repeat": "all",
+    "crossfade": false
+  },
+  "pauseOthers": false,
+  "favorite": "My example favorite"
+}
+```
+
+There is an example.json bundled with this repo. The name of the file will become the name of the preset.
 
 settings.json
 -------------

@@ -3,6 +3,7 @@ var http = require('http');
 var https = require('https');
 var auth = require('basic-auth');
 var SonosDiscovery = require('sonos-discovery');
+const logger = require('sonos-discovery/lib/helpers/logger');
 var SonosHttpAPI = require('./lib/sonos-http-api.js');
 var nodeStatic = require('node-static');
 var fs = require('fs');
@@ -29,7 +30,7 @@ if (!fs.existsSync(webroot + '/tts/')) {
 try {
   var userSettings = require(path.resolve(__dirname, 'settings.json'));
 } catch (e) {
-  console.log('no settings file found, will only use default settings');
+  logger.info('no settings file found, will only use default settings');
 }
 
 if (userSettings) {
@@ -93,24 +94,24 @@ if (settings.https) {
     options.key = fs.readFileSync(settings.https.key);
     options.cert = fs.readFileSync(settings.https.cert);
   } else {
-    console.error("Insufficient configuration for https");
+    logger.error("Insufficient configuration for https");
     return;
   }
 
   var secureServer = https.createServer(options, requestHandler);
   secureServer.listen(settings.securePort, function () {
-    console.log('https server listening on port', settings.securePort);
+    logger.info('https server listening on port', settings.securePort);
   });
 }
 
 server = http.createServer(requestHandler);
 
 process.on('unhandledRejection', (err) => {
-  console.error(err, err.stack);
+  logger.error(err);
 });
 
 server.listen(settings.port, function () {
-  console.log('http server listening on port', settings.port);
+  logger.info('http server listening on port', settings.port);
 });
 
 
