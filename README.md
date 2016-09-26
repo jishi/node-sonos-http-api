@@ -255,7 +255,7 @@ In the example, there is one preset called `all`, which you can apply by invokin
 presets folder
 --------------
 
-You can create a preset files in the presets folder with pre made presets, called presets.json. It will be loaded upon start, any changes requires a restart of the server.
+You can create a preset files in the presets folder with pre made presets, called presets.json. It will be loaded upon start, any changes made to files in this folder (addition, removal, modification) will trigger a reload of your presets.
 
 Example content:
 
