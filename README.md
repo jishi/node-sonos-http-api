@@ -135,22 +135,10 @@ Obtain the current queue list from a specified player. The request will accept:
  - No parameters
 
 	`http://localhost:5005/living room/queue`
- - Just a start index for the queue
-
-	`http://localhost:5005/living room/queue/[start-index]`
- - A start index and a count of items to return
-
-	`http://localhost:5005/living room/queue/[start-index]/[count]`
-
-
 
 Example queue response:
 ```
-{
-  "startIndex": "0",
-  "numberReturned": 2,
-  "totalMatches": 33,
-  "items": [
+[
     {
       "uri": "x-sonos-spotify:spotify%3atrack%3a0AvV49z4EPz5ocYN7eKGAK?sid=9&flags=8224&sn=3",
       "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a0AvV49z4EPz5ocYN7eKGAK%3fsid%3d9%26flags%3d8224%26sn%3d3",
@@ -165,8 +153,8 @@ Example queue response:
       "artist": "The Corrs",
       "album": "In Blue"
     }
-  ]
-}
+]
+
 ```
 
 
@@ -392,32 +380,34 @@ Sayall will group all players, set 40% volume (by default) and then try and rest
 
 The supported language codes are:
 
-|ca-es|Catalan|
-|zh-cn|Chinese (China)|
-|zh-hk|Chinese (Hong Kong)|
-|zh-tw|Chinese (Taiwan)|
-|da-dk|Danish|
-|nl-nl|Dutch|
-|en-au|English (Australia)|
-|en-ca|English (Canada)|
-|en-gb|English (Great Britain)|
-|en-in|English (India)|
-|en-us|English (United States)|
-|fi-fi|Finnish|
-|fr-ca|French (Canada)|
-|fr-fr|French (France)|
-|de-de|German|
-|it-it|Italian|
-|ja-jp|Japanese|
-|ko-kr|Korean|
-|nb-no|Norwegian|
-|pl-pl|Polish|
-|pt-br|Portuguese (Brazil)|
-|pt-pt|Portuguese (Portugal)|
-|ru-ru|Russian|
-|es-mx|Spanish (Mexico)|
-|es-es|Spanish (Spain)|
-|sv-se|Swedish (Sweden)|
+| Language code | Language |
+| ------------- | -------- |
+| ca-es | Catalan  |
+| zh-cn | Chinese (China) |
+| zh-hk |Chinese (Hong Kong) |
+| zh-tw | Chinese (Taiwan) |
+| da-dk | Danish |
+| nl-nl | Dutch |
+| en-au | English (Australia) |
+| en-ca | English (Canada) |
+| en-gb | English (Great Britain) |
+| en-in | English (India) |
+| en-us | English (United States) |
+| fi-fi | Finnish |
+| fr-ca | French (Canada) |
+| fr-fr | French (France) |
+| de-de | German |
+| it-it | Italian |
+| ja-jp | Japanese |
+| ko-kr | Korean |
+| nb-no | Norwegian |
+| pl-pl | Polish |
+| pt-br | Portuguese (Brazil) |
+| pt-pt | Portuguese (Portugal) |
+| ru-ru | Russian |
+| es-mx | Spanish (Mexico) |
+| es-es | Spanish (Spain) |
+| sv-se | Swedish (Sweden) |
 
 Spotify and Apple Music (Experimental)
 ----------------------
