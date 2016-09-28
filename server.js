@@ -14,6 +14,10 @@ var settings = {
   port: 5005,
   securePort: 5006,
   cacheDir: './cache',
+  staticTTS: {
+    phrases: {
+    }
+  }
   webroot: webroot,
   announceVolume: 40
 };
