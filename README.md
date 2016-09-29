@@ -291,7 +291,6 @@ If you want to change default settings, you can create a settings.json file and 
 Available options are:
 
 * port: change the listening port
-* cacheDir: dir for tts files
 * https: use https which requires a key and certificate or pfx file
 * auth: require basic auth credentials which requires a username and password
 * announceVolume: the percentual volume use when invoking say/sayall without any volume parameter
@@ -302,7 +301,6 @@ Example:
 	  "voicerss": "Your api key for TTS with voicerss",
 	  "port": 5005,
 	  "securePort": 5006,
-	  "cacheDir": "./cache",
 	  "https": {
 	    "key": "/path/to/key.pem",
 	    "cert" : "/path/to/cert.pem"
