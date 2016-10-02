@@ -16,7 +16,7 @@
     "anesidora": "^1.2.0",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.0.0-beta.24.tar.gz"
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.0.0.tar.gz"
   },
   "engines": {
     "node": ">=4.0.0",
