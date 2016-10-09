@@ -91,7 +91,7 @@ The actions supported as of today:
 * queue
 * clearqueue
 * sleep (values in seconds)
-
+* linein (only analog linein, not PLAYBAR yet)
 
 State
 -----
@@ -406,6 +406,20 @@ The supported language codes are:
 | es-mx | Spanish (Mexico) |
 | es-es | Spanish (Spain) |
 | sv-se | Swedish (Sweden) |
+
+Line-in
+-------
+
+Convenience method for selecting line in. Will select linein for zone-group, not detach it for line-in.
+Optional parameter is line-in from another player. Examples:
+
+`/Office/linein`
+Selects line-in on zone Office belongs to, with source Office.
+
+`Office/linein/TV Room`
+Selects line-in for zone Office belongs to, with source TV Room.
+
+If you want to to isolate a player and then select line-in, use the `/Office/leave` first.
 
 Spotify and Apple Music (Experimental)
 ----------------------
