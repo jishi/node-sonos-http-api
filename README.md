@@ -9,7 +9,7 @@ SONOS HTTP API
 
 **This application requires node 4.0.0 or higher!**
 
-**This does NOT work on Node 6+ at the moment**
+**This should now work on Node 6+, please let me know if you have issues**
 
 A simple http based API for controlling your Sonos system.
 
