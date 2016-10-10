@@ -442,13 +442,7 @@ API</a>.</p>
             <p>There is a pre-composed image based on AlpineLinux available for simplicitly. This is a cross-version build that runs on raspberry pi B/B+, 2 and version 3. For more information on AlpineLinux, visit <a href="http://www.alpinelinux.org/">their homepage</a> and read the wiki.</p>
             <p>The system will run from a RAM-drive, except for the files related to Sonos HTTP API. Because of this, it should be fairly resistent against powercuts or sudden resets. The tear on the SD-card should only be minimal</p>
             <p>The sshd daemon will generate new host keys upon first boot, and persist these for future boots. By default the root user has no password, if you want to set a password, just SSH to that machine and set a new root password.</p>
-            <p>I forgot to configure samba for autostart, but if you want samba access to the logs and the http api source files, ssh to the machine, and do:</p>
-            <pre>
-              rc-update add samba
-              rc-service samba start
-              lbu_commit
-            </pre>
-            <p>First command will configure samba to start at boot time. Second command starts it directly, and third command persists your changes from the RAM-drive to stick between reboots.</p>
+            <p>It also has samba installed by default, and sharing the /flash folder with read/write permissions for easier access. Just visit \\sonos from a windows machine or smb://sonos from macOS (replace sonos with the IP if it doesn't work)</p>
             <p>To write the image to an SD-card, use the <pre>dd</pre> command on Linux and OS X, or <a href="https://sourceforge.net/projects/win32diskimager/">Win32DiskWriter</a> for Windows.</p>
         </section>
     </div>
