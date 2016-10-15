@@ -114,4 +114,16 @@ server.listen(settings.port, function () {
   logger.info('http server listening on port', settings.port);
 });
 
+server.on('error', (err) => {
+  if (err.code && err.code === 'EADDRINUSE') {
+    logger.error(`Port ${settings.port} seems to be in use already. Make sure the sonos-http-api isn't 
+    already running, or that no other server uses that port. You can specify an alternative http port 
+    with property "port" in settings.json`);
+  } else {
+    logger.error(err);
+  }
+
+  process.exit(1);
+});
+
 
