@@ -92,6 +92,8 @@ The actions supported as of today:
 * clearqueue
 * sleep (values in seconds)
 * linein (only analog linein, not PLAYBAR yet)
+* clip (announce custom mp3 clip)
+* clipall
 
 State
 -----
@@ -420,6 +422,23 @@ Selects line-in on zone Office belongs to, with source Office.
 Selects line-in for zone Office belongs to, with source TV Room.
 
 If you want to to isolate a player and then select line-in, use the `/Office/leave` first.
+
+Clip
+----
+
+Like "Say" but instead of a phrase, reference a custom track from the `static/clips` folder. There is a sample file available (courtesy of https://www.sound-ideas.com/).
+
+    /{Room name}/say/{filename}[/{announce volume}]
+    /sayall/{filename}[/{announce volume}]
+
+Examples:
+
+    clipall/sample_clip.mp3
+    clipall/sample_clip.mp3/80
+    /Office/clip/sample_clip.mp3
+    /Office/clip/sample_clip.mp3/30
+
+*Pro-tip: announce your arrival with an epic theme song!*
 
 Spotify and Apple Music (Experimental)
 ----------------------
