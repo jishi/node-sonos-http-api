@@ -319,7 +319,10 @@ Example:
 	  "pandora": {
 	    "username": "your-pandora-account-email-address",
 	    "password": "your-pandora-password"
-	  }
+	  },
+          "library": { 
+	    "randomQueueLimit": 50 
+	  } 
 	}
 ```
 
@@ -524,7 +527,8 @@ Search terms for station for library: not supported
 
 Specifying just an artist name will load the queue with up to 50 of the artist's most popular songs
 Specifying a song title or artist + song title will insert the closest match to the song into 
-the queue and start playing it
+the queue and start playing it. More than 50 tracks can be loaded from the local library by using 
+library.randomQueueLimit in the settings.json file to set the maximum to a higher value.
 
 Examples:
 /Den/musicsearch/spotify/song/red+hot+chili+peppers
