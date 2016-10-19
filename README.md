@@ -560,20 +560,6 @@ The setsid command will read the service ID from the specified song, save your s
 
 Experiment with these and leave feedback!
 
-Docker
--------
-
-** Docker is now an unsupported feature, no support is given **
-
-A docker file is included, make sure that if you use this that you start up your container with "--net=host" example:
-
-```
-docker run --net=host --restart=always -d <your container/image name>
-```
-
-The restart always is to keep it running after a reboot and to keep it alive it if crashes.
-More information for docker https://docs.docker.com
-
 Webhook
 -------
 
