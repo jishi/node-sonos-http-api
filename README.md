@@ -431,8 +431,8 @@ Clip
 
 Like "Say" but instead of a phrase, reference a custom track from the `static/clips` folder. There is a sample file available (courtesy of https://www.sound-ideas.com/).
 
-    /{Room name}/say/{filename}[/{announce volume}]
-    /sayall/{filename}[/{announce volume}]
+    /{Room name}/clip/{filename}[/{announce volume}]
+    /clipall/{filename}[/{announce volume}]
 
 Examples:
 
