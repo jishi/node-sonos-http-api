@@ -6,40 +6,9 @@ var SonosDiscovery = require('sonos-discovery');
 const logger = require('sonos-discovery/lib/helpers/logger');
 var SonosHttpAPI = require('./lib/sonos-http-api.js');
 var nodeStatic = require('node-static');
-var fs = require('fs');
-var path = require('path');
-var webroot = path.resolve(__dirname, 'static');
+const settings = require('./settings');
 
-var settings = {
-  port: 5005,
-  securePort: 5006,
-  cacheDir: './cache',
-  webroot: webroot,
-  announceVolume: 40
-};
-
-// Create webroot + tts if not exist
-if (!fs.existsSync(webroot)) {
-  fs.mkdirSync(webroot);
-}
-if (!fs.existsSync(webroot + '/tts/')) {
-  fs.mkdirSync(webroot + '/tts/');
-}
-
-// load user settings
-try {
-  var userSettings = require(path.resolve(__dirname, 'settings.json'));
-} catch (e) {
-  logger.info('no settings file found, will only use default settings');
-}
-
-if (userSettings) {
-  for (var i in userSettings) {
-    settings[i] = userSettings[i];
-  }
-}
-
-var fileServer = new nodeStatic.Server(webroot);
+var fileServer = new nodeStatic.Server(settings.webroot);
 var discovery = new SonosDiscovery(settings);
 var api = new SonosHttpAPI(discovery, settings);
 
