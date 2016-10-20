@@ -1,6 +1,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const logger = require('sonos-discovery/lib/helpers/logger');
 
 function merge(target, source) {
   Object.keys(source).forEach((key) => {
