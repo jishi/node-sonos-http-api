@@ -5,7 +5,7 @@ const logger = require('sonos-discovery/lib/helpers/logger');
 
 function merge(target, source) {
   Object.keys(source).forEach((key) => {
-    if (Object.getPrototypeOf(source[key]) === Object.prototype) {
+    if ((Object.getPrototypeOf(source[key]) === Object.prototype) && (target[key] !== undefined)) {
       merge(target[key], source[key]);
     } else {
       target[key] = source[key];
@@ -30,7 +30,7 @@ try {
 }
 
 if (!fs.existsSync(settings.webroot + '/tts/')) {
-  fs.mkdirSync(webroot + '/tts/');
+  fs.mkdirSync(settings.webroot + '/tts/');
 }
 
 if (!fs.existsSync(settings.cacheDir)) {
