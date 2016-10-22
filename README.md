@@ -320,7 +320,7 @@ Example:
 	    "username": "your-pandora-account-email-address",
 	    "password": "your-pandora-password"
 	  },
-          "library": { 
+	  "library": { 
 	    "randomQueueLimit": 50 
 	  } 
 	}
@@ -545,17 +545,6 @@ Examples:
 
 /Kitchen/musicsearch/library/load  (Loads or reloads the music library from Sonos)
 ```
-
-Each music service has a unique service ID and in some cases the service ID for a service may be different for a different region. The default values are for the US. If you are having a problem getting music to play for a service, try the following:
-
-
-```
-1. Add a song track from Spotify to your Sonos Favorites
-2. Look in your Sonos Favorites and note the exact spelling of how it was saved
-3. Invoke the URL .../YOUR_ROOM/musicsearch/{service}/setsid/EXACT_NAME_OF_SONG
-```
-
-The setsid command will read the service ID from the specified song, save your sids on disk in lib/sids.json with the updated service ID, and use these sid values from now on. Save and return the sids.json file when you update the api, or follow the same steps again.
 
 
 Experiment with these and leave feedback!
