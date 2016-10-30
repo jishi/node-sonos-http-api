@@ -18,6 +18,7 @@ var settings = {
   securePort: 5006,
   cacheDir: path.resolve(__dirname, 'cache'),
   webroot: path.resolve(__dirname, 'static'),
+  presetDir: path.resolve(__dirname, 'presets'),
   announceVolume: 40
 };
 
@@ -29,12 +30,10 @@ try {
   logger.info('no settings file found, will only use default settings');
 }
 
+logger.debug(settings);
+
 if (!fs.existsSync(settings.webroot + '/tts/')) {
   fs.mkdirSync(settings.webroot + '/tts/');
-}
-
-if (!fs.existsSync(settings.cacheDir)) {
-  fs.mkdirSync(settings.cacheDir);
 }
 
 module.exports = settings;

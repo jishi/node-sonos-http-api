@@ -296,6 +296,8 @@ Available options are:
 * https: use https which requires a key and certificate or pfx file
 * auth: require basic auth credentials which requires a username and password
 * announceVolume: the percentual volume use when invoking say/sayall without any volume parameter
+* presetDir: absolute path to look for presets (folder must exist!)
+
 
 Example:
 ```json
