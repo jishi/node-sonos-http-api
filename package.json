@@ -1,6 +1,6 @@
 {
   "name": "sonos-http-api",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "scripts": {
     "start": "node server.js"
@@ -16,7 +16,7 @@
     "anesidora": "^1.2.0",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.1.4.tar.gz"
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.1.5.tar.gz"
   },
   "engines": {
     "node": ">=4.0.0",
