@@ -36,4 +36,12 @@ if (!fs.existsSync(settings.webroot + '/tts/')) {
   fs.mkdirSync(settings.webroot + '/tts/');
 }
 
+if (!fs.existsSync(settings.cacheDir)) {
+  try {
+    fs.mkdirSync(settings.cacheDir);
+  } catch (err) {
+    logger.warn(`Could not create cache directory ${settings.cacheDir}, please create it manually for all features to work.`);
+  }
+}
+
 module.exports = settings;
