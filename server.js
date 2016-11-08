@@ -1,16 +1,17 @@
 'use strict';
-var http = require('http');
-var https = require('https');
-var auth = require('basic-auth');
-var SonosDiscovery = require('sonos-discovery');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+const auth = require('basic-auth');
+const SonosDiscovery = require('sonos-discovery');
 const logger = require('sonos-discovery/lib/helpers/logger');
-var SonosHttpAPI = require('./lib/sonos-http-api.js');
-var nodeStatic = require('node-static');
+const SonosHttpAPI = require('./lib/sonos-http-api.js');
+const nodeStatic = require('node-static');
 const settings = require('./settings');
 
-var fileServer = new nodeStatic.Server(settings.webroot);
-var discovery = new SonosDiscovery(settings);
-var api = new SonosHttpAPI(discovery, settings);
+const fileServer = new nodeStatic.Server(settings.webroot);
+const discovery = new SonosDiscovery(settings);
+const api = new SonosHttpAPI(discovery, settings);
 
 var requestHandler = function (req, res) {
   req.addListener('end', function () {
@@ -52,7 +53,7 @@ var requestHandler = function (req, res) {
   }).resume();
 };
 
-var server;
+let server;
 
 if (settings.https) {
   var options = {};
@@ -67,7 +68,7 @@ if (settings.https) {
     return;
   }
 
-  var secureServer = https.createServer(options, requestHandler);
+  const secureServer = https.createServer(options, requestHandler);
   secureServer.listen(settings.securePort, function () {
     logger.info('https server listening on port', settings.securePort);
   });
