@@ -303,6 +303,12 @@ Example:
 ```json
 	{
 	  "voicerss": "Your api key for TTS with voicerss",
+	  "microsoft": {
+	    "key": "Your api for Bing speech API",
+	    "gender": "Female",
+        "name": "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)",
+        "language": "en-US"
+	  },
 	  "port": 5005,
 	  "securePort": 5006,
 	  "https": {
@@ -354,7 +360,16 @@ and it will replace the queue with the playlist and starts playing.
 Say (TTS support)
 -----------------
 
-Experimental support for TTS. This REQUIRES a registered API key from voiceRSS! See http://www.voicerss.org/ for info.
+Experimental support for TTS. Today the following providers are available:
+
+* voicerss
+* Microsoft Cognitive Services (Bing Text to Speech API)
+
+It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
+
+#### VoiceRSS
+
+This REQUIRES a registered API key from voiceRSS! See http://www.voicerss.org/ for info.
 
 You need to add this to a file called settings.json (create if it doesn't exist), like this:
 
@@ -413,6 +428,36 @@ The supported language codes are:
 | es-mx | Spanish (Mexico) |
 | es-es | Spanish (Spain) |
 | sv-se | Swedish (Sweden) |
+
+#### Microsoft
+This one also requires a registered api key. You can sign up for free here: https://www.microsoft.com/cognitive-services/en-US/subscriptions?mode=NewTrials and select "Bing Speech - Preview".
+
+The following configuration is available (the entered values except key are default, and may be omitted):
+
+```json
+	{
+	  "microsoft": {
+	    "key": "Your api for Bing speech API",
+	    "gender": "Female",
+        "name": "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)",
+        "language": "en-US"
+	  }
+	}
+```
+
+If you change language, you need to change the name matching the gender for that language, according to this list: https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceOutput#SupLocales. This one doesn't support providing language directly in the request for this reason.
+
+Action is:
+
+	/[Room name]/say/[phrase][/[announce volume]]
+	/sayall/[phrase][/[announce volume]]
+
+Example:
+
+	/Office/say/Hello, dinner is ready
+	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+
 
 Line-in
 -------

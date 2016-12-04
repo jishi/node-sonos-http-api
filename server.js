@@ -3,14 +3,14 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const auth = require('basic-auth');
-const SonosDiscovery = require('sonos-discovery');
+const SonosSystem = require('sonos-discovery');
 const logger = require('sonos-discovery/lib/helpers/logger');
 const SonosHttpAPI = require('./lib/sonos-http-api.js');
 const nodeStatic = require('node-static');
 const settings = require('./settings');
 
 const fileServer = new nodeStatic.Server(settings.webroot);
-const discovery = new SonosDiscovery(settings);
+const discovery = new SonosSystem(settings);
 const api = new SonosHttpAPI(discovery, settings);
 
 var requestHandler = function (req, res) {
