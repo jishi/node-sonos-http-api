@@ -364,6 +364,7 @@ Experimental support for TTS. Today the following providers are available:
 
 * voicerss
 * Microsoft Cognitive Services (Bing Text to Speech API)
+* AWS Polly
 
 It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
 
@@ -457,6 +458,86 @@ Example:
 	/Office/say/Hello, dinner is ready
 	/sayall/Hello, dinner is ready
 	/Office/say/Hello, dinner is ready/90
+
+#### AWS Polly
+
+Requires AWS access tokens, which you generate for your user. Since this uses the AWS SDK, it will look for settings in either Environment variables, the ~/.aws/credentials or ~/.aws/config.
+
+You can also specify it for this application only, using:
+```json
+	{
+	  "aws": {
+	    "credentials": {
+	      "region": "eu-west-1",
+	      "accessKeyId": "Your access key id",
+	      "secretAccessKey": "Your secret"
+	    },
+	    "name": "Joanna"
+	  }
+	}
+```
+
+Choose the region where you registered your account, or the one closest to you. Polly is only supported in US East (Northern Virginia), US West (Oregon), US East (Ohio), and EU (Ireland) as of today (dec 2016)
+
+If you have your credentials elsewhere and want to stick with the default voice, you still need to make sure that the aws config option is set to trigger AWS TTS:
+
+```json
+	{
+	  "aws": {}
+	}
+```
+
+This is the current list of voice names and their corresponding language and accent
+
+| Language | Code | Gender | Name |
+| --------- | ---- | ------ | ---- |
+| Australian English | en-AU | Female | Nicole |
+| Australian English | en-AU | Male | Russell |
+| Brazilian Portuguese | pt-BR | Female | Vitoria |
+| Brazilian Portuguese | pt-BR | Male | Ricardo |
+| British English | en-GB | Male | Brian |
+| British English | en-GB | Female | Emma |
+| British English | en-GB | Female | Amy |
+| Canadian French | fr-CA | Female | Chantal |
+| Castilian Spanish | es-ES | Female | Conchita |
+| Castilian Spanish | es-ES | Male | Enrique |
+| Danish | da-DK | Female | Naja |
+| Danish | da-DK | Male | Mads |
+| Dutch | nl-NL | Male | Ruben |
+| Dutch | nl-NL | Female | Lotte |
+| French | fr-FR | Male | Mathieu |
+| French | fr-FR | Female | Celine |
+| German | de-DE | Female | Marlene |
+| German | de-DE | Male | Hans |
+| Icelandic | is-IS | Male | Karl |
+| Icelandic | is-IS | Female | Dora |
+| Indian English | en-IN | Female | Raveena |
+| Italian | it-IT | Female | Carla |
+| Italian | it-IT | Male | Giorgio |
+| Japanese | ja-JP | Female | Mizuki |
+| Norwegian | nb-NO | Female | Liv |
+| Polish | pl-PL | Female | Maja |
+| Polish | pl-PL | Male | Jacek |
+| Polish | pl-PL | Male | Jan |
+| Polish | pl-PL | Female | Ewa |
+| Portuguese | pt-PT | Female | Ines |
+| Portuguese | pt-PT | Male | Cristiano |
+| Romanian | ro-RO | Female | Carmen |
+| Russian | ru-RU | Female | Tatyana |
+| Russian | ru-RU | Male | Maxim |
+| Swedish | sv-SE | Female | Astrid |
+| Turkish | tr-TR | Female | Filiz |
+| US English | en-US | Male | Justin |
+| US English | en-US | Female | Joanna |
+| US English | en-US | Male | Joey |
+| US English | en-US | Female | Ivy |
+| US English | en-US | Female | Salli |
+| US English | en-US | Female | Kendra |
+| US English | en-US | Female | Kimberly |
+| US Spanish | es-US | Female | Penelope |
+| US Spanish | es-US | Male | Miguel |
+| Welsh | cy-GB | Female | Gwyneth |
+| Welsh | English | en-GB-WLS | Male | Geraint |
 
 
 Line-in
