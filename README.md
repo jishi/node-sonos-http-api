@@ -365,7 +365,7 @@ Experimental support for TTS. Today the following providers are available:
 * voicerss
 * Microsoft Cognitive Services (Bing Text to Speech API)
 * AWS Polly
-* Google
+* Google (default)
 
 It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
 
@@ -488,7 +488,21 @@ If you have your credentials elsewhere and want to stick with the default voice,
 	}
 ```
 
-This is the current list of voice names and their corresponding language and accent
+Action is:
+
+	/[Room name]/say/[phrase][/[name]][/[announce volume]]
+	/sayall/[phrase][/[name]][/[announce volume]]
+
+Example:
+
+	/Office/say/Hello, dinner is ready
+	/Office/say/Hej, maten är klar/Joanna
+	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+	/Office/say/Hej, maten är klar/Russell/90
+
+This is the current list of voice names and their corresponding language and accent (as of Dec 2016).
+To get a current list of voices, you would need to use the AWS CLI and invoke the describe-voices command.
 
 | Language | Code | Gender | Name |
 | --------- | ---- | ------ | ---- |
@@ -538,11 +552,11 @@ This is the current list of voice names and their corresponding language and acc
 | US Spanish | es-US | Female | Penelope |
 | US Spanish | es-US | Male | Miguel |
 | Welsh | cy-GB | Female | Gwyneth |
-| Welsh | English | en-GB-WLS | Male | Geraint |
+| Welsh English | en-GB-WLS | Male | Geraint |
 
-#### Google
+#### Google (default if no other has been configured)
 
-Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future.
+Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future. There is also limiations to have many request one is allowed to do in a specific time period.
 
 The following language codes are supported
 
