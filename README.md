@@ -365,6 +365,7 @@ Experimental support for TTS. Today the following providers are available:
 * voicerss
 * Microsoft Cognitive Services (Bing Text to Speech API)
 * AWS Polly
+* Google
 
 It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
 
@@ -539,6 +540,70 @@ This is the current list of voice names and their corresponding language and acc
 | Welsh | cy-GB | Female | Gwyneth |
 | Welsh | English | en-GB-WLS | Male | Geraint |
 
+#### Google
+
+Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future.
+
+The following language codes are supported
+
+| Language code | Language |
+| ------------- | -------- |
+| af | Afrikaans |
+| sq | Albanian |
+| ar | Arabic |
+| hy | Armenian |
+| bn | Bengali |
+| ca | Catalan |
+| zh | Chinese |
+| zh-cn | Chinese (Mandarin/China) |
+| zh-tw | Chinese (Mandarin/Taiwan) |
+| zh-yue | Chinese (Cantonese) |
+| hr | Croatian |
+| cs | Czech |
+| da | Danish |
+| nl | Dutch |
+| en | English |
+| en-au | English (Australia) |
+| en-gb | English (Great Britain) |
+| en-us | English (United States) |
+| eo | Esperanto |
+| fi | Finnish |
+| fr | Franch |
+| de | German |
+| el | Greek |
+| hi | Hindi |
+| hu | Hungarian |
+| is | Icelandic |
+| id | Indonesian |
+| it | Italian |
+| ja | Japanese |
+| ko | Korean |
+| la | Latin |
+| lv | Latvian |
+| mk | Macedonian |
+| no | Norwegian |
+| pl | Polish |
+| pt | Portuguese |
+| pt-br | Portuguese (Brazil) |
+| ro | Romanian |
+| ru | Russian |
+| sr | Serbian |
+| sk | Slovak |
+| es | Spanish |
+| es-es | Spanish (Spain) |
+| es-us | Spanish (United States) |
+| sw | Swahili |
+| sv | Swedish |
+| ta | Tamil |
+| th | Thai |
+| tr | Turkish |
+| vi | Vietnamese |
+| cy | Welsh |
+
+Action is:
+
+	/[Room name]/say/[phrase][/[language_code]][/[announce volume]]
+	/sayall/[phrase][/[language_code]][/[announce volume]]
 
 Line-in
 -------
