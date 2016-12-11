@@ -305,9 +305,7 @@ Example:
 	  "voicerss": "Your api key for TTS with voicerss",
 	  "microsoft": {
 	    "key": "Your api for Bing speech API",
-	    "gender": "Female",
-        "name": "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)",
-        "language": "en-US"
+	    "name": "ZiraRUS"
 	  },
 	  "port": 5005,
 	  "securePort": 5006,
@@ -440,25 +438,41 @@ The following configuration is available (the entered values except key are defa
 	{
 	  "microsoft": {
 	    "key": "Your api for Bing speech API",
-	    "gender": "Female",
-        "name": "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)",
-        "language": "en-US"
+	    "name": "ZiraRUS"
 	  }
 	}
 ```
 
-If you change language, you need to change the name matching the gender for that language, according to this list: https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceOutput#SupLocales. This one doesn't support providing language directly in the request for this reason.
+You change language by specifying a voice name correlating to the desired language.
+Name should be specified according to this list: https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceOutput#SupLocales
+where name is the right most part of the voice font name (without optional Apollo suffix). Example:
+
+`Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)` name should be specified as `Hoda`
+
+`Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)` name should be specified as `Stefan`
+
+`Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)` name should be specified as `BenjaminRUS`
 
 Action is:
 
-	/[Room name]/say/[phrase][/[announce volume]]
-	/sayall/[phrase][/[announce volume]]
+	/[Room name]/say/[phrase][/[name]][/[announce volume]]
+	/sayall/[phrase][/[name]][/[announce volume]]
 
 Example:
 
 	/Office/say/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/BenjaminRUS
+	/Office/say/Guten morgen/Stefan
 	/sayall/Hello, dinner is ready
 	/Office/say/Hello, dinner is ready/90
+	/Office/say/Guten morgen/Stefan/90
+
+Supported voices are:
+
+Hoda, Hedda, Stefan, Catherine, Linda, Susan, George, Ravi, ZiraRUS, BenjaminRUS, Laura, Pablo, Raul, Caroline, Julie, Paul, Cosimo, Ayumi, Ichiro, Daniel, Irina, Pavel, HuihuiRUS, Yaoyao, Kangkang, Tracy, Danny, Yating, Zhiwei
+
+See https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceOutput#SupLocales to identify
+which language and gender it maps against.
 
 #### AWS Polly
 
@@ -496,10 +510,11 @@ Action is:
 Example:
 
 	/Office/say/Hello, dinner is ready
-	/Office/say/Hej, maten är klar/Joanna
+	/Office/say/Hello, dinner is ready/Nicole
+	/Office/say/Hej, maten är klar/Astrid
 	/sayall/Hello, dinner is ready
 	/Office/say/Hello, dinner is ready/90
-	/Office/say/Hej, maten är klar/Russell/90
+	/Office/say/Hej, maten är klar/Astrid/90
 
 This is the current list of voice names and their corresponding language and accent (as of Dec 2016).
 To get a current list of voices, you would need to use the AWS CLI and invoke the describe-voices command.
