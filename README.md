@@ -72,7 +72,7 @@ The actions supported as of today:
 * groupVolume (parameter is absolute or relative volume. Prefix +/- indicates relative volume)
 * mute / unmute
 * groupMute / groupUnmute
-* muteunmute (toggles mute state)
+* togglemute (toggles mute state)
 * trackseek (parameter is queue index)
 * timeseek (parameter is in seconds, 60 for 1:00, 120 for 2:00 etc)
 * next
