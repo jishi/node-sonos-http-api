@@ -849,6 +849,7 @@ docker run \
   -p 5005:5005 \
   --name sonos \
   --restart=always \
+  -d \
   -v `pwd`/settings:/app/settings \
   -v `pwd`/clips:/app/static/clips \
   -v `pwd`/cache:/app/cache \
