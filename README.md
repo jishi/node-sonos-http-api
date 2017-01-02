@@ -830,30 +830,7 @@ or
 "data" property will be equal to the same data as you would get from /RoomName/state or /zones. There is an example endpoint in the root if this project called test_endpoint.js which you may fire up to get an understanding of what is posted, just invoke it with "node test_endpoint.js" in a terminal, and then start the http-api in another terminal.
 
 
-DOCKER USAGE
+DOCKER
 -----
 
-First make the config and local dirs up
-```shell
-mkdir clips
-mkdir settings
-mkdir cache
-mkdir presets
-curl https://raw.githubusercontent.com/jishi/node-sonos-http-api/master/presets/example.json > presets/example.json
-echo {} > settings/settings.json
-```
-
-then run the docker image
-```shell
-docker run \
-  -p 5005:5005 \
-  --name sonos \
-  --restart=always \
-  -d \
-  -v `pwd`/settings:/app/settings \
-  -v `pwd`/clips:/app/static/clips \
-  -v `pwd`/cache:/app/cache \
-  -v `pwd`/presets:/app/presets \
-  chrisns/node-sonos-http-api 
-```
-> Note to maintainers: Change this from `chrisns/` to your own dockerhub account if you accept the PR :)
+Docker usage is maintained by [Chris Nesbitt-Smith](https://github.com/chrisns) at [chrisns/docker-node-sonos-http-api](https://github.com/chrisns/docker-node-sonos-http-api)
