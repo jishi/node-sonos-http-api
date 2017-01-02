@@ -838,6 +838,8 @@ First make the config and local dirs up
 mkdir clips
 mkdir settings
 mkdir cache
+mkdir presets
+curl https://raw.githubusercontent.com/jishi/node-sonos-http-api/master/presets/example.json > presets/example.json
 echo {} > settings/settings.json
 ```
 
@@ -850,6 +852,7 @@ docker run \
   -v `pwd`/settings:/app/settings \
   -v `pwd`/clips:/app/static/clips \
   -v `pwd`/cache:/app/cache \
+  -v `pwd`/presets:/app/presets \
   chrisns/node-sonos-http-api 
 ```
 > Note to maintainers: Change this from `chrisns/` to your own dockerhub account if you accept the PR :)
