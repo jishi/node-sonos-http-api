@@ -15,6 +15,7 @@
     "aws-sdk": "^2.12.0",
     "basic-auth": "~1.1.0",
     "fuse.js": "^2.5.0",
+    "json5": "^0.5.1",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.2.7.tar.gz"
