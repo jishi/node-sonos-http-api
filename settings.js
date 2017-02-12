@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const logger = require('sonos-discovery/lib/helpers/logger');
+const tryLoadJson = require('./lib/helpers/try-load-json');
 
 function merge(target, source) {
   Object.keys(source).forEach((key) => {
@@ -23,12 +24,9 @@ var settings = {
 };
 
 // load user settings
-try {
-  const userSettings = require(path.resolve(__dirname, 'settings.json'));
-  merge(settings, userSettings);
-} catch (e) {
-  logger.info('no settings file found, will only use default settings');
-}
+const settingsFileFullPath = path.resolve(__dirname, 'settings.json');
+const userSettings = tryLoadJson(settingsFileFullPath);
+merge(settings, userSettings);
 
 logger.debug(settings);
 

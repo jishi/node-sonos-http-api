@@ -95,6 +95,7 @@ The actions supported as of today:
 * linein (only analog linein, not PLAYBAR yet)
 * clip (announce custom mp3 clip)
 * clipall
+* join / leave  (Grouping actions)
 
 State
 -----
@@ -246,7 +247,7 @@ In the example, there is one preset called `all`, which you can apply by invokin
 presets folder
 --------------
 
-You can create a preset files in the presets folder with pre made presets, called presets.json. It will be loaded upon start, any changes made to files in this folder (addition, removal, modification) will trigger a reload of your presets.
+You can create a preset files in the presets folder with pre made presets. It will be loaded upon start, any changes made to files in this folder (addition, removal, modification) will trigger a reload of your presets. The name of the file (xxxxxx.json) will become the name of the preset. It will be parsed as JSON5, to be more forgiving of typos. See http://json5.org/ for more info.
 
 Example content:
 
@@ -289,7 +290,7 @@ There is an example.json bundled with this repo. The name of the file will becom
 settings.json
 -------------
 
-If you want to change default settings, you can create a settings.json file and put in the root folder.
+If you want to change default settings, you can create a settings.json file and put in the root folder. This will be parsed as JSON5, to be more forgiving. See http://json5.org/ for more info.
 
 Available options are:
 
@@ -665,6 +666,16 @@ Examples:
     /Office/clip/sample_clip.mp3/30
 
 *Pro-tip: announce your arrival with an epic theme song!*
+
+Grouping
+--------
+
+You have basic grouping capabilities. `join` will join the selected player to the specified group (specify group by addressing any of the players in that group):
+
+`/Kitchen/join/Office` This will join the Kitchen player to the group that Office currently belong to.
+`/Kitchen/leave` Kitchen will leave any group it was part of and become a standalone player.
+
+You don\t have to ungroup a player in order to join it to another group, just join it to the new group and it will jump accordingly.
 
 Spotify and Apple Music (Experimental)
 ----------------------
