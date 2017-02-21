@@ -1,0 +1,11 @@
+node_modules
+**/node_modules
+typings
+build
+.vscode
+.git
+.gitignore
+jsconfig.json
+typings.json
+Dockerfile
+tools
