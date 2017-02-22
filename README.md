@@ -692,10 +692,10 @@ Turn off sub
 Turn on sub
 
 `/TV%20Room/sub/gain/3`
-Adjust gain, -15 to 15.
+Adjust gain, -15 to 15. You can make bigger adjustments, but I'm limiting it for now because it might damage the SUB.
 
 `/TV%20Room/sub/crossover/90`
-adjust crossover frequency in hz. Official values are 50 through 110 in increments of 10. Use other values at your own risk!
+adjust crossover frequency in hz. Official values are 50 through 110 in increments of 10. Use other values at your own risk! My SUB gave a loud bang and shut down when setting this to high, and I thought I broke it. However, a restart woke it up again.
 
 `/TV%20Room/sub/polarity/1`
 Switch "placement adjustment" or more commonly known as phase. 0 = 0°, 1 = 180°
