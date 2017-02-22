@@ -673,8 +673,11 @@ Grouping
 
 You have basic grouping capabilities. `join` will join the selected player to the specified group (specify group by addressing any of the players in that group):
 
-`/Kitchen/join/Office` This will join the Kitchen player to the group that Office currently belong to.
-`/Kitchen/leave` Kitchen will leave any group it was part of and become a standalone player.
+`/Kitchen/join/Office`
+This will join the Kitchen player to the group that Office currently belong to.
+
+`/Kitchen/leave`
+Kitchen will leave any group it was part of and become a standalone player.
 
 You don\t have to ungroup a player in order to join it to another group, just join it to the new group and it will jump accordingly.
 
@@ -682,11 +685,20 @@ SUB
 ---
 
 SUB actions include the following:
-`/TV%20Room/sub/off` Turn off sub
-`/TV%20Room/sub/on` Turn on sub
-`/TV%20Room/sub/gain/3` Adjust gain, -15 to 15.
-`/TV%20Room/sub/crossover/90` adjust crossover frequency in hz. Official values are 50 through 110 in increments of 10. Use other values at your own risk!
-`/TV%20Room/sub/polarity/1` Switch "placement adjustment" or more commonly known as phase. 0 = 0°, 1 = 180°
+`/TV%20Room/sub/off`
+Turn off sub
+
+`/TV%20Room/sub/on`
+Turn on sub
+
+`/TV%20Room/sub/gain/3`
+Adjust gain, -15 to 15.
+
+`/TV%20Room/sub/crossover/90`
+adjust crossover frequency in hz. Official values are 50 through 110 in increments of 10. Use other values at your own risk!
+
+`/TV%20Room/sub/polarity/1`
+Switch "placement adjustment" or more commonly known as phase. 0 = 0°, 1 = 180°
 
 Spotify and Apple Music (Experimental)
 ----------------------
