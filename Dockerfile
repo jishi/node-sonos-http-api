@@ -1,5 +1,3 @@
-# LoopBox main processor
-
 # Base image
 FROM node:7
 
