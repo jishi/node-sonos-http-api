@@ -4,6 +4,7 @@ presets/
 cache
 settings.json
 static/tts
+static/clips
 .idea
 .ntvs_analysis.dat
 obj/
@@ -13,3 +14,10 @@ obj/
 *.crt
 *.pfx
 *.key
+
+# Ignore Mac DS_Store files
+.DS_Store
+
+# VS
+.vscode
+.vscode/launch.json
