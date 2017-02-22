@@ -646,7 +646,7 @@ Optional parameter is line-in from another player. Examples:
 `/Office/linein`
 Selects line-in on zone Office belongs to, with source Office.
 
-`Office/linein/TV Room`
+`/Office/linein/TV%20Room`
 Selects line-in for zone Office belongs to, with source TV Room.
 
 If you want to to isolate a player and then select line-in, use the `/Office/leave` first.
@@ -661,8 +661,8 @@ Like "Say" but instead of a phrase, reference a custom track from the `static/cl
 
 Examples:
 
-    clipall/sample_clip.mp3
-    clipall/sample_clip.mp3/80
+    /clipall/sample_clip.mp3
+    /clipall/sample_clip.mp3/80
     /Office/clip/sample_clip.mp3
     /Office/clip/sample_clip.mp3/30
 
@@ -679,7 +679,7 @@ This will join the Kitchen player to the group that Office currently belong to.
 `/Kitchen/leave`
 Kitchen will leave any group it was part of and become a standalone player.
 
-You don\t have to ungroup a player in order to join it to another group, just join it to the new group and it will jump accordingly.
+You don't have to ungroup a player in order to join it to another group, just join it to the new group and it will jump accordingly.
 
 SUB
 ---
