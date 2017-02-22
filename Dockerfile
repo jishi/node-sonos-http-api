@@ -25,6 +25,6 @@ COPY server.js ${WORKINGDIR}/
 COPY lib/ ${WORKINGDIR}/lib/
 
 # 'Start' the server
-ENV PORT 8082
-EXPOSE 8082
+ENV PORT 5005
+EXPOSE 5005
 CMD ["node", "./server.js"]
