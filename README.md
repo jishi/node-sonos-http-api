@@ -96,6 +96,7 @@ The actions supported as of today:
 * clip (announce custom mp3 clip)
 * clipall
 * join / leave  (Grouping actions)
+* sub (on/off/gain/crossover/polarity) See SUB section for more info
 
 State
 -----
@@ -676,6 +677,16 @@ You have basic grouping capabilities. `join` will join the selected player to th
 `/Kitchen/leave` Kitchen will leave any group it was part of and become a standalone player.
 
 You don\t have to ungroup a player in order to join it to another group, just join it to the new group and it will jump accordingly.
+
+SUB
+---
+
+SUB actions include the following:
+`/TV%20Room/sub/off` Turn off sub
+`/TV%20Room/sub/on` Turn on sub
+`/TV%20Room/sub/gain/3` Adjust gain, -15 to 15.
+`/TV%20Room/sub/crossover/90` adjust crossover frequency in hz. Official values are 50 through 110 in increments of 10. Use other values at your own risk!
+`/TV%20Room/sub/polarity/1` Switch "placement adjustment" or more commonly known as phase. 0 = 0°, 1 = 180°
 
 Spotify and Apple Music (Experimental)
 ----------------------
