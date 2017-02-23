@@ -18,7 +18,7 @@
     "json5": "^0.5.1",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.3.1.tar.gz"
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.3.2.tar.gz"
   },
   "engines": {
     "node": ">=4.0.0",
