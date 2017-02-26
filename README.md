@@ -97,6 +97,9 @@ The actions supported as of today:
 * clipall
 * join / leave  (Grouping actions)
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
+* nightmode (on/off, PLAYBAR only)
+* speechenhancement (on/off, PLAYBAR only)
+
 
 State
 -----
