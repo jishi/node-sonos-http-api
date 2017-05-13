@@ -332,9 +332,9 @@ Example:
 	    "username": "your-pandora-account-email-address",
 	    "password": "your-pandora-password"
 	  },
-	  "library": { 
-	    "randomQueueLimit": 50 
-	  } 
+	  "library": {
+	    "randomQueueLimit": 50
+	  }
 	}
 ```
 
@@ -706,7 +706,7 @@ Switch "placement adjustment" or more commonly known as phase. 0 = 0Â°, 1 = 180Â
 Spotify and Apple Music (Experimental)
 ----------------------
 
-Allows you to perform your own external searches for Apple Music or Spotify songs or albums and play a specified song or track ID. The Music Search funtionality outlined further below performs a search of its own and plays the specified music. 
+Allows you to perform your own external searches for Apple Music or Spotify songs or albums and play a specified song or track ID. The Music Search funtionality outlined further below performs a search of its own and plays the specified music.
 
 The following endpoints are available:
 
@@ -724,7 +724,7 @@ The following endpoints are available:
 You can find Apple Music song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
-It only handles a single spotify account currently. It will probably use the first account added on your system. 
+It only handles a single spotify account currently. It will probably use the first account added on your system.
 
 
 SiriusXM
@@ -738,14 +738,14 @@ You can specify a SiriusXM channel number or station name and the station will b
 
 Pandora
 ----------------------
-Perform a search for one of your Pandora stations and begin playing. Give the currently playing song a thumbs up or thumbs down. Requires a valid Pandora account and credentials. 
+Perform a search for one of your Pandora stations and begin playing. Give the currently playing song a thumbs up or thumbs down. Requires a valid Pandora account and credentials.
 
 The following endpoints are available:
 
 ```
 /RoomName/pandora/play/{station name}     Plays the closest match to the specified station name in your list of Pandora stations
 /RoomName/pandora/thumbsup                Gives the current playing Pandora song a thumbs up
-/RoomName/pandora/thumbsdown              Gives the current playing Pandora song a thumbs down 
+/RoomName/pandora/thumbsdown              Gives the current playing Pandora song a thumbs down
 ```
 
 Your Pandora credentials need to be added to the settings.json file
@@ -756,7 +756,7 @@ Your Pandora credentials need to be added to the settings.json file
             "password": "your-pandora-password"
           }
   ```
- 
+
 
 Tunein
 ----------------------
@@ -767,11 +767,11 @@ The following endpoint is available:
 ```
 /RoomName/tunein/play/{station id}
 ```
- 
+
 
 Music Search and Play
 ----------------------
-Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer, Deezer Elite, and your local Music Library. 
+Perform a search for a song, artist, album or station and begin playing. Supports Apple Music, Spotify, Deezer, Deezer Elite, and your local Music Library.
 
 The following endpoint is available:
 
@@ -780,13 +780,13 @@ The following endpoint is available:
 
 Service options: apple, spotify, deezer, elite, library
 
-Type options for apple, spotify, deezer, and elite: album, song, station 
-Station plays a Pandora like artist radio station for a specified artist name. 
+Type options for apple, spotify, deezer, and elite: album, song, station, playlist
+Station plays a Pandora like artist radio station for a specified artist name.
 Apple Music also supports song titles and artist name + song title.
 
-Type options for library: album, song, load 
-Load performs an initial load or relaod of the local Sonos music library. 
-The music library will also get loaded the first time that the library service is 
+Type options for library: album, song, load
+Load performs an initial load or relaod of the local Sonos music library.
+The music library will also get loaded the first time that the library service is
 used if the load command has not been issued before.
 
 Search terms for song for all services: artist name, song title, artist name + song title
@@ -797,8 +797,8 @@ Search terms for station for spotify and deezer: artist name
 Search terms for station for library: not supported
 
 Specifying just an artist name will load the queue with up to 50 of the artist's most popular songs
-Specifying a song title or artist + song title will insert the closest match to the song into 
-the queue and start playing it. More than 50 tracks can be loaded from the local library by using 
+Specifying a song title or artist + song title will insert the closest match to the song into
+the queue and start playing it. More than 50 tracks can be loaded from the local library by using
 library.randomQueueLimit in the settings.json file to set the maximum to a higher value.
 
 Examples:
@@ -809,6 +809,9 @@ Examples:
 /Den/musicsearch/spotify/album/abbey+road
 /Playroom/musicsearch/library/album/red+hot+chili+peppers+the+getaway
 /Kitchen/musicsearch/spotify/album/dark+necessities
+
+/Kitchen/musicsearch/spotify/playlist/morning+acoustic
+/Kitchen/musicsearch/spotify/playlist/dinner+with+friends
 
 /Den/musicsearch/spotify/station/red+hot+chili+peppers
 /Kitchen/musicsearch/apple/station/dark+necessities  (Only Apple Music supports song titles)
