@@ -63,6 +63,9 @@
           <li><strong>state</strong> (will return a json-representation of the current state of player)</li>
           <li><strong>favorite</strong></li>
           <li><strong>playlist</strong></li>
+          <li><strong>playlistcreate</strong> (parameter is playlist name)</li>
+          <li><strong>playlistexport</strong> (will return a json-representation of all playlists. because playlists can share the same name, each playlist unique identifier is the <code>sqid</code> key. optional parameter is this <code>sqid</code> key, will return the desired playlist)</li>
+          <li><strong>playlistimport</strong> (parameters : <code>sqid</code> of the playlist / track title / absolute path to the track file on your SONOS Controller computer. Example : <code>/1/track title//Music/iTunes/iTunes Media/Music/artist/album/track file.mp3</code>). Note : invalid file paths will <strong>not</strong> trigger an error, the device currently does not return an UPnP error code for unmatched remote files)</li>
           <li><strong>lockvolumes</strong> / <strong>unlockvolumes</strong> (experimental, will enforce the volume that was selected when locking!)</li>
           <li><strong>repeat</strong> (on/off)</li>
           <li><strong>shuffle</strong> (on/off)</li>
