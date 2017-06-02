@@ -65,8 +65,7 @@ if (settings.https) {
     options.key = fs.readFileSync(settings.https.key);
     options.cert = fs.readFileSync(settings.https.cert);
   } else {
-    logger.error("Insufficient configuration for https");
-    return;
+    throw new Error("Insufficient configuration for https");
   }
 
   const secureServer = https.createServer(options, requestHandler);
