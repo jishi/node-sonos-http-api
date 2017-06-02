@@ -31,8 +31,8 @@ start the server by running
 #### To use Spotify:
 
 1. Go to <https://developer.spotify.com/my-applications/#!/applications/create> and create a Spotify application to get your client keys.
-2. Rename `.env_example` to `.env` in the root of the repo
-3. Set the values of `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET` to the values of the Spotify app you just created
+2. Create a file `.env` in the root of the repo.
+3. Set the values of `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET` to the values of the Spotify app you just created. Look at `.env_example` for reference
 
 Now you can control your system by invoking the following commands:
 
