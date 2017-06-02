@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
@@ -86,8 +87,8 @@ server.listen(settings.port, function () {
 
 server.on('error', (err) => {
   if (err.code && err.code === 'EADDRINUSE') {
-    logger.error(`Port ${settings.port} seems to be in use already. Make sure the sonos-http-api isn't 
-    already running, or that no other server uses that port. You can specify an alternative http port 
+    logger.error(`Port ${settings.port} seems to be in use already. Make sure the sonos-http-api isn't
+    already running, or that no other server uses that port. You can specify an alternative http port
     with property "port" in settings.json`);
   } else {
     logger.error(err);
@@ -95,5 +96,3 @@ server.on('error', (err) => {
 
   process.exit(1);
 });
-
-

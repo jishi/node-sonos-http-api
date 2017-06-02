@@ -14,6 +14,7 @@
     "anesidora": "^1.2.0",
     "aws-sdk": "^2.12.0",
     "basic-auth": "~1.1.0",
+    "dotenv": "^4.0.0",
     "fuse.js": "^2.5.0",
     "json5": "^0.5.1",
     "node-static": "~0.7.0",

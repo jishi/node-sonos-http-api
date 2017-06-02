@@ -22,3 +22,5 @@ obj/
 .DS_Store
 
 *.log
+
+.env
