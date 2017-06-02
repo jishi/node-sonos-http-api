@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "scripts": {
-    "start": "node server.js",
+    "start": "babel-node server.js",
     "test": "tape 'lib/**/*test.js'"
   },
   "author": "Jimmy Shimizu <jimmy@shimizu.se>",
@@ -30,6 +30,8 @@
   "main": "lib/sonos-http-api.js",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
     "tape": "^4.6.3"
   }
 }
