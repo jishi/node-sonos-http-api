@@ -17,7 +17,8 @@
     "fuse.js": "^2.5.0",
     "json5": "^0.5.1",
     "node-static": "~0.7.0",
-    "request-promise": "~1.0.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.4.1.tar.gz"
   },
   "engines": {
