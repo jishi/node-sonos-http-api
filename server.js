@@ -58,8 +58,13 @@ var requestHandler = function (req, res) {
         res.end();
         return;
       }
-
-      req.body = JSON.parse(body);
+      if (req.method === 'POST') {
+        try {
+          req.body = JSON.parse(body);
+        } catch(e) {
+          logger.error("Invalid JSON body", e);
+        }
+      }
       if (req.method === 'GET' || req.method === 'POST') {
         api.requestHandler(req, res);
       }
