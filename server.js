@@ -59,6 +59,7 @@ var requestHandler = function (req, res) {
         return;
       }
       if (req.method === 'POST') {
+        req.body = body;
         try {
           req.body = JSON.parse(body);
         } catch(e) {
