@@ -18,7 +18,8 @@
     "json5": "^0.5.1",
     "node-static": "~0.7.0",
     "request-promise": "~1.0.2",
-    "sonos-discovery": "file:../node-sonos-discovery"
+    "sonos-discovery": "file:../node-sonos-discovery",
+    "system-sleep": "^1.3.5"
   },
   "engines": {
     "node": ">=4.0.0",
