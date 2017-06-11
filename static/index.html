@@ -63,8 +63,8 @@
           <li><strong>state</strong> (will return a json-representation of the current state of player)</li>
           <li><strong>favorite</strong></li>
           <li><strong>playlist</strong> (parameter is playlist name, will play)</li>
-          <li><strong>playlistcreate</strong> (parameter is playlist name, will return a suitable <code>sqid</code> used for export, import and delete, see below)</li>
-          <li><strong>playlistdelete</strong> (parameter is <code>sqid</code> of the playlist)</li>
+          <li><strong>playlistcreate</strong> (parameter is playlist name, will return a suitable <code>name</code> used for export, import and delete, see below)</li>
+          <li><strong>playlistdelete</strong> (parameter is <code>name</code> of the playlist)</li>
           <li><strong>playlistexport</strong> for backup purposes in case of factory reset or hardware failure (will return a json-representation of all playlists (optional parameter is <code>name</code>, will return the desired playlist contents)</li>
           <li><strong>playlistimport</strong> (parameters : <code>sqid</code> of the playlist / optional: track or playlist title / optional: track or playlist uri obtained by playlistexport. Example : <code>/1/track title/x-file-cifs://MacBook-Air-de-laurent-2/Music/iTunes/iTunes Media/Music/artist/album/track file.mp3</code> or for appending a playlist to another one : <code>/1/playlist title/file:///jffs/settings/savedqueues.rsq#2</code>. Note : invalid local uri track paths will not trigger an error, the device currently does not return an UPnP error code for unmatched Controller files.
           <br/>
