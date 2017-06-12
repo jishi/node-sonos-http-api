@@ -81,6 +81,10 @@ The actions supported as of today:
 * favorite
 * favorites (with optional "detailed" parameter)
 * playlist
+* playlistcreate
+* playlistdelete
+* playlistexport
+* playlistimport
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
 * repeat (on/off)
 * shuffle (on/off)

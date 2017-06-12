@@ -14,6 +14,19 @@ const discovery = new SonosSystem(settings);
 const api = new SonosHttpAPI(discovery, settings);
 
 var requestHandler = function (req, res) {
+  let body = '';
+
+  if (req.method === 'POST') {
+    req.on('data', function (data) {
+    body += data;
+
+    // Too much POST data, kill the connection!
+    // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+    if (body.length > 1e6) {
+      req.connection.destroy();
+    }
+    });
+  }
   req.addListener('end', function () {
     fileServer.serve(req, res, function (err) {
 
@@ -45,8 +58,15 @@ var requestHandler = function (req, res) {
         res.end();
         return;
       }
-
-      if (req.method === 'GET') {
+      if (req.method === 'POST') {
+        req.body = body;
+        try {
+          req.body = JSON.parse(body);
+        } catch(e) {
+          logger.error("Invalid JSON body", e);
+        }
+      }
+      if (req.method === 'GET' || req.method === 'POST') {
         api.requestHandler(req, res);
       }
     });
