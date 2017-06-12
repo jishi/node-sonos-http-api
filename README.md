@@ -332,6 +332,10 @@ Example:
 	    "username": "your-pandora-account-email-address",
 	    "password": "your-pandora-password"
 	  },
+	  "spotify": {
+	    "clientId": "your-spotify-application-clientId",
+	    "clientSecret": "your-spotify-application-clientSecret"
+	  },
 	  "library": {
 	    "randomQueueLimit": 50
 	  }
@@ -340,6 +344,10 @@ Example:
 
 Override as it suits you.
 
+Note for Spotify users!
+-----------------------
+
+To use Spotify, go to https://developer.spotify.com/my-applications/#!/applications/create and create a Spotify application to get your client keys. You can name it Sonos or anything else and you don't have to change any values. Use the Client ID and the Client Secret values in the settings.json file as indicated above.
 
 
 Favorites
