@@ -899,15 +899,19 @@ Docker usage is maintained by [Chris Nesbitt-Smith](https://github.com/chrisns) 
 If you are running this in an environment where you manually have to unblock traffic to and from the machine, the following traffic needs to be allowed:
 
 ### Incoming
+```
 TCP, port 3500 (Sonos events)
 UDP, port 1905 (Sonos initial discovery)
 TCP, port 5005 (if using the default api port)
 TCP, port 5006 (if using https support, optional)
-
+```
 ### Outgoing
+```
 TCP, port 1400 (Sonos control commands)
 UDP, port 1900 (Sonos initial discovery)
 TCP, whatever port used for webhooks (optional)
+TCP, port 80/443 (for looking up hig res cover arts on various music services)
+```
 
 The UDP traffic is a mixture of multicast (outgoing), broadcast (outgoing) and unicast (incoming). The multicast address is 239.255.255.250, the broadcast is 255.255.255.255 and the unicast is from the Sonos players.
 
