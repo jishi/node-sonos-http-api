@@ -140,22 +140,26 @@ Example of a state json:
 Queue
 -----
 Obtain the current queue list from a specified player. The request will accept:
- - No parameters
+ - limit (optional)
+ - offset (optional, requires limit)
+ - detailed flag (optional, include uri in response)
 
-	`http://localhost:5005/living room/queue`
+	    http://localhost:5005/living room/queue
+	    http://localhost:5005/living room/queue/10 (only return top 10)
+	    http://localhost:5005/living room/queue/10/10 (return result 11-20)
+	    http://localhost:5005/living room/queue/detailed
+	    http://localhost:5005/living room/queue/10/detailed
 
 Example queue response:
 ```
 [
     {
-      "uri": "x-sonos-spotify:spotify%3atrack%3a0AvV49z4EPz5ocYN7eKGAK?sid=9&flags=8224&sn=3",
       "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a0AvV49z4EPz5ocYN7eKGAK%3fsid%3d9%26flags%3d8224%26sn%3d3",
       "title": "No Diggity",
       "artist": "Blackstreet",
       "album": "Another Level"
     },
     {
-      "uri": "x-sonos-spotify:spotify%3atrack%3a5OQGeJ1ceykovrykZsGhqL?sid=9&flags=8224&sn=3",
       "albumArtURI": "/getaa?s=1&u=x-sonos-spotify%3aspotify%253atrack%253a5OQGeJ1ceykovrykZsGhqL%3fsid%3d9%26flags%3d8224%26sn%3d3",
       "title": "Breathless",
       "artist": "The Corrs",
