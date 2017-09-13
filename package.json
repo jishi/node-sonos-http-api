@@ -17,9 +17,12 @@
     "fuse.js": "^2.5.0",
     "html-entities": "^1.2.1",
     "json5": "^0.5.1",
-    "node-static": "~0.7.0",
+    "mime": "^1.4.0",
+    "music-metadata": "^0.8.4",
+    "node-static": "^0.7.9",
     "request-promise": "~1.0.2",
-    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.5.1.tar.gz"
+    "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.5.1.tar.gz",
+    "wav-file-info": "0.0.8"
   },
   "engines": {
     "node": ">=4.0.0",
