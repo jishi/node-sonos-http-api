@@ -384,6 +384,7 @@ Experimental support for TTS. Today the following providers are available:
 * Microsoft Cognitive Services (Bing Text to Speech API)
 * AWS Polly
 * Google (default)
+* macOS say command
 
 It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
 
@@ -653,6 +654,42 @@ Action is:
 
 	/[Room name]/say/[phrase][/[language_code]][/[announce volume]]
 	/sayall/[phrase][/[language_code]][/[announce volume]]
+
+#### macOS say command
+On macOS the "say" command can be used for text to speech. If your installation runs on macOS you can activate the system tts by configuring a default voice.
+
+```json
+	{
+	  "macDefaultVoice" : "Alex"
+	}
+```
+
+Action is:
+
+	/[Room name]/say/[phrase][/[voice]][/[announce volume]]
+	/sayall/[phrase][/[voice]][/[announce volume]]
+
+Example:
+
+	/Office/say/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/Agnes
+	/Office/say/Guten morgen/Anna
+	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+	/Office/say/Guten morgen/Anna/90
+
+Supported voices are:
+
+Alex, Alice, Alva, Amelie, Anna, Carmit, Damayanti, Daniel, Diego, Ellen, Fiona, Fred, Ioana, Joana, Jorge, Juan, Kanya, Karen, Kyoko, Laura, Lekha, Luca, Luciana, Maged, Mariska, Mei-Jia, Melina, Milena, Moira, Monica, Nora, Paulina, Samantha, Sara, Satu, Sin-ji, Tessa, Thomas, Ting-Ting, Veena, Victoria, Xander, Yelda, Yuna, Yuri, Zosia, Zuzana
+
+A list of available voices can print by this command:
+```
+   say -v '?'
+```
+
+See also https://gist.github.com/mculp/4b95752e25c456d425c6 and https://stackoverflow.com/questions/1489800/getting-list-of-mac-text-to-speech-voices-programmatically
+
+To download more voices go to: System Preferences -> Accessibility -> Speech -> System Voice
 
 Line-in
 -------
