@@ -656,7 +656,7 @@ Action is:
 	/sayall/[phrase][/[language_code]][/[announce volume]]
 
 #### macOS say command
-On macOS the "say" command can be used for text to speech. If your installation runs on macOS you can activate the system tts by configuring a default voice.
+On macOS the "say" command can be used for text to speech. If your installation runs on macOS you can activate the system tts by configuring a default voice in settings.json:
 
 ```json
 	{
@@ -682,7 +682,7 @@ Supported voices are:
 
 Alex, Alice, Alva, Amelie, Anna, Carmit, Damayanti, Daniel, Diego, Ellen, Fiona, Fred, Ioana, Joana, Jorge, Juan, Kanya, Karen, Kyoko, Laura, Lekha, Luca, Luciana, Maged, Mariska, Mei-Jia, Melina, Milena, Moira, Monica, Nora, Paulina, Samantha, Sara, Satu, Sin-ji, Tessa, Thomas, Ting-Ting, Veena, Victoria, Xander, Yelda, Yuna, Yuri, Zosia, Zuzana
 
-A list of available voices can print by this command:
+A list of available voices can be printed by this command:
 ```
    say -v '?'
 ```
