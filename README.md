@@ -656,12 +656,23 @@ Action is:
 	/sayall/[phrase][/[language_code]][/[announce volume]]
 
 #### macOS say command
-On macOS the "say" command can be used for text to speech. If your installation runs on macOS you can activate the system tts by configuring a default voice in settings.json:
+On macOS the "say" command can be used for text to speech. If your installation runs on macOS you can activate the system TTS by giving an empty configuration:
 
 ```json
-	{
-	  "macDefaultVoice" : "Alex"
-	}
+{
+  "macSay": {}
+}
+```
+
+Or you can provide a default voice and a speech rate:
+
+```json
+{
+  "macSay": {
+  	"voice" : "Alex",
+  	"rate": 90
+  }
+}
 ```
 
 Action is:
