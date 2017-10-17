@@ -91,12 +91,14 @@ The actions supported as of today:
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
 * sayall
+* saypreset
 * queue
 * clearqueue
 * sleep (values in seconds)
 * linein (only analog linein, not PLAYBAR yet)
 * clip (announce custom mp3 clip)
 * clipall
+* clippreset
 * join / leave  (Grouping actions)
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
 * nightmode (on/off, PLAYBAR only)
