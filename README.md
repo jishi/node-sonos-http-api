@@ -972,3 +972,31 @@ TCP, port 80/443 (for looking up hig res cover arts on various music services)
 The UDP traffic is a mixture of multicast (outgoing), broadcast (outgoing) and unicast (incoming). The multicast address is 239.255.255.250, the broadcast is 255.255.255.255 and the unicast is from the Sonos players.
 
 If port 3500 is occupied while trying to bind it, it will try using 3501, 3502, 3503 etc. You would need to adjust your firewall rules accordingly, if running multiple instances of this software, or any other software utilizing these ports. 
+
+### Projects built with this API
+
+**Alexa For Sonos (Alexa Skills)**
+
+Amazon Alexa voice layer on top of the amazing NodeJS component
+https://github.com/hypermoose/AlexaForSonos
+
+**JukeBot (Ruby)**
+
+A Slack bot that can control a Sonos instance. Custom spotify integration to find music.
+https://github.com/estiens/jukebot
+
+**Sonos Controller (JS / Electron)**
+
+A Sonos controller, built with the Electron framework.
+https://github.com/anton-christensen/sonos-controller
+
+**Sonos Cron (PHP)**
+
+Service for retrieving commands from an AWS SQS queue and passing them to an instance of the Sonos HTTP API 
+https://github.com/cjrpaterson/sonos-cron
+
+**Sonos Push Server (JS)**
+
+A Node server to receive notifications from node-sonos-http-api and push them via socket.io to the clients. 
+https://github.com/TimoKorinth/sonos-push-server
+
