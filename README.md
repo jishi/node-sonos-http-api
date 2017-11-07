@@ -1,6 +1,8 @@
-[![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/jishi "Donate once-off to this project using Paypal")
+[![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/jishi "Donate once-off to this project using Paypal") [![Join the chat at gitter](https://img.shields.io/gitter/room/badges/shields.svg)](https://gitter.im/node-sonos-http-api/Lobby "Need assistance? Join the chat at Gitter.im") 
 
-Feel free to use it as you please. Consider donating if you want to support further development.
+Feel free to use it as you please. Consider donating if you want to support further development. Reach out on the gitter chat if you have issues getting it to run, instead of creating new issues, thank you!
+
+If you are also looking for cloud control (ifttt, public webhooks etc), see the [bronos-client](http://www.bronos.net) project! That pi image also contains an installation of this http-api.  
 
 SONOS HTTP API
 ==============
@@ -89,12 +91,14 @@ The actions supported as of today:
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
 * sayall
+* saypreset
 * queue
 * clearqueue
 * sleep (values in seconds)
 * linein (only analog linein, not PLAYBAR yet)
 * clip (announce custom mp3 clip)
 * clipall
+* clippreset
 * join / leave  (Grouping actions)
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
 * nightmode (on/off, PLAYBAR only)
@@ -382,6 +386,7 @@ Experimental support for TTS. Today the following providers are available:
 * Microsoft Cognitive Services (Bing Text to Speech API)
 * AWS Polly
 * Google (default)
+* macOS say command
 
 It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
 
@@ -652,6 +657,53 @@ Action is:
 	/[Room name]/say/[phrase][/[language_code]][/[announce volume]]
 	/sayall/[phrase][/[language_code]][/[announce volume]]
 
+#### macOS say command
+On macOS the "say" command can be used for text to speech. If your installation runs on macOS you can activate the system TTS by giving an empty configuration:
+
+```json
+{
+  "macSay": {}
+}
+```
+
+Or you can provide a default voice and a speech rate:
+
+```json
+{
+  "macSay": {
+  	"voice" : "Alex",
+  	"rate": 90
+  }
+}
+```
+
+Action is:
+
+	/[Room name]/say/[phrase][/[voice]][/[announce volume]]
+	/sayall/[phrase][/[voice]][/[announce volume]]
+
+Example:
+
+	/Office/say/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/Agnes
+	/Office/say/Guten morgen/Anna
+	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+	/Office/say/Guten morgen/Anna/90
+
+Supported voices are:
+
+Alex, Alice, Alva, Amelie, Anna, Carmit, Damayanti, Daniel, Diego, Ellen, Fiona, Fred, Ioana, Joana, Jorge, Juan, Kanya, Karen, Kyoko, Laura, Lekha, Luca, Luciana, Maged, Mariska, Mei-Jia, Melina, Milena, Moira, Monica, Nora, Paulina, Samantha, Sara, Satu, Sin-ji, Tessa, Thomas, Ting-Ting, Veena, Victoria, Xander, Yelda, Yuna, Yuri, Zosia, Zuzana
+
+A list of available voices can be printed by this command:
+```
+   say -v '?'
+```
+
+See also https://gist.github.com/mculp/4b95752e25c456d425c6 and https://stackoverflow.com/questions/1489800/getting-list-of-mac-text-to-speech-voices-programmatically
+
+To download more voices go to: System Preferences -> Accessibility -> Speech -> System Voice
+
 Line-in
 -------
 
@@ -920,3 +972,31 @@ TCP, port 80/443 (for looking up hig res cover arts on various music services)
 The UDP traffic is a mixture of multicast (outgoing), broadcast (outgoing) and unicast (incoming). The multicast address is 239.255.255.250, the broadcast is 255.255.255.255 and the unicast is from the Sonos players.
 
 If port 3500 is occupied while trying to bind it, it will try using 3501, 3502, 3503 etc. You would need to adjust your firewall rules accordingly, if running multiple instances of this software, or any other software utilizing these ports. 
+
+### Projects built with this API
+
+**Alexa For Sonos (Alexa Skills)**
+
+Amazon Alexa voice layer on top of the amazing NodeJS component
+https://github.com/hypermoose/AlexaForSonos
+
+**JukeBot (Ruby)**
+
+A Slack bot that can control a Sonos instance. Custom spotify integration to find music.
+https://github.com/estiens/jukebot
+
+**Sonos Controller (JS / Electron)**
+
+A Sonos controller, built with the Electron framework.
+https://github.com/anton-christensen/sonos-controller
+
+**Sonos Cron (PHP)**
+
+Service for retrieving commands from an AWS SQS queue and passing them to an instance of the Sonos HTTP API 
+https://github.com/cjrpaterson/sonos-cron
+
+**Sonos Push Server (JS)**
+
+A Node server to receive notifications from node-sonos-http-api and push them via socket.io to the clients. 
+https://github.com/TimoKorinth/sonos-push-server
+
