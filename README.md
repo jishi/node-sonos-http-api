@@ -103,6 +103,7 @@ The actions supported as of today:
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
 * nightmode (on/off, PLAYBAR only)
 * speechenhancement (on/off, PLAYBAR only)
+* bass/treble (use -10 thru 10 as value. 0 is neutral)
 
 
 State
@@ -138,7 +139,12 @@ Example of a state json:
 	    "shuffle":true,
 	    "repeat":false,
 	    "crossfade":false
-	  }
+	  },
+	  "equalizer": {
+        "bass": 0,
+        "treble": 0,
+        "loudness": true
+      }
 	}
 
 Queue
