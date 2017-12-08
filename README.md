@@ -830,12 +830,16 @@ Your Pandora credentials need to be added to the settings.json file
 
 Tunein
 ----------------------
-Given a station id this will play the streaming broadcast via the tunein service. You can find tunein station ids via services like [radiotime](http://opml.radiotime.com/)
+Given a station id this will play or set the streaming broadcast via the tunein service. You can find tunein station ids via services like [radiotime](http://opml.radiotime.com/)
 
 The following endpoint is available:
 
 ```
 /RoomName/tunein/play/{station id}
+Will set and start playing given Station id
+
+/RoomName/tunein/set/{station id}
+Will set without start playing given Station id
 ```
 
 
