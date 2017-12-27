@@ -791,8 +791,8 @@ The following endpoints are available:
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
 
 # Amazon Music
-/RoomName/applemusic/{now,next,queue}/song:{songID}
-/RoomName/applemusic/{now,next,queue}/album:{albumID}
+/RoomName/amazonmusic/{now,next,queue}/song:{songID}
+/RoomName/amazonmusic/{now,next,queue}/album:{albumID}
 ```
 
 It only handles a single **spotify** account currently. It will probably use the first account added on your system.
