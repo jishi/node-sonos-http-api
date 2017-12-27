@@ -814,7 +814,7 @@ The format is: https://itunes.apple.com/de/album/{albumName}/{albumID}
 
 To find **Amazon Music** song and album IDs you can use the Amazon Music App, search for a song or an album and share a link.
 
-Look at the link you just shared.
+Look at the link you just shared. This works with Amazon Music Prime as well as with Amazon Music Prime which is included in your Amazon Prime membership. 
 
 *If you shared the link to a song:*
 The format is: https://music.amazon.de/albums/{albumID}?trackAsin={songID}&ref=dm_sh_d74d-4daa-dmcp-63cb-e8747&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
