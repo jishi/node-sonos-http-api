@@ -806,13 +806,11 @@ Have a look at the link you just copied.
 
 *If you shared the link to a song:*
 The format is: https://itunes.apple.com/de/album/{songName}/{albumID}?i={songID}
-
-eg: https://itunes.apple.com/de/album/blood-of-my-enemies/355363490?i=355364259
+> eg: https://itunes.apple.com/de/album/blood-of-my-enemies/355363490?i=355364259
 
 *If you shared the link to an album:*
 The format is: https://itunes.apple.com/de/album/{albumName}/{albumID}
-
-eg: https://itunes.apple.com/de/album/f-g-restless/355363490
+> eg: https://itunes.apple.com/de/album/f-g-restless/355363490
 
 To find **Amazon Music** song and album IDs you can use the Amazon Music App, search for a song or an album and share a link.
 
@@ -820,11 +818,11 @@ Look at the link you just shared.
 
 *If you shared the link to a song:*
 The format is: https://music.amazon.de/albums/{albumID}?trackAsin={songID}&ref=dm_sh_d74d-4daa-dmcp-63cb-e8747&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
-eg: https://music.amazon.de/albums/B0727SH7LW?trackAsin=B071918VCR&ref=dm_sh_d74d-4daa-dmcp-63cb-e8747&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
+> eg: https://music.amazon.de/albums/B0727SH7LW?trackAsin=B071918VCR&ref=dm_sh_d74d-4daa-dmcp-63cb-e8747&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 
 *If you shared the link to an album:*
 The format is: https://music.amazon.de/albums/{albumID}?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
-eg: https://music.amazon.de/albums/B0727SH7LW?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
+> eg: https://music.amazon.de/albums/B0727SH7LW?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 
 
 SiriusXM
