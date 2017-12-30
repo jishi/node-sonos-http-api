@@ -313,6 +313,7 @@ If you want to change default settings, you can create a settings.json file and 
 Available options are:
 
 * port: change the listening port
+* ip: change the listening IP
 * https: use https which requires a key and certificate or pfx file
 * auth: require basic auth credentials which requires a username and password
 * announceVolume: the percentual volume use when invoking say/sayall without any volume parameter
@@ -328,6 +329,7 @@ Example:
 	    "name": "ZiraRUS"
 	  },
 	  "port": 5005,
+	  "ip": "0.0.0.0",
 	  "securePort": 5006,
 	  "https": {
 	    "key": "/path/to/key.pem",

@@ -80,8 +80,9 @@ process.on('unhandledRejection', (err) => {
   logger.error(err);
 });
 
-server.listen(settings.port, function () {
-  logger.info('http server listening on port', settings.port);
+let host = settings.ip;
+server.listen(settings.port, host, function () {
+  logger.info('http server listening on', host, 'port', settings.port);
 });
 
 server.on('error', (err) => {
