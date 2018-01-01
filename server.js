@@ -17,6 +17,7 @@ var requestHandler = function (req, res) {
   req.addListener('end', function () {
     fileServer.serve(req, res, function (err) {
 
+	console.log("url - " + req.url);
       // If error, route it.
       // This bypasses authentication on static files!
       if (!err) {
