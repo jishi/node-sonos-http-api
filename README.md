@@ -775,7 +775,7 @@ adjust crossover frequency in hz. Official values are 50 through 110 in incremen
 `/TV%20Room/sub/polarity/1`
 Switch "placement adjustment" or more commonly known as phase. 0 = 0°, 1 = 180°
 
-Spotify and Apple Music (Experimental)
+Spotify, Apple Music and Amazon Music (Experimental)
 ----------------------
 
 Allows you to perform your own external searches for Apple Music or Spotify songs or albums and play a specified song or track ID. The Music Search funtionality outlined further below performs a search of its own and plays the specified music.
@@ -791,12 +791,40 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
+
+# Amazon Music
+/RoomName/amazonmusic/{now,next,queue}/song:{songID}
+/RoomName/amazonmusic/{now,next,queue}/album:{albumID}
 ```
 
-You can find Apple Music song and album IDs via the [iTunes Search
+It only handles a single **spotify** account currently. It will probably use the first account added on your system.
+
+You can find **Apple Music** song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
-It only handles a single spotify account currently. It will probably use the first account added on your system.
+You can also use iTunes to figure out song and album IDs. Right click on a song or album and select "Share" -> "Copy Link". You can do this when you searched within Apple Music or from your media library as long as the song is available in Apple Music.
+
+Have a look at the link you just copied. 
+
+*If you shared the link to a song:*
+The format is: https://itunes.apple.com/de/album/{songName}/{albumID}?i={songID}
+> eg: https://itunes.apple.com/de/album/blood-of-my-enemies/355363490?i=355364259
+
+*If you shared the link to an album:*
+The format is: https://itunes.apple.com/de/album/{albumName}/{albumID}
+> eg: https://itunes.apple.com/de/album/f-g-restless/355363490
+
+To find **Amazon Music** song and album IDs you can use the Amazon Music App, search for a song or an album and share a link.
+
+Look at the link you just shared. This works with Amazon Music Prime as well as with Amazon Music Prime which is included in your Amazon Prime membership. 
+
+*If you shared the link to a song:*
+The format is: https://music.amazon.de/albums/{albumID}?trackAsin={songID}&ref=dm_sh_d74d-4daa-dmcp-63cb-e8747&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
+> eg: https://music.amazon.de/albums/B0727SH7LW?trackAsin=B071918VCR&ref=dm_sh_d74d-4daa-dmcp-63cb-e8747&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
+
+*If you shared the link to an album:*
+The format is: https://music.amazon.de/albums/{albumID}?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
+> eg: https://music.amazon.de/albums/B0727SH7LW?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 
 
 SiriusXM
