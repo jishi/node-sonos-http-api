@@ -872,6 +872,12 @@ Will set and start playing given Station id
 Will set without start playing given Station id
 ```
 
+For example to play Radio 6 Music - [tunein.com/radio/s44491](https://tunein.com/radio/s44491)
+
+```
+/RoomName/tunein/play/44491
+note the droping of the 's' in 's44491'
+```
 
 Music Search and Play
 ----------------------
