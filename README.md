@@ -348,6 +348,9 @@ Example:
 	    "username": "your-pandora-account-email-address",
 	    "password": "your-pandora-password"
 	  },
+	  "siriusxm": {
+	    "accountid": "your-siriusxm-account-id"
+	  },
 	  "spotify": {
 	    "clientId": "your-spotify-application-clientId",
 	    "clientSecret": "your-spotify-application-clientSecret"
