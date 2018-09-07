@@ -12,6 +12,7 @@
     "url": "https://github.com/jishi/node-sonos-http-api.git"
   },
   "dependencies": {
+    "ajv": "^5.5.2",
     "anesidora": "^1.2.0",
     "aws-sdk": "^2.12.0",
     "basic-auth": "~1.1.0",
