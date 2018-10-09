@@ -1026,6 +1026,11 @@ If port 3500 is occupied while trying to bind it, it will try using 3501, 3502, 
 Amazon Alexa voice layer on top of the amazing NodeJS component
 https://github.com/hypermoose/AlexaForSonos
 
+**Echo Sonos (Alexa Skills)**
+
+Amazon Echo integration with Sonos
+https://github.com/rgraciano/echo-sonos
+
 **JukeBot (Ruby)**
 
 A Slack bot that can control a Sonos instance. Custom spotify integration to find music.
