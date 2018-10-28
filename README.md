@@ -500,10 +500,10 @@ Example:
 
 Supported voices are:
 
-Hoda, Hedda, Stefan, Catherine, Linda, Susan, George, Ravi, ZiraRUS, BenjaminRUS, Laura, Pablo, Raul, Caroline, Julie, Paul, Cosimo, Ayumi, Ichiro, Daniel, Irina, Pavel, HuihuiRUS, Yaoyao, Kangkang, Tracy, Danny, Yating, Zhiwei
+ Hoda, Naayf, Ivan, HerenaRUS, Jakub, Vit, HelleRUS, Michael, Karsten, Hedda, Stefan, Catherine, Linda, Susan, George, Ravi, ZiraRUS, BenjaminRUS, Laura, Pablo, Raul, Caroline, Julie, Paul, Cosimo, Ayumi, Ichiro, Daniel, Irina, Pavel, HuihuiRUS, Yaoyao, Kangkang, Tracy, Danny, Yating, Zhiwei
 
 See https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceOutput#SupLocales to identify
-which language and gender it maps against.
+which language and gender it maps against. If your desired voice is not in the list of supported one, raise an issue about adding it or send me a PR.
 
 #### AWS Polly
 
