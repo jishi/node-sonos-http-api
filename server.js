@@ -12,11 +12,16 @@ const settings = require('./settings');
 const fileServer = new nodeStatic.Server(settings.webroot);
 const discovery = new SonosSystem(settings);
 const api = new SonosHttpAPI(discovery, settings);
+var exiting = false;
 
 var requestHandler = function (req, res) {
   req.addListener('end', function () {
+    if (exiting){
+      logger.error("Ignoring "+req.url+ " request while exiting");
+      sendResponse(res,410,{status:"Shutting Down"})
+      return;
+    }
     fileServer.serve(req, res, function (err) {
-
       // If error, route it.
       // This bypasses authentication on static files!
       if (!err) {
@@ -47,11 +52,33 @@ var requestHandler = function (req, res) {
       }
 
       if (req.method === 'GET') {
+        if (req.url == "/stop"){      
+          sendResponse(res,200,{status:"OK"})
+          exiting = true;
+          setTimeout((e) => {
+            logger.error("Timeout fired")
+            server.close(() => {
+              logger.error('Server closed !!! ')
+              process.exit(0);
+            });
+          },100);
+          return;
+        }
+
         api.requestHandler(req, res);
       }
     });
   }).resume();
 };
+
+function sendResponse(res,code, body) {
+  var jsonResponse = JSON.stringify(body);
+  res.statusCode = code;
+  res.setHeader('Content-Length', Buffer.byteLength(jsonResponse));
+  res.setHeader('Content-Type', 'application/json;charset=utf-8');
+  res.write(new Buffer(jsonResponse));
+  res.end();
+}
 
 let server;
 
