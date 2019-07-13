@@ -2,6 +2,7 @@
 const http = require('http');
 
 let server = http.createServer((req, res) => {
+  console.log(req.method, req.url);
   for (let header in req.headers) {
     console.log(header + ':', req.headers[header]);
   }
@@ -14,9 +15,11 @@ let server = http.createServer((req, res) => {
   req.on('end', () => {
     res.end();
 
-    const json = JSON.parse(buffer.join(''));
-    console.dir(json, {depth: 10});
-    console.log('');
+    try {
+      const json = JSON.parse(buffer.join(''));
+      console.dir(json, { depth: 10 });
+      console.log('');
+    } catch (e) {}
 
   });
 });
