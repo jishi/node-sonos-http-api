@@ -33,7 +33,8 @@
   "main": "lib/sonos-http-api.js",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.8.0",
+    "ajv": "^5.0.0",
+    "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-plugin-import": "^2.7.0"
   }
