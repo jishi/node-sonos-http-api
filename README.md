@@ -797,7 +797,22 @@ The following endpoints are available:
 /RoomName/amazonmusic/{now,next,queue}/album:{albumID}
 ```
 
+**Spotify**
+
+You can find the **Spotify** track and album IDs as the last part of the URL. 
+
+How to find the URL?
+- Web player: the address bar URL for albums and playlist; select _Copy Song Link_ from the dot menu. 
+- Desktop client: via _Share > Copy {Album,Playlist,Song} Link_
+- Mobile client: via _Share > Copy Link_
+
+For Spotify playlists, you'll need this format: `spotify:user:spotify:playlist:{playlistid}`. Even if it's a public playlist, you always need to prefix with `spotify:user:`. An example of a great playlist: `/kitchen/spotify/now/spotify:user:spotify:playlist:32O0SSXDNWDrMievPkV0Im`.
+
+To get more technical, you actually use the Spotify URI (not URL) for the endpoint, like so: `{room}/spotify/{now,next,queue}/{spotifyuri}`.
+
 It only handles a single **spotify** account currently. It will probably use the first account added on your system.
+
+**Apple Music**
 
 You can find **Apple Music** song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
@@ -813,6 +828,8 @@ The format is: https://itunes.apple.com/de/album/{songName}/{albumID}?i={songID}
 *If you shared the link to an album:*
 The format is: https://itunes.apple.com/de/album/{albumName}/{albumID}
 > eg: https://itunes.apple.com/de/album/f-g-restless/355363490
+
+**Amazon Music**
 
 To find **Amazon Music** song and album IDs you can use the Amazon Music App, search for a song or an album and share a link.
 
