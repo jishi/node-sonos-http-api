@@ -49,7 +49,16 @@ var requestHandler = function (req, res) {
       }
 
       if (req.method === 'GET') {
-        api.requestHandler(req, res);
+        try {
+          api.requestHandler(req, res);
+        } catch(e) {
+          var jsonResponse = JSON.stringify({status: 'error', error: e});
+          res.statusCode = 500;
+          res.setHeader('Content-Length', Buffer.byteLength(jsonResponse));
+          res.setHeader('Content-Type', 'application/json;charset=utf-8');
+          res.write(new Buffer(jsonResponse));
+          res.end();
+        }
       }
     });
   }).resume();
