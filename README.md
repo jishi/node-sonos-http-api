@@ -293,6 +293,8 @@ Example content:
       "volume": 15
     }
   ],
+  "trackNo": 3,
+  "elapsedTime": 42,
   "playMode": {
     "shuffle": true,
     "repeat": "all",
