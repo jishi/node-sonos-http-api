@@ -197,7 +197,7 @@ Add track to the current queue of specified player. You can obtain track uri fro
 
 addtoqueue works with Sonos music library (CIFS) and works partially with Spotify. Added songs from Spotify will display correct album art, but display song id instead of song title. 
 
-Example queue response:
+Example addtoqueue response:
 ```
 [
     {"firsttracknumberenqueued":"4","numtracksadded":"1","newqueuelength":"4"}
