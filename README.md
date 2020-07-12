@@ -99,6 +99,7 @@ The actions supported as of today:
 * saypreset
 * queue
 * clearqueue
+* addtoqueue
 * sleep (values in seconds)
 * linein (only analog linein, not PLAYBAR yet)
 * clip (announce custom mp3 clip)
@@ -184,6 +185,25 @@ Example queue response:
 
 ```
 
+addtoqueue (beta)
+-----
+Add track to the current queue of specified player. You can obtain track uri from /favorites/detailed call. When using Sonos music library (CIFS) and know the path of a song you can construct the uri by using encodeURIComponent. The request will accept:
+ - uri (required, 
+ - enqueueAsNext (boolean, required)
+ - desiredFirstTrackNumberEnqueued (optional)
+
+	    http://localhost:5005/living room/addtoqueue/x-file-cifs%3A%2F%2F10.10.1.77%2Fpublic%2FJames%20Bond%20Soundtracks%2F02.%20From%20Russia%20With%20Love%2F07%20-%20007.mp3/true/1
+	    http://localhost:5005/living room/addtoqueue/x-sonos-spotify:spotify%3atrack%3a4BggEwLhGfrbrl7JBhC8EC?sid=9&flags=8224&sn=2/true/1
+
+addtoqueue works with Sonos music library (CIFS) and works partially with Spotify. Added songs from Spotify will display correct album art, but display song id instead of song title. 
+
+Example queue response:
+```
+[
+    {"firsttracknumberenqueued":"4","numtracksadded":"1","newqueuelength":"4"}
+]
+
+```
 
 Preset
 ------
