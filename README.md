@@ -100,7 +100,7 @@ The actions supported as of today:
 * queue
 * clearqueue
 * sleep (values in seconds)
-* linein (only analog linein, not PLAYBAR yet)
+* linein
 * clip (announce custom mp3 clip)
 * clipall
 * clippreset
@@ -731,6 +731,9 @@ Selects line-in on zone Office belongs to, with source Office.
 
 `/Office/linein/TV%20Room`
 Selects line-in for zone Office belongs to, with source TV Room.
+
+`/Office/linein/TV%20Room/spdif`
+Selects the spdif line-in for zone Office belongs to, with source TV Room, where TV Room is a playbar.
 
 If you want to to isolate a player and then select line-in, use the `/Office/leave` first.
 
