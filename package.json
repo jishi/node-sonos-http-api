@@ -4,7 +4,7 @@
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "scripts": {
     "start": "node server.js",
-    "stop": "pkill nodesonoshttp",
+    "stop": "pkill -f nodesonoshttp",
     "lint": "eslint lib"
   },
   "author": "Jimmy Shimizu <jimmy@shimizu.se>",
