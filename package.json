@@ -4,6 +4,7 @@
   "description": "A simple node app for controlling a Sonos system with basic HTTP requests",
   "scripts": {
     "start": "node server.js",
+    "stop": "pkill -f nodesonoshttp",
     "lint": "eslint lib"
   },
   "author": "Jimmy Shimizu <jimmy@shimizu.se>",
@@ -13,15 +14,15 @@
   },
   "dependencies": {
     "anesidora": "^1.2.0",
-    "aws-sdk": "^2.12.0",
+    "aws-sdk": "^2.595.0",
     "basic-auth": "~1.1.0",
     "fuse.js": "^6.4.1",
     "html-entities": "^1.2.1",
     "json5": "^0.5.1",
     "mime": "^1.4.1",
     "music-metadata": "^1.1.0",
-    "node-static": "^0.7.9",
-    "request-promise": "~1.0.2",
+    "node-static": "^0.7.11",
+    "request-promise": "^4.2.5",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.7.3.tar.gz",
     "wav-file-info": "0.0.8"
   },
@@ -32,8 +33,8 @@
   "main": "lib/sonos-http-api.js",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb-base": "^12.0.1",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.19.1"
   }
 }
