@@ -3,7 +3,7 @@ presets.json
 presets/
 cache
 settings.json
-static/tts
+# static/tts
 .idea
 .ntvs_analysis.dat
 obj/
