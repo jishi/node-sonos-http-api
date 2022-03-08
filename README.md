@@ -89,9 +89,9 @@ The actions supported as of today:
 * favorites (with optional "detailed" parameter)
 * playlist
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
-* repeat (on/off)
-* shuffle (on/off)
-* crossfade (on/off)
+* repeat (on(=all)/one/off(=none)/toggle)
+* shuffle (on/off/toggle)
+* crossfade (on/off/toggle)
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
@@ -106,8 +106,8 @@ The actions supported as of today:
 * clippreset
 * join / leave  (Grouping actions)
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
-* nightmode (on/off, PLAYBAR only)
-* speechenhancement (on/off, PLAYBAR only)
+* nightmode (on/off/toggle, PLAYBAR only)
+* speechenhancement (on/off/toggle, PLAYBAR only)
 * bass/treble (use -10 thru 10 as value. 0 is neutral)
 
 
