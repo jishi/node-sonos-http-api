@@ -2,7 +2,7 @@
 
 ⚠WARNING!⚠
 
-The upcoming Sonos software update (dubbed S2) seems to still work. However, it might break in the future if and when they decide to drop UPnP as control protocol. 
+The Sonos S2 update, released June 2020, still works with this API. However, it might break in the future if and when Sonos decide to drop UPnP as the control protocol. 
 
 
 Feel free to use it as you please. Consider donating if you want to support further development. Reach out on the gitter chat if you have issues getting it to run, instead of creating new issues, thank you!
