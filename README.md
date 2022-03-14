@@ -610,7 +610,7 @@ To get a current list of voices, you would need to use the AWS CLI and invoke th
 
 #### Google (default if no other has been configured)
 
-Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future. There is also limiations to have many request one is allowed to do in a specific time period.
+Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future. There is also limiations to how many requests one is allowed to do in a specific time period.
 
 The following language codes are supported
 
