@@ -853,7 +853,7 @@ The format is: https://music.amazon.de/albums/{albumID}?ref=dm_sh_97aa-255b-dmcp
 
 BBC Sounds
 ----------------------
-You can specify a BBC station name and the station will be played or set depending.
+You can specify a BBC station name and the station will be played or set depending on the command used.
 
 To play immediately:
 ```
@@ -861,10 +861,12 @@ To play immediately:
 ```
 To set the station without playing:
 ```
-/RoomName/bbcsounds/play/{stream code}
+/RoomName/bbcsounds/set/{stream code}
 ```
 
-|  BBC Station                     | Stream Code                      |
+Refer to the table below for available codes for BBC Radio Stations:
+
+|  BBC Radio Station Name          | Stream Code                      |
 |----------------------------------|----------------------------------|
 |  BBC Radio 1                     | bbc_radio_one                    |
 |  BBC 1Xtra                       | bbc_1xtra                        |
