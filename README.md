@@ -851,6 +851,84 @@ The format is: https://music.amazon.de/albums/{albumID}?trackAsin={songID}&ref=d
 The format is: https://music.amazon.de/albums/{albumID}?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 > eg: https://music.amazon.de/albums/B0727SH7LW?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 
+BBC Sounds
+----------------------
+You can specify a BBC station and the station will be played or set depending on the command used.
+
+To play immediately:
+```
+/RoomName/bbcsounds/play/{stream code}
+```
+To set the station without playing:
+```
+/RoomName/bbcsounds/set/{stream code}
+```
+
+Refer to the table below for available codes for BBC Radio Stations
+
+|  BBC Radio Station Name          | Stream Code                      |
+|----------------------------------|----------------------------------|
+|  BBC Radio 1                     | bbc_radio_one                    |
+|  BBC 1Xtra                       | bbc_1xtra                        |
+|  BBC 1Dance                      | bbc_1dance                       |
+|  BBC 1Relax                      | bbc_1relax                       |
+|  BBC Radio 2                     | bbc_radio_two                    |
+|  BBC Radio 3                     | bbc_radio_three                  |
+|  BBC Radio 4                     | bbc_radio_four                   |
+|  BBC Radio 4 Extra               | bbc_radio_four_extra             |
+|  BBC Radio 5 Live                | bbc_radio_five_live              |
+|  BBC Radio 5 Live Sports Extra   | bbc_five_live_sports_extra       |
+|  BBC Radio 6 Music               | bbc_6music                       |
+|  BBC Asian Network               | bbc_asian_network                |
+|  BBC Radio Berkshire             | bbc_radio_berkshire              |
+|  BBC Radio Bristol               | bbc_radio_bristol                |
+|  BBC Radio Cambridge             | bbc_radio_cambridge              |
+|  BBC Radio Cornwall              | bbc_radio_cornwall               |
+|  BBC Radio Cumbria               | bbc_radio_cumbria                |
+|  BBC Radio Cymru                 | bbc_radio_cymru                  |
+|  BBC Radio Cymru 2               | bbc_radio_cymru_2                |
+|  BBC Radio CWR                   | bbc_radio_coventry_warwickshire  |
+|  BBC Radio Derby                 | bbc_radio_derby                  |
+|  BBC Radio Devon                 | bbc_radio_devon                  |
+|  BBC Radio Essex                 | bbc_radio_essex                  |
+|  BBC Radio Foyle                 | bbc_radio_foyle                  |
+|  BBC Radio Gloucestershire       | bbc_radio_gloucestershire        |
+|  BBC Radio Guernsey              | bbc_radio_guernsey               |
+|  BBC Radio Hereford Worcester    | bbc_radio_hereford_worcester     |
+|  BBC Radio Humberside            | bbc_radio_humberside             |
+|  BBC Radio Jersey                | bbc_radio_jersey                 |
+|  BBC Radio Kent                  | bbc_radio_kent                   |
+|  BBC Radio Lancashire            | bbc_radio_lancashire             |
+|  BBC Radio Leeds                 | bbc_radio_leeds                  |
+|  BBC Radio Leicester             | bbc_radio_leicester              |
+|  BBC Radio Lincolnshire          | bbc_radio_lincolnshire           |
+|  BBC Radio London                | bbc_london                       |
+|  BBC Radio Manchester            | bbc_radio_manchester             |
+|  BBC Radio Merseyside            | bbc_radio_merseyside             |
+|  BBC Radio nan Gaidheal          | bbc_radio_nan_gaidheal           |
+|  BBC Radio Newcastle             | bbc_radio_newcastle              |
+|  BBC Radio Norfolk               | bc_radio_norfolk                 |
+|  BBC Radio Northampton           | bbc_radio_northampton            |
+|  BBC Radio Nottingham            | bbc_radio_nottingham             |
+|  BBC Radio Oxford                | bbc_radio_oxford                 |
+|  BBC Radio Scotland FM           | bbc_radio_scotland_fm            |
+|  BBC Radio Sheffield             | bbc_radio_sheffield              |
+|  BBC Radio Shropshire            | bbc_radio_shropshire             |
+|  BBC Radio Solent                | bbc_radio_solent                 |
+|  BBC Radio Somerset              | bbc_radio_somerset_sound         |
+|  BBC Radio Stoke                 | bbc_radio_stoke                  |
+|  BBC Radio Suffolk               | bbc_radio_suffolk                |
+|  BBC Radio Surrey                | bbc_radio_surrey                 |
+|  BBC Radio Sussex                | bbc_radio_sussex                 |
+|  BBC Radio Tees                  | bbc_tees                         |
+|  BBC Radio Three Counties Radio  | bbc_three_counties_radio         |
+|  BBC Radio Ulster                | bbc_radio_ulster                 |
+|  BBC Radio Wales                 | bbc_radio_wales_fm               |
+|  BBC Radio Wiltshire             | bbc_radio_wiltshire              |
+|  BBC Radio WM                    | bbc_wm                           |
+|  BBC Radio York                  | bbc_radio_york                   |
+|  BBC World_Service               | bbc_world_service                |
+|  Cbeebies Radio                  | cbeebies_radio                   |
 
 SiriusXM
 ----------------------
