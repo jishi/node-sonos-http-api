@@ -22,6 +22,10 @@ A simple http based API for controlling your Sonos system.
 
 There is a simple sandbox at /docs (incomplete atm)
 
+INSTALLATION
+------------
+See Wiki entry: [Step by Step RPi3 Install of Sonos http api](https://github.com/jishi/node-sonos-http-api/wiki/Step-by-Step---RPi3-Install-of-Sonos-http-api)
+
 USAGE
 -----
 
