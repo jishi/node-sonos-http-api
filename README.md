@@ -108,7 +108,7 @@ The actions supported as of today:
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
 * nightmode (on/off/toggle, PLAYBAR only)
 * speechenhancement (on/off/toggle, PLAYBAR only)
-* bass/treble (use -10 thru 10 as value. 0 is neutral)
+* bass/treble (use -10 through to 10 as the value. 0 is neutral)
 
 
 State
