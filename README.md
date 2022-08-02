@@ -1,5 +1,10 @@
 [![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/jishi "Donate once-off to this project using Paypal") [![Join the chat at gitter](https://img.shields.io/gitter/room/badges/shields.svg)](https://gitter.im/node-sonos-http-api/Lobby "Need assistance? Join the chat at Gitter.im") 
 
+⚠WARNING!⚠
+
+The Sonos S2 update, released June 2020, still works with this API. However, it might break in the future if and when Sonos decide to drop UPnP as the control protocol. 
+
+
 Feel free to use it as you please. Consider donating if you want to support further development. Reach out on the gitter chat if you have issues getting it to run, instead of creating new issues, thank you!
 
 If you are also looking for cloud control (ifttt, public webhooks etc), see the [bronos-client](http://www.bronos.net) project! That pi image also contains an installation of this http-api.  
@@ -84,9 +89,9 @@ The actions supported as of today:
 * favorites (with optional "detailed" parameter)
 * playlist
 * lockvolumes / unlockvolumes (experimental, will enforce the volume that was selected when locking!)
-* repeat (on/off)
-* shuffle (on/off)
-* crossfade (on/off)
+* repeat (on(=all)/one/off(=none)/toggle)
+* shuffle (on/off/toggle)
+* crossfade (on/off/toggle)
 * pauseall (with optional timeout in minutes)
 * resumeall (will resume the ones that was pause on the pauseall call. Useful for doorbell, phone calls, etc. Optional timeout)
 * say
@@ -101,8 +106,8 @@ The actions supported as of today:
 * clippreset
 * join / leave  (Grouping actions)
 * sub (on/off/gain/crossover/polarity) See SUB section for more info
-* nightmode (on/off, PLAYBAR only)
-* speechenhancement (on/off, PLAYBAR only)
+* nightmode (on/off/toggle, PLAYBAR only)
+* speechenhancement (on/off/toggle, PLAYBAR only)
 * bass/treble (use -10 thru 10 as value. 0 is neutral)
 
 
@@ -293,6 +298,8 @@ Example content:
       "volume": 15
     }
   ],
+  "trackNo": 3,
+  "elapsedTime": 42,
   "playMode": {
     "shuffle": true,
     "repeat": "all",
@@ -318,6 +325,7 @@ Available options are:
 * auth: require basic auth credentials which requires a username and password
 * announceVolume: the percentual volume use when invoking say/sayall without any volume parameter
 * presetDir: absolute path to look for presets (folder must exist!)
+* household: when theres multiple sonos accounts on one network (example: Sonos_ab7d67898dcc5a6d, find it in [Your sonos IP]:1400/status/zp). Note that the value after the '.' should not be removed. See more info here: https://github.com/jishi/node-sonos-http-api/issues/783
 
 
 Example:
@@ -602,7 +610,7 @@ To get a current list of voices, you would need to use the AWS CLI and invoke th
 
 #### Google (default if no other has been configured)
 
-Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future. There is also limiations to have many request one is allowed to do in a specific time period.
+Does not require any API keys. Please note that Google has been known in the past to change the requirements for its Text-to-Speech API, and this may stop working in the future. There is also limiations to how many requests one is allowed to do in a specific time period.
 
 The following language codes are supported
 
@@ -778,7 +786,9 @@ Switch "placement adjustment" or more commonly known as phase. 0 = 0°, 1 = 180�
 Spotify, Apple Music and Amazon Music (Experimental)
 ----------------------
 
-Allows you to perform your own external searches for Apple Music or Spotify songs or albums and play a specified song or track ID. The Music Search funtionality outlined further below performs a search of its own and plays the specified music.
+Allows you to perform your own external searches for Spotify, Apple Music or Amazon Music songs or albums and play a specified song or track ID. The Music Search funtionality outlined further below performs a search of its own and plays the specified music.
+
+Ensure you have added and registered the respective service with your Sonos account, before trying to control your speakers with node-sonos-http-api. Instructions on how to do this can be found here: https://support.sonos.com/s/article/2757?language=en_US
 
 The following endpoints are available:
 
@@ -843,6 +853,86 @@ The format is: https://music.amazon.de/albums/{albumID}?trackAsin={songID}&ref=d
 The format is: https://music.amazon.de/albums/{albumID}?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 > eg: https://music.amazon.de/albums/B0727SH7LW?ref=dm_sh_97aa-255b-dmcp-c6ba-4ff00&musicTerritory=DE&marketplaceId=A1PA6795UKMFR9
 
+BBC Sounds (as of 2022 only available in the UK)
+----------------------
+Ensure you have added and registered the BBC Sounds service with your Sonos account, before trying to control your speakers with node-sonos-http-api. Instructions on how to do this can be found here: https://www.bbc.co.uk/sounds/help/questions/listening-on-a-smart-speaker/sonos or here: https://support.sonos.com/s/article/2757?language=en_US
+
+You can specify a BBC station and the station will be played or set depending on the command used.
+
+To play immediately:
+```
+/RoomName/bbcsounds/play/{stream code}
+```
+To set the station without playing:
+```
+/RoomName/bbcsounds/set/{stream code}
+```
+
+Refer to the table below for available codes for BBC Radio Stations
+
+|  BBC Radio Station Name          | Stream Code                      |
+|----------------------------------|----------------------------------|
+|  BBC Radio 1                     | bbc_radio_one                    |
+|  BBC 1Xtra                       | bbc_1xtra                        |
+|  BBC 1Dance                      | bbc_1dance                       |
+|  BBC 1Relax                      | bbc_1relax                       |
+|  BBC Radio 2                     | bbc_radio_two                    |
+|  BBC Radio 3                     | bbc_radio_three                  |
+|  BBC Radio 4                     | bbc_radio_four                   |
+|  BBC Radio 4 Extra               | bbc_radio_four_extra             |
+|  BBC Radio 5 Live                | bbc_radio_five_live              |
+|  BBC Radio 5 Live Sports Extra   | bbc_five_live_sports_extra       |
+|  BBC Radio 6 Music               | bbc_6music                       |
+|  BBC Asian Network               | bbc_asian_network                |
+|  BBC Radio Berkshire             | bbc_radio_berkshire              |
+|  BBC Radio Bristol               | bbc_radio_bristol                |
+|  BBC Radio Cambridge             | bbc_radio_cambridge              |
+|  BBC Radio Cornwall              | bbc_radio_cornwall               |
+|  BBC Radio Cumbria               | bbc_radio_cumbria                |
+|  BBC Radio Cymru                 | bbc_radio_cymru                  |
+|  BBC Radio Cymru 2               | bbc_radio_cymru_2                |
+|  BBC Radio CWR                   | bbc_radio_coventry_warwickshire  |
+|  BBC Radio Derby                 | bbc_radio_derby                  |
+|  BBC Radio Devon                 | bbc_radio_devon                  |
+|  BBC Radio Essex                 | bbc_radio_essex                  |
+|  BBC Radio Foyle                 | bbc_radio_foyle                  |
+|  BBC Radio Gloucestershire       | bbc_radio_gloucestershire        |
+|  BBC Radio Guernsey              | bbc_radio_guernsey               |
+|  BBC Radio Hereford Worcester    | bbc_radio_hereford_worcester     |
+|  BBC Radio Humberside            | bbc_radio_humberside             |
+|  BBC Radio Jersey                | bbc_radio_jersey                 |
+|  BBC Radio Kent                  | bbc_radio_kent                   |
+|  BBC Radio Lancashire            | bbc_radio_lancashire             |
+|  BBC Radio Leeds                 | bbc_radio_leeds                  |
+|  BBC Radio Leicester             | bbc_radio_leicester              |
+|  BBC Radio Lincolnshire          | bbc_radio_lincolnshire           |
+|  BBC Radio London                | bbc_london                       |
+|  BBC Radio Manchester            | bbc_radio_manchester             |
+|  BBC Radio Merseyside            | bbc_radio_merseyside             |
+|  BBC Radio nan Gaidheal          | bbc_radio_nan_gaidheal           |
+|  BBC Radio Newcastle             | bbc_radio_newcastle              |
+|  BBC Radio Norfolk               | bc_radio_norfolk                 |
+|  BBC Radio Northampton           | bbc_radio_northampton            |
+|  BBC Radio Nottingham            | bbc_radio_nottingham             |
+|  BBC Radio Oxford                | bbc_radio_oxford                 |
+|  BBC Radio Scotland FM           | bbc_radio_scotland_fm            |
+|  BBC Radio Sheffield             | bbc_radio_sheffield              |
+|  BBC Radio Shropshire            | bbc_radio_shropshire             |
+|  BBC Radio Solent                | bbc_radio_solent                 |
+|  BBC Radio Somerset              | bbc_radio_somerset_sound         |
+|  BBC Radio Stoke                 | bbc_radio_stoke                  |
+|  BBC Radio Suffolk               | bbc_radio_suffolk                |
+|  BBC Radio Surrey                | bbc_radio_surrey                 |
+|  BBC Radio Sussex                | bbc_radio_sussex                 |
+|  BBC Radio Tees                  | bbc_tees                         |
+|  BBC Radio Three Counties Radio  | bbc_three_counties_radio         |
+|  BBC Radio Ulster                | bbc_radio_ulster                 |
+|  BBC Radio Wales                 | bbc_radio_wales_fm               |
+|  BBC Radio Wiltshire             | bbc_radio_wiltshire              |
+|  BBC Radio WM                    | bbc_wm                           |
+|  BBC Radio York                  | bbc_radio_york                   |
+|  BBC World_Service               | bbc_world_service                |
+|  Cbeebies Radio                  | cbeebies_radio                   |
 
 SiriusXM
 ----------------------
