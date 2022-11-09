@@ -878,7 +878,8 @@ Refer to the table below for available codes for BBC Radio Stations
 |  BBC 1Relax                      | bbc_1relax                       |
 |  BBC Radio 2                     | bbc_radio_two                    |
 |  BBC Radio 3                     | bbc_radio_three                  |
-|  BBC Radio 4                     | bbc_radio_four                   |
+|  BBC Radio 4 FM                  | bbc_radio_fourfm                 |
+|  BBC Radio 4 LW                  | bbc_radio_fourlw                 |
 |  BBC Radio 4 Extra               | bbc_radio_four_extra             |
 |  BBC Radio 5 Live                | bbc_radio_five_live              |
 |  BBC Radio 5 Live Sports Extra   | bbc_five_live_sports_extra       |
