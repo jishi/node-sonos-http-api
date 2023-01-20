@@ -874,8 +874,8 @@ Refer to the table below for available codes for BBC Radio Stations
 |----------------------------------|----------------------------------|
 |  BBC Radio 1                     | bbc_radio_one                    |
 |  BBC 1Xtra                       | bbc_1xtra                        |
-|  BBC 1Dance                      | bbc_1dance                       |
-|  BBC 1Relax                      | bbc_1relax                       |
+|  BBC 1Dance                      | bbc_radio_one_dance              |
+|  BBC 1Relax                      | bbc_radio_one_relax              |
 |  BBC Radio 2                     | bbc_radio_two                    |
 |  BBC Radio 3                     | bbc_radio_three                  |
 |  BBC Radio 4 FM                  | bbc_radio_fourfm                 |
@@ -917,6 +917,7 @@ Refer to the table below for available codes for BBC Radio Stations
 |  BBC Radio Nottingham            | bbc_radio_nottingham             |
 |  BBC Radio Oxford                | bbc_radio_oxford                 |
 |  BBC Radio Scotland FM           | bbc_radio_scotland_fm            |
+|  BBC Radio Scotland Extra        | bbc_radio_scotland_mw            | 
 |  BBC Radio Sheffield             | bbc_radio_sheffield              |
 |  BBC Radio Shropshire            | bbc_radio_shropshire             |
 |  BBC Radio Solent                | bbc_radio_solent                 |
@@ -929,6 +930,7 @@ Refer to the table below for available codes for BBC Radio Stations
 |  BBC Radio Three Counties Radio  | bbc_three_counties_radio         |
 |  BBC Radio Ulster                | bbc_radio_ulster                 |
 |  BBC Radio Wales                 | bbc_radio_wales_fm               |
+|  BBC Radio Wales Extra           | bbc_radio_wales_am               |
 |  BBC Radio Wiltshire             | bbc_radio_wiltshire              |
 |  BBC Radio WM                    | bbc_wm                           |
 |  BBC Radio York                  | bbc_radio_york                   |
