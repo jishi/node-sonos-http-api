@@ -531,7 +531,9 @@ You can also specify it for this application only, using:
 	}
 ```
 
-Choose the region where you registered your account, or the one closest to you. Polly is only supported in US East (Northern Virginia), US West (Oregon), US East (Ohio), and EU (Ireland) as of today (dec 2016)
+To select the neural engine, append `Neural` to the name, e.g. `DanielNeural`.
+
+Choose the region where you registered your account, or the one closest to you.
 
 If you have your credentials elsewhere and want to stick with the default voice, you still need to make sure that the aws config option is set to trigger AWS TTS:
 
