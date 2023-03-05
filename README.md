@@ -1101,6 +1101,31 @@ or
 "data" property will be equal to the same data as you would get from /RoomName/state or /zones. There is an example endpoint in the root if this project called test_endpoint.js which you may fire up to get an understanding of what is posted, just invoke it with "node test_endpoint.js" in a terminal, and then start the http-api in another terminal.
 
 
+Server Sent Events
+-----
+
+As an alternative to the web hook you can also call the `/events` endpoint to receive every state change and topology change as [Server Sent Event](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events).
+Compared to the web hook there is no configuration required on the server, and you can listen for events from multiple clients.
+
+Because it is a long-polling connection, you must take care of errors in your client code and re-connect if necessary.
+
+The server sends events formatted as single-line JSON in the format of Server Sent Events: every event starts with the string `data: `, followed by the single-line JSON formatted event, and is terminated by two new line characters.
+
+There are [several client libraries available](https://en.wikipedia.org/wiki/Server-sent_events#Libraries) to listen for Server Sent Events.
+Using `curl` yields the following output for some volume changes:
+
+```shell
+host:~ user$ curl localhost:5005/events
+data: {"type":"volume-change","data":{"uuid":"RINCON_E2832F58D9074C45B","previousVolume":13,"newVolume":19,"roomName":"Office"}}
+
+data: {"type":"volume-change","data":{"uuid":"RINCON_E2832F58D9074C45B","previousVolume":19,"newVolume":25,"roomName":"Office"}}
+
+data: {"type":"volume-change","data":{"uuid":"RINCON_E2832F58D9074C45B","previousVolume":25,"newVolume":24,"roomName":"Office"}}
+
+data: {"type":"volume-change","data":{"uuid":"RINCON_E2832F58D9074C45B","previousVolume":23,"newVolume":23,"roomName":"Office"}}
+
+```
+
 DOCKER
 -----
 
