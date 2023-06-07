@@ -87,8 +87,8 @@ server.listen(settings.port, host, function () {
 
 server.on('error', (err) => {
   if (err.code && err.code === 'EADDRINUSE') {
-    logger.error(`Port ${settings.port} seems to be in use already. Make sure the sonos-http-api isn't 
-    already running, or that no other server uses that port. You can specify an alternative http port 
+    logger.error(`Port ${settings.port} seems to be in use already. Make sure the sonos-http-api isn't
+    already running, or that no other server uses that port. You can specify an alternative http port
     with property "port" in settings.json`);
   } else {
     logger.error(err);
@@ -96,5 +96,38 @@ server.on('error', (err) => {
 
   process.exit(1);
 });
+
+
+let isHealthy = true;
+const HEALTH_URL = "https://new-api.theator.io/api/v2/health/ready";
+const EXPECTED_RES_STRING = "ok";
+
+const checkStatus = () => {
+  fetch(HEALTH_URL)
+    .then((res) => res.json())
+    .then((r) => {
+      // expected res:
+      // {
+      //     status: 'ok',
+      //     dbs: { postgres: 'ok', es: 'ok', redis: 'ok', prefect: 'ok' }
+      // }
+      const resStatus = r["status"];
+
+      if (!resStatus) {
+        console.error("Error parsing url", e);
+      } else if (resStatus !== EXPECTED_RES_STRING && isHealthy) {
+        healthy = false;
+        setTimeout(() => api.alertBackendDown("Brain"), 3000);
+        setTimeout(() => api.alertBackendDown("Rectum"), 3000);
+      } else if (resStatus === EXPECTED_RES_STRING) {
+        isHealthy = true;
+      }
+    })
+    .catch((e) => {
+      console.error("Error fetching url", e);
+    });
+};
+
+setInterval(() => checkStatus(), 3000);
 
 
