@@ -627,7 +627,9 @@ Minimal:
 ```json
 	{
 	  "elevenlabs": {
-		"apiKey": ""
+		"auth": {
+		  "apiKey": ""
+		}
 	  }
 	}
 ```
@@ -636,12 +638,16 @@ Full:
 ```json
 	{
 	  "elevenlabs": {
-		"apiKey": "",
-		"voiceId": "",
-		"stability": 0.5,
-		"similarityBoost": 0.5,
-		"speakerBoost": true,
-		"style": 1
+		"auth": {
+		  "apiKey": ""
+		},
+		"config": {
+		  "voiceId": "",
+		  "stability": 0.5,
+		  "similarityBoost": 0.5,
+		  "speakerBoost": true,
+		  "style": 1
+		}
 	  }
 	}
 ```
