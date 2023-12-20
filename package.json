@@ -23,7 +23,8 @@
     "node-static": "^0.7.9",
     "request-promise": "~1.0.2",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.7.3.tar.gz",
-    "wav-file-info": "0.0.8"
+    "wav-file-info": "0.0.8",
+    "elevenlabs-node": "2.0.1"
   },
   "engines": {
     "node": ">=4.0.0",
