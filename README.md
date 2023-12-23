@@ -646,7 +646,8 @@ Full:
 		  "stability": 0.5,
 		  "similarityBoost": 0.5,
 		  "speakerBoost": true,
-		  "style": 1
+		  "style": 1,
+		  "modelId": "eleven_multilingual_v2"
 		}
 	  }
 	}
