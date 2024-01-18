@@ -1231,3 +1231,8 @@ https://github.com/cjrpaterson/sonos-cron
 A Node server to receive notifications from node-sonos-http-api and push them via socket.io to the clients. 
 https://github.com/TimoKorinth/sonos-push-server
 
+**SonoBoss (Siri Shortcut)**
+
+A ChatGPT-assisted Siri Shortcut that acts as a virtual assistant to let you find music and control Sonos through voice and chat.
+https://github.com/Barloew/SonoBoss
+
