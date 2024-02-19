@@ -14,7 +14,8 @@ const discovery = new SonosSystem(settings);
 const api = new SonosHttpAPI(discovery, settings);
 
 var requestHandler = function (req, res) {
-  req.addListener('end', function () {
+    logger.debug(`request: ${req.url}`);
+    req.addListener('end', function () {
     fileServer.serve(req, res, function (err) {
 
       // If error, route it.
