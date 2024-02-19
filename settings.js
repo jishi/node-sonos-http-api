@@ -24,6 +24,11 @@ var settings = {
   announceVolume: 40
 };
 
+// manage concurrent 'xxxall' actions
+global.restrictParallelAnnouncements = true;  // True discards parallel requests to the helper 'all-player-announcement'
+global.announceAllActive = null;              // Timer tag also used to detect an active timer
+global.systemGroupUngroupDuration = 10000;    // milliseconds, approx time for the system to form one group and return to the original state
+
 // load user settings
 const settingsFileFullPath = path.resolve(__dirname, 'settings.json');
 const userSettings = tryLoadJson(settingsFileFullPath);
