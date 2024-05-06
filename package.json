@@ -20,7 +20,7 @@
     "json5": "^0.5.1",
     "mime": "^1.4.1",
     "music-metadata": "^1.1.0",
-    "node-static": "^0.7.9",
+    "serve-static": "^1.15.0",
     "request-promise": "~1.0.2",
     "sonos-discovery": "https://github.com/jishi/node-sonos-discovery/archive/v1.7.3.tar.gz",
     "wav-file-info": "0.0.8",
