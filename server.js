@@ -6,22 +6,22 @@ const auth = require('basic-auth');
 const SonosSystem = require('sonos-discovery');
 const logger = require('sonos-discovery/lib/helpers/logger');
 const SonosHttpAPI = require('./lib/sonos-http-api.js');
-const nodeStatic = require('node-static');
+const serveStatic = require('serve-static');
 const settings = require('./settings');
 
-const fileServer = new nodeStatic.Server(settings.webroot);
+const serve = new serveStatic(settings.webroot);
 const discovery = new SonosSystem(settings);
 const api = new SonosHttpAPI(discovery, settings);
 
 var requestHandler = function (req, res) {
   req.addListener('end', function () {
-    fileServer.serve(req, res, function (err) {
+    serve(req, res, function (err) {
 
       // If error, route it.
       // This bypasses authentication on static files!
-      if (!err) {
-        return;
-      }
+      //if (!err) {
+      //  return;
+      //}
 
       if (settings.auth) {
         var credentials = auth(req);
