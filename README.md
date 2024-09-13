@@ -404,6 +404,7 @@ Experimental support for TTS. Today the following providers are available:
 * Google (default)
 * macOS say command
 * Elevenlabs
+* OpenAI
 
 It will use the one you configure in settings.json. If you define settings for multiple TTS services, it will not be guaranteed which one it will choose!
 
@@ -652,6 +653,35 @@ Full:
 	  }
 	}
 ```
+
+#### OpenAI
+
+This REQUIRES a registered API key from OpenAI! See https://platform.openai.com/docs/overview
+
+You need to add this to a file called settings.json (create if it doesn't exist), like this:
+
+```
+{
+  "openaiKey": "sk-12822720jhskjhs9879879879"
+}
+```
+
+Replace the code above (it is just made up) with the API key you've got after registering.
+
+Action is:
+
+	/[Room name]/say/[phrase][/[language_code]][/[announce volume]]
+	/sayall/[phrase][/[language_code]][/[announce volume]]
+
+Example:
+
+	/Office/say/Hello, dinner is ready
+	/Office/say/Hej, maten är klar/sv-se
+	/sayall/Hello, dinner is ready
+	/Office/say/Hello, dinner is ready/90
+	/Office/say/Hej, maten är klar/sv-se/90
+
+The language code doesn't matter as OpenAI will determine the language from the text. This may not always be correct but the probability increases with longer texts.
 
 #### Google (default if no other has been configured)
 
