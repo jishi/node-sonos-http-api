@@ -846,6 +846,7 @@ The following endpoints are available:
 # Apple Music
 /RoomName/applemusic/{now,next,queue}/song:{songID}
 /RoomName/applemusic/{now,next,queue}/album:{albumID}
+/RoomName/applemusic/{now,next,queue}/playlist:{playlistID}
 
 # Amazon Music
 /RoomName/amazonmusic/{now,next,queue}/song:{songID}
@@ -872,17 +873,22 @@ It only handles a single **spotify** account currently. It will probably use the
 You can find **Apple Music** song and album IDs via the [iTunes Search
 API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
-You can also use iTunes to figure out song and album IDs. Right click on a song or album and select "Share" -> "Copy Link". You can do this when you searched within Apple Music or from your media library as long as the song is available in Apple Music.
+You can also use iTunes to figure out song, album, and playlist IDs. Right click on a song, album, or playlist and select "Share" -> "Copy Link". You can do this when you searched within Apple Music or from your media library as long as the song is available in Apple Music.
 
 Have a look at the link you just copied. 
 
 *If you shared the link to a song:*
-The format is: https://itunes.apple.com/de/album/{songName}/{albumID}?i={songID}
+The format is: https://itunes.apple.com/{countryCode}/album/{songName}/{albumID}?i={songID}
 > eg: https://itunes.apple.com/de/album/blood-of-my-enemies/355363490?i=355364259
 
 *If you shared the link to an album:*
-The format is: https://itunes.apple.com/de/album/{albumName}/{albumID}
+The format is: https://itunes.apple.com/{countryCode}/album/{albumName}/{albumID}
 > eg: https://itunes.apple.com/de/album/f-g-restless/355363490
+
+*If you shared the link to an playlist:*
+The format is: https://itunes.apple.com/{countryCode}/playlist/{playlistName}/{playlistID}
+> eg: https://music.apple.com/gb/playlist/lofi-girls-favorites/pl.ed52c9eeaa0740079c21fa8e455b225e
+
 
 **Amazon Music**
 
