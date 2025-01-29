@@ -885,7 +885,7 @@ The format is: https://itunes.apple.com/{countryCode}/album/{songName}/{albumID}
 The format is: https://itunes.apple.com/{countryCode}/album/{albumName}/{albumID}
 > eg: https://itunes.apple.com/de/album/f-g-restless/355363490
 
-*If you shared the link to an playlist:*
+*If you shared the link to a playlist:*
 The format is: https://itunes.apple.com/{countryCode}/playlist/{playlistName}/{playlistID}
 > eg: https://music.apple.com/gb/playlist/lofi-girls-favorites/pl.ed52c9eeaa0740079c21fa8e455b225e
 
